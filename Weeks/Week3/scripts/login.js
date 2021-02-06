@@ -17,6 +17,4 @@ function validate() {
     if (lastName == '') {
         document.getElementById('last-name-error').style.visibility = 'visible';
     }
-
-    document.cookie = `username=${firstName} ${lastName}; expires=31 Dec 2024 12:00:00 UTC; path=/`;
 }
