@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="hasSidebar hasPageActions hasBreadcrumb conceptual has-default-focus theme-light" lang="en-us" dir="ltr" data-css-variable-support="true" data-authenticated="false" data-auth-status-determined="false" data-target="docs" x-ms-format-detection="none">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta property="og:title" content="API design guidance - Best practices for cloud applications" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design" />
+			<meta property="og:description" content="Web applications can expose APIs so clients to interact with the application. Well-designed web APIs should support platform independence and service evolution." />
+		<meta property="og:image" content="https://docs.microsoft.com/en-us/media/logos/logo-ms-social.png" />
+		<meta property="og:image:alt" content="Microsoft Logo" />
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@docsmsft" />
+
+
+	<meta name="author" content="dragon119" />
+<meta name="breadcrumb_path" content="/azure/architecture/bread/toc.json" />
+<meta name="depot_name" content="MSDN.azure-architecture-center-pr2" />
+<meta name="description" content="Web applications can expose APIs so clients to interact with the application. Well-designed web APIs should support platform independence and service evolution." />
+<meta name="document_id" content="ad651d6a-f8d8-2050-e7a7-adbae7326112" />
+<meta name="document_version_independent_id" content="4fddd724-cabd-8623-7692-857088c1dccb" />
+<meta name="gitcommit" content="https://github.com/MicrosoftDocs/architecture-center-pr/blob/7da68d163ef906bf6d8c7b296670ae5943d2a058/docs/best-practices/api-design.md" />
+<meta name="locale" content="en-us" />
+<meta name="ms.author" content="pnp" />
+<meta name="ms.custom" content="best-practice" />
+<meta name="ms.date" content="01/12/2018" />
+<meta name="ms.service" content="architecture-center" />
+<meta name="ms.subservice" content="best-practice" />
+<meta name="ms.topic" content="conceptual" />
+<meta name="original_content_git_url" content="https://github.com/MicrosoftDocs/architecture-center-pr/blob/live/docs/best-practices/api-design.md" />
+<meta name="products" content="aspnet" />
+<meta name="search.ms_docsetname" content="azure-architecture-center-pr2" />
+<meta name="search.ms_product" content="MSDN" />
+<meta name="search.ms_sitename" content="Docs" />
+<meta name="site_name" content="Docs" />
+<meta name="uhfHeaderId" content="azure" />
+<meta name="updated_at" content="2021-02-12 06:34 PM" />
+<meta name="page_type" content="conceptual" />
+<meta name="toc_rel" content="../toc.json" />
+<meta name="pdf_url_template" content="https://docs.microsoft.com/pdfstore/en-us/MSDN.azure-architecture-center-pr2/{branchName}{pdfName}" />
+<meta name="word_count" content="5734" />
+
+
+	<meta name="scope" content="Azure, Azure Architecture Center, Application Architecture Guide" />
+<link href="https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design" rel="canonical">
+	<title>API design guidance - Best practices for cloud applications | Microsoft Docs</title>
+
+		<link rel="stylesheet" href="/_themes/docs.theme/master/en-us/_themes/styles/1e67e633.site-ltr.css ">
+
+	<link rel="stylesheet" href="/_themes/docs.theme/master/en-us/_themes/styles/a96de1e1.conceptual.css ">
+
+
+	<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Upau1Pl6NBfp318zzckUobZkPDCmX4AWDiLXmRG6DiGAOoZ4-cPBiy6Vh6jkSjU-ElHUDn4KlcxLSHgGPI2bk5-aZCdp2hk29ggGl-3d7P3creubIWQeQ4ZPxZiNawfm" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9kb2NzLm1pY3Jvc29mdC5jb20vZW4tdXMvYXp1cmUvYXJjaGl0ZWN0dXJlL2Jlc3QtcHJhY3RpY2VzL2FwaS1kZXNpZ24"/><script id="msdocs-script">
+	var msDocs = {
+		data: {
+			timeOrigin: Date.now(),
+			contentLocale: 'en-us',
+			contentDir: 'ltr',
+			userLocale: 'en-us',
+			userDir: 'ltr',
+			pageTemplate: 'Conceptual',
+			brand: 'azure',
+			context: {
+
+			},
+			hasBinaryRating: true,
+			hasGithubIssues: true,
+			showFeedbackReport: false,
+			enableTutorialFeedback: false,
+			feedbackSystem: 'GitHub',
+			feedbackGitHubRepo: 'MicrosoftDocs/architecture-center',
+			feedbackProductUrl: '',
+			contentGitUrl: 'https://github.com/microsoftdocs/architecture-center/blob/master/docs/best-practices/api-design.md',
+			extendBreadcrumb: false,
+			isEditDisplayable: true,
+			hideViewSource: false,
+			hasPageActions: true,
+			hasBookmark: true,
+			hasShare: true,
+			hasRecommendations: false,
+			contributors: [
+						{ name: "dragon119", url: "https://github.com/dragon119" },
+						{ name: "alexbuckgit", url: "https://github.com/alexbuckgit" },
+						{ name: "dsk-2015", url: "https://github.com/dsk-2015" },
+						{ name: "asbjornu", url: "https://github.com/asbjornu" },
+						{ name: "DCtheGeek", url: "https://github.com/DCtheGeek" },
+						{ name: "TimShererWithAquent", url: "https://github.com/TimShererWithAquent" },
+						{ name: "MikeWasson", url: "https://github.com/MikeWasson" },
+						{ name: "nschonni", url: "https://github.com/nschonni" },
+						{ name: "v-wimarc", url: "https://github.com/v-wimarc" },
+						{ name: "jwatkin", url: "https://github.com/jwatkin" },
+						{ name: "alexandrecruz", url: "https://github.com/alexandrecruz" },
+						{ name: "bennage", url: "https://github.com/bennage" },
+						{ name: "luisgmsft", url: "https://github.com/luisgmsft" },
+						{ name: "francischeung", url: "https://github.com/francischeung" }
+],
+		},
+		functions:{}
+	};
+	</script>
+	<script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"></script>
+	<script src="https://az725175.vo.msecnd.net/scripts/jsll-4.js"></script>
+	<script>window.jsllAwa = window.awa;</script>
+	<script nomodule src="/static/third-party/bluebird/3.5.0/bluebird.min.js" integrity="sha384-aD4BDeDGeLXLpPK4yKeqtZQa9dv4a/7mQ+4L5vwshIYH1Mc2BrXvHd32iHzYCQy5" crossorigin="anonymous"></script>
+	<script nomodule src="/static/third-party/fetch/3.0.0/fetch.umd.min.js" integrity="sha384-EQIXrC5K2+7X8nGgLkB995I0/6jfAvvyG1ieZ+WYGxgJHFMD/alsG9fSDWvzb5Y1" crossorigin="anonymous"></script>
+	<script nomodule src="/static/third-party/template/1.4.0/template.min.js" integrity="sha384-1zKzI6ldTVHMU7n0W2HpE/lhHI+UG4D9IIaxbj3kT2UhCWicdTuJkTtnKuu0CQzN" crossorigin="anonymous"></script>
+	<script nomodule src="/static/third-party/url/0.5.7/url.min.js" integrity="sha384-vn7xBMtpSTfzaTRWxj0kVq0UcsbBrTOgZ/M1ISHqe1V358elYva+lfiEC+T8jLPc" crossorigin="anonymous"></script>
+	<script src="/_themes/docs.theme/master/en-us/_themes/scripts/f0a172e9.index-polyfills.js"></script>
+
+		<script src="/_themes/docs.theme/master/en-us/_themes/scripts/2833dec3.index-docs.js"></script>
+</head>
+
+<body lang="en-us" dir="ltr">
+<div class="header-holder has-default-focus">
+	<a href="#main" class="skip-to-main-link has-outline-color-text visually-hidden-until-focused is-fixed has-inner-focus focus-visible has-top-zero has-left-zero has-right-zero has-padding-medium has-text-centered has-body-background-medium" tabindex="1">Skip to main content</a>
+	<div hidden id="cookie-consent-holder"></div>
+	<!-- liquid-tag banners global -->
+	<div id="headerAreaHolder" data-bi-name="header">
+<header role="banner" itemscope="itemscope" itemtype="http://schema.org/Organization">
+	<div class="nav-bar">
+		<div class="nav-bar-brand">
+			<a itemprop="url" href="https://www.microsoft.com" aria-label="Microsoft" class="nav-bar-button">
+				<div class="nav-bar-logo has-background-image theme-display is-light" role="presentation" aria-hidden="true" itemprop="logo" itemscope="itemscope"></div>
+				<div class="nav-bar-logo has-background-image theme-display is-dark is-high-contrast" role="presentation" aria-hidden="true" itemprop="logo" itemscope="itemscope"></div>
+			</a>
+		</div>
+	</div>
+	<div class="nav-bar has-border-top is-hidden-mobile"></div>
+</header>	</div>
+
+				<div class="content-header uhf-container has-padding has-default-focus has-border-bottom-none" data-bi-name="content-header">
+				<nav class="breadcrumb-holder has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow" data-bi-name="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList" role="navigation" aria-label="Breadcrumb">
+					<ul id="page-breadcrumbs" class="breadcrumbs">
+					</ul>
+				</nav>
+			<div class="content-header-controls">
+				<button type="button" class="contents-button button" data-bi-name="contents-expand" aria-haspopup="true">
+					<span class="icon"><span class="docon docon-menu" aria-hidden="true"></span></span>
+					<span class="contents-expand-title">Contents</span>
+				</button>
+				<button type="button" class="ap-collapse-behavior ap-expanded button" data-bi-name="ap-collapse" aria-controls="action-panel">
+					<span class="icon"><span class="docon docon-exit-mode" aria-hidden="true"></span></span>
+					<span>Exit focus mode</span>
+				</button>
+			</div>
+			<div class="has-padding-none-tablet has-padding-medium is-size-small is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow page-action-holder">
+				<ul class="is-hidden-mobile action-list has-flex-justify-content-start has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+					<li>
+						<button type="button" class="bookmark button is-text has-inner-focus is-small is-icon-only-touch" data-list-type="bookmarks" data-bi-name="bookmark" title="Bookmark this page">
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-single-bookmark"></span>
+							</span>
+							<span class="bookmark-status is-visually-hidden-touch is-hidden-portrait">Bookmark</span>
+						</button>
+					</li>
+						<li id="feedback-section-link">
+							<a href="#feedback" class="button is-text has-inner-focus is-small is-icon-only-touch" data-bi-name="comments" title="Send feedback about this page">
+								<span class="icon" aria-hidden="true">
+									<span class="docon docon-comment-lines"></span>
+								</span>
+								<span class="is-visually-hidden-touch is-hidden-portrait">Feedback</span>
+							</a>
+						</li>
+							<li id="contenteditbtn">
+								<a href="https://github.com/microsoftdocs/architecture-center/blob/master/docs/best-practices/api-design.md" class="button is-text has-inner-focus is-icon-only-touch is-small" title="Edit This Document" data-bi-name="edit" data-original_content_git_url="https://github.com/MicrosoftDocs/architecture-center-pr/blob/live/docs/best-practices/api-design.md" data-original_content_git_url_template="{repo}/blob/{branch}/docs/best-practices/api-design.md" data-pr_repo="" data-pr_branch="">
+								<span class="icon" aria-hidden="true">
+									<span class="docon docon-edit-outline"></span>
+								</span>
+								<span class="is-visually-hidden-touch is-hidden-portrait">Edit</span>
+							</a>
+						</li>
+					<li>
+<div class="sharing dropdown has-caret">
+	<button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch" aria-controls="sharing-menu" aria-expanded="false" title="Share This Document" data-bi-name="share">
+		<span class="icon" aria-hidden="true">
+			<span class="docon docon-sharing"></span>
+		</span>
+		<span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+	</button>
+	<div class="dropdown-menu has-padding-small" id="sharing-menu">
+		<ul data-bi-name="share-links">
+			<li>
+				<a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" data-bi-name="twitter">
+					<span class="icon">
+						<span class="docon docon-brand-twitter has-text-primary" aria-hidden="true"></span>
+					</span>
+					<span>Twitter</span>
+				</a>
+			</li>
+			<li>
+				<a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" data-bi-name="linkedin">
+					<span class="icon">
+						<span class="docon docon-brand-linkedin has-text-primary" aria-hidden="true"></span>
+					</span>
+					<span>LinkedIn</span>
+				</a>
+			</li>
+			<li>
+				<a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" data-bi-name="facebook">
+					<span class="icon">
+						<span class="docon docon-brand-facebook has-text-primary" aria-hidden="true"></span>
+					</span>
+					<span>Facebook</span>
+				</a>
+			</li>
+			<li>
+				<a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" data-bi-name="email">
+					<span class="icon">
+						<span class="docon docon-mail-message-fill has-text-primary" aria-hidden="true"></span>
+					</span>
+					<span>Email</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>					</li>
+				</ul>
+				<button type="button" class="has-border contents-button button is-small is-text is-hidden-tablet has-inner-focus" aria-label="Contents" data-bi-name="contents-expand">
+					<span class="icon">
+						<span class="docon docon-editor-list-bullet" aria-hidden="true"></span>
+					</span>
+					<span class="contents-expand-title">Table of contents</span>
+				</button>
+				<div class="is-invisible"></div>
+				<div class="is-hidden-tablet level-item is-flexible level-right">
+					<button type="button" class="page-actions-button button is-small is-text is-hidden-tablet has-inner-focus has-border is-full-height  has-margin-left-small" aria-label="Page Actions" data-bi-name="pageactions">
+						<span class="icon">
+							<span class="docon docon-more-vertical" aria-hidden="true"></span>
+						</span>
+					</button>
+				</div>
+			</div>
+		</div>
+
+
+
+	<div id="disclaimer-holder" class="has-overflow-hidden has-default-focus">
+		<!-- liquid-tag banners sectional -->
+	</div>
+	</div>
+
+	<div class="mainContainer  uhf-container has-top-padding  has-default-focus" data-bi-name="body">
+
+		<div class="columns has-large-gaps is-gapless-mobile ">
+
+			<div id="left-container" class="left-container is-hidden-mobile column is-one-third-tablet is-one-quarter-desktop">
+				<nav id="affixed-left-container" class="is-fixed is-flex is-flex-column" role="navigation" aria-label="Primary"></nav>
+			</div>
+
+			<section class="primary-holder column is-two-thirds-tablet is-three-quarters-desktop">
+				<div class="columns is-gapless-mobile has-large-gaps ">
+
+
+				<div id="main-column" class="column  is-full is-four-fifths-desktop ">
+
+					<main id="main" role="main" class="content " data-bi-name="content" lang="en-us" dir="ltr">
+
+
+
+						<h1 id="web-api-design">Web API design</h1>
+
+						<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+							<li>
+								<time class="is-invisible" data-article-date aria-label="Article review date" datetime="2018-01-12T00:00:00.000Z" data-article-date-source="ms.date">01/12/2018</time>
+							</li>
+									<li class="readingTime">28 minutes to read</li>
+								<li class="contributors-holder">
+									<ul class="facepile has-margin-left-none is-small" data-bi-name="contributors">
+														<li class="facepile-item">
+															<a href="https://github.com/dragon119" title="dragon119" aria-label="dragon119Github profile" data-src="https://github.com/dragon119.png?size=32" data-contributor-name="dragon119" class="facepile-item-coin"
+															>
+																<img class="facepile-item-coin-image durable-image" aria-hidden="true" src="https://github.com/dragon119.png?size=32" role="presentation" onerror="this.className='facepile-item-coin-image durable-image has-error';"/>
+																<span class="facepile-item-coin-text durable-image-fallback facepile-item-teal"aria-hidden="true">d</span>
+															</a>
+														</li>
+														<li class="facepile-item">
+															<a href="https://github.com/alexbuckgit" title="alexbuckgit" aria-label="alexbuckgitGithub profile" data-src="https://github.com/alexbuckgit.png?size=32" data-contributor-name="alexbuckgit" class="facepile-item-coin"
+															>
+																<img class="facepile-item-coin-image durable-image" aria-hidden="true" src="https://github.com/alexbuckgit.png?size=32" role="presentation" onerror="this.className='facepile-item-coin-image durable-image has-error';"/>
+																<span class="facepile-item-coin-text durable-image-fallback facepile-item-red"aria-hidden="true">a</span>
+															</a>
+														</li>
+														<li class="facepile-item">
+															<a href="https://github.com/dsk-2015" title="dsk-2015" aria-label="dsk-2015Github profile" data-src="https://github.com/dsk-2015.png?size=32" data-contributor-name="dsk-2015" class="facepile-item-coin"
+															>
+																<img class="facepile-item-coin-image durable-image" aria-hidden="true" src="https://github.com/dsk-2015.png?size=32" role="presentation" onerror="this.className='facepile-item-coin-image durable-image has-error';"/>
+																<span class="facepile-item-coin-text durable-image-fallback facepile-item-blue"aria-hidden="true">d</span>
+															</a>
+														</li>
+														<li class="facepile-item">
+															<a href="https://github.com/asbjornu" title="asbjornu" aria-label="asbjornuGithub profile" data-src="https://github.com/asbjornu.png?size=32" data-contributor-name="asbjornu" class="facepile-item-coin"
+															>
+																<img class="facepile-item-coin-image durable-image" aria-hidden="true" src="https://github.com/asbjornu.png?size=32" role="presentation" onerror="this.className='facepile-item-coin-image durable-image has-error';"/>
+																<span class="facepile-item-coin-text durable-image-fallback facepile-item-teal"aria-hidden="true">a</span>
+															</a>
+														</li>
+														<li class="facepile-item">
+															<a href="https://github.com/DCtheGeek" title="DCtheGeek" aria-label="DCtheGeekGithub profile" data-src="https://github.com/DCtheGeek.png?size=32" data-contributor-name="DCtheGeek" class="facepile-item-coin"
+															>
+																<img class="facepile-item-coin-image durable-image" aria-hidden="true" src="https://github.com/DCtheGeek.png?size=32" role="presentation" onerror="this.className='facepile-item-coin-image durable-image has-error';"/>
+																<span class="facepile-item-coin-text durable-image-fallback facepile-item-red"aria-hidden="true">D</span>
+															</a>
+														</li>
+											<li class="facepile-item">
+													<button aria-label="View all contributors" class="facepile-item-more" title="View all contributors">
+														<div class="facepile-item-coin" aria-hidden="true">
+															<span class="facepile-item-coin-text" aria-hidden="true">
+																+9
+															</span>
+														</div>
+													</button>
+											</li>
+									</ul>
+								</li>
+						</ul>
+
+						<nav id="center-doc-outline" class="doc-outline is-hidden-desktop" data-bi-name="intopic toc" role="navigation" aria-label="Article Outline">
+							<h3>In this article</h3>
+						</nav>
+
+						<!-- <content> -->
+							<!-- cSpell:ignore HATEOAS -->
+<p>Most modern web applications expose APIs that clients can use to interact with the application. A well-designed web API should aim to support:</p>
+<ul>
+<li><p><strong>Platform independence</strong>. Any client should be able to call the API, regardless of how the API is implemented internally. This requires using standard protocols, and having a mechanism whereby the client and the web service can agree on the format of the data to exchange.</p>
+</li>
+<li><p><strong>Service evolution</strong>. The web API should be able to evolve and add functionality independently from client applications. As the API evolves, existing client applications should continue to function without modification. All functionality should be discoverable so that client applications can fully use it.</p>
+</li>
+</ul>
+<p>This guidance describes issues that you should consider when designing a web API.</p>
+<h2 id="introduction-to-rest">Introduction to REST</h2>
+<p>In 2000, Roy Fielding proposed Representational State Transfer (REST) as an architectural approach to designing web services. REST is an architectural style for building distributed systems based on hypermedia. REST is independent of any underlying protocol and is not necessarily tied to HTTP. However, most common REST implementations use HTTP as the application protocol, and this guide focuses on designing REST APIs for HTTP.</p>
+<p>A primary advantage of REST over HTTP is that it uses open standards, and does not bind the implementation of the API or the client applications to any specific implementation. For example, a REST web service could be written in ASP.NET, and client applications can use any language or toolset that can generate HTTP requests and parse HTTP responses.</p>
+<p>Here are some of the main design principles of RESTful APIs using HTTP:</p>
+<ul>
+<li><p>REST APIs are designed around <em>resources</em>, which are any kind of object, data, or service that can be accessed by the client.</p>
+</li>
+<li><p>A resource has an <em>identifier</em>, which is a URI that uniquely identifies that resource. For example, the URI for a particular customer order might be:</p>
+<pre><code class="lang-http">https://adventure-works.com/orders/1
+</code></pre>
+</li>
+<li><p>Clients interact with a service by exchanging <em>representations</em> of resources. Many web APIs use JSON as the exchange format. For example, a GET request to the URI listed above might return this response body:</p>
+<pre><code class="lang-json">{&quot;orderId&quot;:1,&quot;orderValue&quot;:99.90,&quot;productId&quot;:1,&quot;quantity&quot;:1}
+</code></pre>
+</li>
+<li><p>REST APIs use a uniform interface, which helps to decouple the client and service implementations. For REST APIs built on HTTP, the uniform interface includes using standard HTTP verbs to perform operations on resources. The most common operations are GET, POST, PUT, PATCH, and DELETE.</p>
+</li>
+<li><p>REST APIs use a stateless request model. HTTP requests should be independent and may occur in any order, so keeping transient state information between requests is not feasible. The only place where information is stored is in the resources themselves, and each request should be an atomic operation. This constraint enables web services to be highly scalable, because there is no need to retain any affinity between clients and specific servers. Any server can handle any request from any client. That said, other factors can limit scalability. For example, many web services write to a backend data store, which may be hard to scale out. For more information about strategies to scale out a data store, see <a href="data-partitioning" data-linktype="relative-path">Horizontal, vertical, and functional data partitioning</a>.</p>
+</li>
+<li><p>REST APIs are driven by hypermedia links that are contained in the representation. For example, the following shows a JSON representation of an order. It contains links to get or update the customer associated with the order.</p>
+<pre><code class="lang-json">{
+    &quot;orderID&quot;:3,
+    &quot;productID&quot;:2,
+    &quot;quantity&quot;:4,
+    &quot;orderValue&quot;:16.60,
+    &quot;links&quot;: [
+        {&quot;rel&quot;:&quot;product&quot;,&quot;href&quot;:&quot;https://adventure-works.com/customers/3&quot;, &quot;action&quot;:&quot;GET&quot; },
+        {&quot;rel&quot;:&quot;product&quot;,&quot;href&quot;:&quot;https://adventure-works.com/customers/3&quot;, &quot;action&quot;:&quot;PUT&quot; }
+    ]
+}
+</code></pre>
+</li>
+</ul>
+<p>In 2008, Leonard Richardson proposed the following <a href="https://martinfowler.com/articles/richardsonMaturityModel.html" data-linktype="external">maturity model</a> for web APIs:</p>
+<ul>
+<li>Level 0: Define one URI, and all operations are POST requests to this URI.</li>
+<li>Level 1: Create separate URIs for individual resources.</li>
+<li>Level 2: Use HTTP methods to define operations on resources.</li>
+<li>Level 3: Use hypermedia (HATEOAS, described below).</li>
+</ul>
+<p>Level 3 corresponds to a truly RESTful API according to Fielding's definition. In practice, many published web APIs fall somewhere around level 2.</p>
+<h2 id="organize-the-api-around-resources">Organize the API around resources</h2>
+<p>Focus on the business entities that the web API exposes. For example, in an e-commerce system, the primary entities might be customers and orders. Creating an order can be achieved by sending an HTTP POST request that contains the order information. The HTTP response indicates whether the order was placed successfully or not. When possible, resource URIs should be based on nouns (the resource) and not verbs (the operations on the resource).</p>
+<pre><code class="lang-http">https://adventure-works.com/orders // Good
+
+https://adventure-works.com/create-order // Avoid
+</code></pre>
+<p>A resource doesn't have to be based on a single physical data item. For example, an order resource might be implemented internally as several tables in a relational database, but presented to the client as a single entity. Avoid creating APIs that simply mirror the internal structure of a database. The purpose of REST is to model entities and the operations that an application can perform on those entities. A client should not be exposed to the internal implementation.</p>
+<p>Entities are often grouped together into collections (orders, customers). A collection is a separate resource from the item within the collection, and should have its own URI. For example, the following URI might represent the collection of orders:</p>
+<pre><code class="lang-http">https://adventure-works.com/orders
+</code></pre>
+<p>Sending an HTTP GET request to the collection URI retrieves a list of items in the collection. Each item in the collection also has its own unique URI. An HTTP GET request to the item's URI returns the details of that item.</p>
+<p>Adopt a consistent naming convention in URIs. In general, it helps to use plural nouns for URIs that reference collections. It's a good practice to organize URIs for collections and items into a hierarchy. For example, <code>/customers</code> is the path to the customers collection, and <code>/customers/5</code> is the path to the customer with ID equal to 5. This approach helps to keep the web API intuitive. Also, many web API frameworks can route requests based on parameterized URI paths, so you could define a route for the path <code>/customers/{id}</code>.</p>
+<p>Also consider the relationships between different types of resources and how you might expose these associations. For example, the <code>/customers/5/orders</code> might represent all of the orders for customer 5. You could also go in the other direction, and represent the association from an order back to a customer with a URI such as <code>/orders/99/customer</code>. However, extending this model too far can become cumbersome to implement. A better solution is to provide navigable links to associated resources in the body of the HTTP response message. This mechanism is described in more detail in the section <a href="#use-hateoas-to-enable-navigation-to-related-resources" data-linktype="self-bookmark">Use HATEOAS to enable navigation to related resources</a>.</p>
+<p>In more complex systems, it can be tempting to provide URIs that enable a client to navigate through several levels of relationships, such as <code>/customers/1/orders/99/products</code>. However, this level of complexity can be difficult to maintain and is inflexible if the relationships between resources change in the future. Instead, try to keep URIs relatively simple. Once an application has a reference to a resource, it should be possible to use this reference to find items related to that resource. The preceding query can be replaced with the URI <code>/customers/1/orders</code> to find all the orders for customer 1, and then <code>/orders/99/products</code> to find the products in this order.</p>
+<div class="TIP">
+<p>Tip</p>
+<p>Avoid requiring resource URIs more complex than <em>collection/item/collection</em>.</p>
+</div>
+<p>Another factor is that all web requests impose a load on the web server. The more requests, the bigger the load. Therefore, try to avoid &quot;chatty&quot; web APIs that expose a large number of small resources. Such an API may require a client application to send multiple requests to find all of the data that it requires. Instead, you might want to denormalize the data and combine related information into bigger resources that can be retrieved with a single request. However, you need to balance this approach against the overhead of fetching data that the client doesn't need. Retrieving large objects can increase the latency of a request and incur additional bandwidth costs. For more information about these performance antipatterns, see <a href="../antipatterns/chatty-io/" data-linktype="relative-path">Chatty I/O</a> and <a href="../antipatterns/extraneous-fetching/" data-linktype="relative-path">Extraneous Fetching</a>.</p>
+<p>Avoid introducing dependencies between the web API and the underlying data sources. For example, if your data is stored in a relational database, the web API doesn't need to expose each table as a collection of resources. In fact, that's probably a poor design. Instead, think of the web API as an abstraction of the database. If necessary, introduce a mapping layer between the database and the web API. That way, client applications are isolated from changes to the underlying database scheme.</p>
+<p>Finally, it might not be possible to map every operation implemented by a web API to a specific resource. You can handle such <em>non-resource</em> scenarios through HTTP requests that invoke a function and return the results as an HTTP response message. For example, a web API that implements simple calculator operations such as add and subtract could provide URIs that expose these operations as pseudo resources and use the query string to specify the parameters required. For example, a GET request to the URI <em>/add?operand1=99&amp;operand2=1</em> would return a response message with the body containing the value 100. However, only use these forms of URIs sparingly.</p>
+<h2 id="define-operations-in-terms-of-http-methods">Define operations in terms of HTTP methods</h2>
+<p>The HTTP protocol defines a number of methods that assign semantic meaning to a request. The common HTTP methods used by most RESTful web APIs are:</p>
+<ul>
+<li><strong>GET</strong> retrieves a representation of the resource at the specified URI. The body of the response message contains the details of the requested resource.</li>
+<li><strong>POST</strong> creates a new resource at the specified URI. The body of the request message provides the details of the new resource. Note that POST can also be used to trigger operations that don't actually create resources.</li>
+<li><strong>PUT</strong> either creates or replaces the resource at the specified URI. The body of the request message specifies the resource to be created or updated.</li>
+<li><strong>PATCH</strong> performs a partial update of a resource. The request body specifies the set of changes to apply to the resource.</li>
+<li><strong>DELETE</strong> removes the resource at the specified URI.</li>
+</ul>
+<p>The effect of a specific request should depend on whether the resource is a collection or an individual item. The following table summarizes the common conventions adopted by most RESTful implementations using the e-commerce example. Not all of these requests might be implemented—it depends on the specific scenario.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Resource</strong></th>
+<th><strong>POST</strong></th>
+<th><strong>GET</strong></th>
+<th><strong>PUT</strong></th>
+<th><strong>DELETE</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/customers</td>
+<td>Create a new customer</td>
+<td>Retrieve all customers</td>
+<td>Bulk update of customers</td>
+<td>Remove all customers</td>
+</tr>
+<tr>
+<td>/customers/1</td>
+<td>Error</td>
+<td>Retrieve the details for customer 1</td>
+<td>Update the details of customer 1 if it exists</td>
+<td>Remove customer 1</td>
+</tr>
+<tr>
+<td>/customers/1/orders</td>
+<td>Create a new order for customer 1</td>
+<td>Retrieve all orders for customer 1</td>
+<td>Bulk update of orders for customer 1</td>
+<td>Remove all orders for customer 1</td>
+</tr>
+</tbody>
+</table>
+<p>The differences between POST, PUT, and PATCH can be confusing.</p>
+<ul>
+<li><p>A POST request creates a resource. The server assigns a URI for the new resource, and returns that URI to the client. In the REST model, you frequently apply POST requests to collections. The new resource is added to the collection. A POST request can also be used to submit data for processing to an existing resource, without any new resource being created.</p>
+</li>
+<li><p>A PUT request creates a resource <em>or</em> updates an existing resource. The client specifies the URI for the resource. The request body contains a complete representation of the resource. If a resource with this URI already exists, it is replaced. Otherwise a new resource is created, if the server supports doing so. PUT requests are most frequently applied to resources that are individual items, such as a specific customer, rather than collections. A server might support updates but not creation via PUT. Whether to support creation via PUT depends on whether the client can meaningfully assign a URI to a resource before it exists. If not, then use POST to create resources and PUT or PATCH to update.</p>
+</li>
+<li><p>A PATCH request performs a <em>partial update</em> to an existing resource. The client specifies the URI for the resource. The request body specifies a set of <em>changes</em> to apply to the resource. This can be more efficient than using PUT, because the client only sends the changes, not the entire representation of the resource. Technically PATCH can also create a new resource (by specifying a set of updates to a &quot;null&quot; resource), if the server supports this.</p>
+</li>
+</ul>
+<p>PUT requests must be idempotent. If a client submits the same PUT request multiple times, the results should always be the same (the same resource will be modified with the same values). POST and PATCH requests are not guaranteed to be idempotent.</p>
+<h2 id="conform-to-http-semantics">Conform to HTTP semantics</h2>
+<p>This section describes some typical considerations for designing an API that conforms to the HTTP specification. However, it doesn't cover every possible detail or scenario. When in doubt, consult the HTTP specifications.</p>
+<h3 id="media-types">Media types</h3>
+<p>As mentioned earlier, clients and servers exchange representations of resources. For example, in a POST request, the request body contains a representation of the resource to create. In a GET request, the response body contains a representation of the fetched resource.</p>
+<p>In the HTTP protocol, formats are specified through the use of <em>media types</em>, also called MIME types. For non-binary data, most web APIs support JSON (media type = application/json) and possibly XML (media type = application/xml).</p>
+<p>The Content-Type header in a request or response specifies the format of the representation. Here is an example of a POST request that includes JSON data:</p>
+<pre><code class="lang-http">POST https://adventure-works.com/orders HTTP/1.1
+Content-Type: application/json; charset=utf-8
+Content-Length: 57
+
+{&quot;Id&quot;:1,&quot;Name&quot;:&quot;Gizmo&quot;,&quot;Category&quot;:&quot;Widgets&quot;,&quot;Price&quot;:1.99}
+</code></pre>
+<p>If the server doesn't support the media type, it should return HTTP status code 415 (Unsupported Media Type).</p>
+<p>A client request can include an Accept header that contains a list of media types the client will accept from the server in the response message. For example:</p>
+<pre><code class="lang-http">GET https://adventure-works.com/orders/2 HTTP/1.1
+Accept: application/json
+</code></pre>
+<p>If the server cannot match any of the media type(s) listed, it should return HTTP status code 406 (Not Acceptable).</p>
+<h3 id="get-methods">GET methods</h3>
+<p>A successful GET method typically returns HTTP status code 200 (OK). If the resource cannot be found, the method should return 404 (Not Found).</p>
+<h3 id="post-methods">POST methods</h3>
+<p>If a POST method creates a new resource, it returns HTTP status code 201 (Created). The URI of the new resource is included in the Location header of the response. The response body contains a representation of the resource.</p>
+<p>If the method does some processing but does not create a new resource, the method can return HTTP status code 200 and include the result of the operation in the response body. Alternatively, if there is no result to return, the method can return HTTP status code 204 (No Content) with no response body.</p>
+<p>If the client puts invalid data into the request, the server should return HTTP status code 400 (Bad Request). The response body can contain additional information about the error or a link to a URI that provides more details.</p>
+<h3 id="put-methods">PUT methods</h3>
+<p>If a PUT method creates a new resource, it returns HTTP status code 201 (Created), as with a POST method. If the method updates an existing resource, it returns either 200 (OK) or 204 (No Content). In some cases, it might not be possible to update an existing resource. In that case, consider returning HTTP status code 409 (Conflict).</p>
+<p>Consider implementing bulk HTTP PUT operations that can batch updates to multiple resources in a collection. The PUT request should specify the URI of the collection, and the request body should specify the details of the resources to be modified. This approach can help to reduce chattiness and improve performance.</p>
+<h3 id="patch-methods">PATCH methods</h3>
+<p>With a PATCH request, the client sends a set of updates to an existing resource, in the form of a <em>patch document</em>. The server processes the patch document to perform the update. The patch document doesn't describe the whole resource, only a set of changes to apply. The specification for the PATCH method (<a href="https://tools.ietf.org/html/rfc5789" data-linktype="external">RFC 5789</a>) doesn't define a particular format for patch documents. The format must be inferred from the media type in the request.</p>
+<p>JSON is probably the most common data format for web APIs. There are two main JSON-based patch formats, called <em>JSON patch</em> and <em>JSON merge patch</em>.</p>
+<p>JSON merge patch is somewhat simpler. The patch document has the same structure as the original JSON resource, but includes just the subset of fields that should be changed or added. In addition, a field can be deleted by specifying <code>null</code> for the field value in the patch document. (That means merge patch is not suitable if the original resource can have explicit null values.)</p>
+<p>For example, suppose the original resource has the following JSON representation:</p>
+<pre><code class="lang-json">{
+    &quot;name&quot;:&quot;gizmo&quot;,
+    &quot;category&quot;:&quot;widgets&quot;,
+    &quot;color&quot;:&quot;blue&quot;,
+    &quot;price&quot;:10
+}
+</code></pre>
+<p>Here is a possible JSON merge patch for this resource:</p>
+<pre><code class="lang-json">{
+    &quot;price&quot;:12,
+    &quot;color&quot;:null,
+    &quot;size&quot;:&quot;small&quot;
+}
+</code></pre>
+<p>This tells the server to update <code>price</code>, delete <code>color</code>, and add <code>size</code>, while <code>name</code> and <code>category</code> are not modified. For the exact details of JSON merge patch, see <a href="https://tools.ietf.org/html/rfc7396" data-linktype="external">RFC 7396</a>. The media type for JSON merge patch is <code>application/merge-patch+json</code>.</p>
+<p>Merge patch is not suitable if the original resource can contain explicit null values, due to the special meaning of <code>null</code> in the patch document. Also, the patch document doesn't specify the order that the server should apply the updates. That may or may not matter, depending on the data and the domain. JSON patch, defined in <a href="https://tools.ietf.org/html/rfc6902" data-linktype="external">RFC 6902</a>, is more flexible. It specifies the changes as a sequence of operations to apply. Operations include add, remove, replace, copy, and test (to validate values). The media type for JSON patch is <code>application/json-patch+json</code>.</p>
+<p>Here are some typical error conditions that might be encountered when processing a PATCH request, along with the appropriate HTTP status code.</p>
+<table>
+<thead>
+<tr>
+<th>Error condition</th>
+<th>HTTP status code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The patch document format isn't supported.</td>
+<td>415 (Unsupported Media Type)</td>
+</tr>
+<tr>
+<td>Malformed patch document.</td>
+<td>400 (Bad Request)</td>
+</tr>
+<tr>
+<td>The patch document is valid, but the changes can't be applied to the resource in its current state.</td>
+<td>409 (Conflict)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="delete-methods">DELETE methods</h3>
+<p>If the delete operation is successful, the web server should respond with HTTP status code 204, indicating that the process has been successfully handled, but that the response body contains no further information. If the resource doesn't exist, the web server can return HTTP 404 (Not Found).</p>
+<h3 id="asynchronous-operations">Asynchronous operations</h3>
+<p>Sometimes a POST, PUT, PATCH, or DELETE operation might require processing that takes a while to complete. If you wait for completion before sending a response to the client, it may cause unacceptable latency. If so, consider making the operation asynchronous. Return HTTP status code 202 (Accepted) to indicate the request was accepted for processing but is not completed.</p>
+<p>You should expose an endpoint that returns the status of an asynchronous request, so the client can monitor the status by polling the status endpoint. Include the URI of the status endpoint in the Location header of the 202 response. For example:</p>
+<pre><code class="lang-http">HTTP/1.1 202 Accepted
+Location: /api/status/12345
+</code></pre>
+<p>If the client sends a GET request to this endpoint, the response should contain the current status of the request. Optionally, it could also include an estimated time to completion or a link to cancel the operation.</p>
+<pre><code class="lang-http">HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    &quot;status&quot;:&quot;In progress&quot;,
+    &quot;link&quot;: { &quot;rel&quot;:&quot;cancel&quot;, &quot;method&quot;:&quot;delete&quot;, &quot;href&quot;:&quot;/api/status/12345&quot; }
+}
+</code></pre>
+<p>If the asynchronous operation creates a new resource, the status endpoint should return status code 303 (See Other) after the operation completes. In the 303 response, include a Location header that gives the URI of the new resource:</p>
+<pre><code class="lang-http">HTTP/1.1 303 See Other
+Location: /api/orders/12345
+</code></pre>
+<p>For more information, see <a href="../patterns/async-request-reply" data-linktype="relative-path">Asynchronous Request-Reply pattern</a>.</p>
+<h2 id="filter-and-paginate-data">Filter and paginate data</h2>
+<p>Exposing a collection of resources through a single URI can lead to applications fetching large amounts of data when only a subset of the information is required. For example, suppose a client application needs to find all orders with a cost over a specific value. It might retrieve all orders from the <em>/orders</em> URI and then filter these orders on the client side. Clearly this process is highly inefficient. It wastes network bandwidth and processing power on the server hosting the web API.</p>
+<p>Instead, the API can allow passing a filter in the query string of the URI, such as <em>/orders?minCost=n</em>. The web API is then responsible for parsing and handling the <code>minCost</code> parameter in the query string and returning the filtered results on the server side.</p>
+<p>GET requests over collection resources can potentially return a large number of items. You should design a web API to limit the amount of data returned by any single request. Consider supporting query strings that specify the maximum number of items to retrieve and a starting offset into the collection. For example:</p>
+<pre><code class="lang-http">/orders?limit=25&amp;offset=50
+</code></pre>
+<p>Also consider imposing an upper limit on the number of items returned, to help prevent Denial of Service attacks. To assist client applications, GET requests that return paginated data should also include some form of metadata that indicate the total number of resources available in the collection.</p>
+<p>You can use a similar strategy to sort data as it is fetched, by providing a sort parameter that takes a field name as the value, such as <em>/orders?sort=ProductID</em>. However, this approach can have a negative effect on caching, because query string parameters form part of the resource identifier used by many cache implementations as the key to cached data.</p>
+<p>You can extend this approach to limit the fields returned for each item, if each item contains a large amount of data. For example, you could use a query string parameter that accepts a comma-delimited list of fields, such as <em>/orders?fields=ProductID,Quantity</em>.</p>
+<p>Give all optional parameters in query strings meaningful defaults. For example, set the <code>limit</code> parameter to 10 and the <code>offset</code> parameter to 0 if you implement pagination, set the sort parameter to the key of the resource if you implement ordering, and set the <code>fields</code> parameter to all fields in the resource if you support projections.</p>
+<h2 id="support-partial-responses-for-large-binary-resources">Support partial responses for large binary resources</h2>
+<p>A resource may contain large binary fields, such as files or images. To overcome problems caused by unreliable and intermittent connections and to improve response times, consider enabling such resources to be retrieved in chunks. To do this, the web API should support the Accept-Ranges header for GET requests for large resources. This header indicates that the GET operation supports partial requests. The client application can submit GET requests that return a subset of a resource, specified as a range of bytes.</p>
+<p>Also, consider implementing HTTP HEAD requests for these resources. A HEAD request is similar to a GET request, except that it only returns the HTTP headers that describe the resource, with an empty message body. A client application can issue a HEAD request to determine whether to fetch a resource by using partial GET requests. For example:</p>
+<pre><code class="lang-http">HEAD https://adventure-works.com/products/10?fields=productImage HTTP/1.1
+</code></pre>
+<p>Here is an example response message:</p>
+<pre><code class="lang-http">HTTP/1.1 200 OK
+
+Accept-Ranges: bytes
+Content-Type: image/jpeg
+Content-Length: 4580
+</code></pre>
+<p>The Content-Length header gives the total size of the resource, and the Accept-Ranges header indicates that the corresponding GET operation supports partial results. The client application can use this information to retrieve the image in smaller chunks. The first request fetches the first 2500 bytes by using the Range header:</p>
+<pre><code class="lang-http">GET https://adventure-works.com/products/10?fields=productImage HTTP/1.1
+Range: bytes=0-2499
+</code></pre>
+<p>The response message indicates that this is a partial response by returning HTTP status code 206. The Content-Length header specifies the actual number of bytes returned in the message body (not the size of the resource), and the Content-Range header indicates which part of the resource this is (bytes 0-2499 out of 4580):</p>
+<pre><code class="lang-http">HTTP/1.1 206 Partial Content
+
+Accept-Ranges: bytes
+Content-Type: image/jpeg
+Content-Length: 2500
+Content-Range: bytes 0-2499/4580
+
+[...]
+</code></pre>
+<p>A subsequent request from the client application can retrieve the remainder of the resource.</p>
+<h2 id="use-hateoas-to-enable-navigation-to-related-resources">Use HATEOAS to enable navigation to related resources</h2>
+<p>One of the primary motivations behind REST is that it should be possible to navigate the entire set of resources without requiring prior knowledge of the URI scheme. Each HTTP GET request should return the information necessary to find the resources related directly to the requested object through hyperlinks included in the response, and it should also be provided with information that describes the operations available on each of these resources. This principle is known as HATEOAS, or Hypertext as the Engine of Application State. The system is effectively a finite state machine, and the response to each request contains the information necessary to move from one state to another; no other information should be necessary.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>Currently there are no general-purpose standards that define how to model the HATEOAS principle.  The examples shown in this section illustrate one possible, proprietary solution.</p>
+</div>
+<p>For example, to handle the relationship between an order and a customer, the representation of an order could include links that identify the available operations for the customer of the order. Here is a possible representation:</p>
+<pre><code class="lang-json">{
+  &quot;orderID&quot;:3,
+  &quot;productID&quot;:2,
+  &quot;quantity&quot;:4,
+  &quot;orderValue&quot;:16.60,
+  &quot;links&quot;:[
+    {
+      &quot;rel&quot;:&quot;customer&quot;,
+      &quot;href&quot;:&quot;https://adventure-works.com/customers/3&quot;,
+      &quot;action&quot;:&quot;GET&quot;,
+      &quot;types&quot;:[&quot;text/xml&quot;,&quot;application/json&quot;]
+    },
+    {
+      &quot;rel&quot;:&quot;customer&quot;,
+      &quot;href&quot;:&quot;https://adventure-works.com/customers/3&quot;,
+      &quot;action&quot;:&quot;PUT&quot;,
+      &quot;types&quot;:[&quot;application/x-www-form-urlencoded&quot;]
+    },
+    {
+      &quot;rel&quot;:&quot;customer&quot;,
+      &quot;href&quot;:&quot;https://adventure-works.com/customers/3&quot;,
+      &quot;action&quot;:&quot;DELETE&quot;,
+      &quot;types&quot;:[]
+    },
+    {
+      &quot;rel&quot;:&quot;self&quot;,
+      &quot;href&quot;:&quot;https://adventure-works.com/orders/3&quot;,
+      &quot;action&quot;:&quot;GET&quot;,
+      &quot;types&quot;:[&quot;text/xml&quot;,&quot;application/json&quot;]
+    },
+    {
+      &quot;rel&quot;:&quot;self&quot;,
+      &quot;href&quot;:&quot;https://adventure-works.com/orders/3&quot;,
+      &quot;action&quot;:&quot;PUT&quot;,
+      &quot;types&quot;:[&quot;application/x-www-form-urlencoded&quot;]
+    },
+    {
+      &quot;rel&quot;:&quot;self&quot;,
+      &quot;href&quot;:&quot;https://adventure-works.com/orders/3&quot;,
+      &quot;action&quot;:&quot;DELETE&quot;,
+      &quot;types&quot;:[]
+    }]
+}
+</code></pre>
+<p>In this example, the <code>links</code> array has a set of links. Each link represents an operation on a related entity. The data for each link includes the relationship (&quot;customer&quot;), the URI (<code>https://adventure-works.com/customers/3</code>), the HTTP method, and the supported MIME types. This is all the information that a client application needs to be able to invoke the operation.</p>
+<p>The <code>links</code> array also includes self-referencing information about the resource itself that has been retrieved. These have the relationship <em>self</em>.</p>
+<p>The set of links that are returned may change, depending on the state of the resource. This is what is meant by hypertext being the &quot;engine of application state.&quot;</p>
+<h2 id="versioning-a-restful-web-api">Versioning a RESTful web API</h2>
+<p>It is highly unlikely that a web API will remain static. As business requirements change new collections of resources may be added, the relationships between resources might change, and the structure of the data in resources might be amended. While updating a web API to handle new or differing requirements is a relatively straightforward process, you must consider the effects that such changes will have on client applications consuming the web API. The issue is that although the developer designing and implementing a web API has full control over that API, the developer does not have the same degree of control over client applications, which may be built by third-party organizations operating remotely. The primary imperative is to enable existing client applications to continue functioning unchanged while allowing new client applications to take advantage of new features and resources.</p>
+<p>Versioning enables a web API to indicate the features and resources that it exposes, and a client application can submit requests that are directed to a specific version of a feature or resource. The following sections describe several different approaches, each of which has its own benefits and trade-offs.</p>
+<h3 id="no-versioning">No versioning</h3>
+<p>This is the simplest approach, and may be acceptable for some internal APIs. Significant changes could be represented as new resources or new links. Adding content to existing resources might not present a breaking change as client applications that are not expecting to see this content will ignore it.</p>
+<p>For example, a request to the URI <code>https://adventure-works.com/customers/3</code> should return the details of a single customer containing <code>id</code>, <code>name</code>, and <code>address</code> fields expected by the client application:</p>
+<pre><code class="lang-http">HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{&quot;id&quot;:3,&quot;name&quot;:&quot;Contoso LLC&quot;,&quot;address&quot;:&quot;1 Microsoft Way Redmond WA 98053&quot;}
+</code></pre>
+<div class="NOTE">
+<p>Note</p>
+<p>For simplicity, the example responses shown in this section do not include HATEOAS links.</p>
+</div>
+<p>If the <code>DateCreated</code> field is added to the schema of the customer resource, then the response would look like this:</p>
+<pre><code class="lang-http">HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{&quot;id&quot;:3,&quot;name&quot;:&quot;Contoso LLC&quot;,&quot;dateCreated&quot;:&quot;2014-09-04T12:11:38.0376089Z&quot;,&quot;address&quot;:&quot;1 Microsoft Way Redmond WA 98053&quot;}
+</code></pre>
+<p>Existing client applications might continue functioning correctly if they are capable of ignoring unrecognized fields, while new client applications can be designed to handle this new field. However, if more radical changes to the schema of resources occur (such as removing or renaming fields) or the relationships between resources change then these may constitute breaking changes that prevent existing client applications from functioning correctly. In these situations, you should consider one of the following approaches.</p>
+<h3 id="uri-versioning">URI versioning</h3>
+<p>Each time you modify the web API or change the schema of resources, you add a version number to the URI for each resource. The previously existing URIs should continue to operate as before, returning resources that conform to their original schema.</p>
+<p>Extending the previous example, if the <code>address</code> field is restructured into subfields containing each constituent part of the address (such as <code>streetAddress</code>, <code>city</code>, <code>state</code>, and <code>zipCode</code>), this version of the resource could be exposed through a URI containing a version number, such as <code>https://adventure-works.com/v2/customers/3</code>:</p>
+<pre><code class="lang-http">HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{&quot;id&quot;:3,&quot;name&quot;:&quot;Contoso LLC&quot;,&quot;dateCreated&quot;:&quot;2014-09-04T12:11:38.0376089Z&quot;,&quot;address&quot;:{&quot;streetAddress&quot;:&quot;1 Microsoft Way&quot;,&quot;city&quot;:&quot;Redmond&quot;,&quot;state&quot;:&quot;WA&quot;,&quot;zipCode&quot;:98053}}
+</code></pre>
+<p>This versioning mechanism is very simple but depends on the server routing the request to the appropriate endpoint. However, it can become unwieldy as the web API matures through several iterations and the server has to support a number of different versions. Also, from a purist's point of view, in all cases the client applications are fetching the same data (customer 3), so the URI should not really be different depending on the version. This scheme also complicates implementation of HATEOAS as all links will need to include the version number in their URIs.</p>
+<h3 id="query-string-versioning">Query string versioning</h3>
+<p>Rather than providing multiple URIs, you can specify the version of the resource by using a parameter within the query string appended to the HTTP request, such as <code>https://adventure-works.com/customers/3?version=2</code>. The version parameter should default to a meaningful value such as 1 if it is omitted by older client applications.</p>
+<p>This approach has the semantic advantage that the same resource is always retrieved from the same URI, but it depends on the code that handles the request to parse the query string and send back the appropriate HTTP response. This approach also suffers from the same complications for implementing HATEOAS as the URI versioning mechanism.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>Some older web browsers and web proxies will not cache responses for requests that include a query string in the URI. This can degrade performance for web applications that use a web API and that run from within such a web browser.</p>
+</div>
+<h3 id="header-versioning">Header versioning</h3>
+<p>Rather than appending the version number as a query string parameter, you could implement a custom header that indicates the version of the resource. This approach requires that the client application adds the appropriate header to any requests, although the code handling the client request could use a default value (version 1) if the version header is omitted. The following examples use a custom header named <em>Custom-Header</em>. The value of this header indicates the version of web API.</p>
+<p>Version 1:</p>
+<pre><code class="lang-http">GET https://adventure-works.com/customers/3 HTTP/1.1
+Custom-Header: api-version=1
+</code></pre>
+<pre><code class="lang-http">HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{&quot;id&quot;:3,&quot;name&quot;:&quot;Contoso LLC&quot;,&quot;address&quot;:&quot;1 Microsoft Way Redmond WA 98053&quot;}
+</code></pre>
+<p>Version 2:</p>
+<pre><code class="lang-http">GET https://adventure-works.com/customers/3 HTTP/1.1
+Custom-Header: api-version=2
+</code></pre>
+<pre><code class="lang-http">HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{&quot;id&quot;:3,&quot;name&quot;:&quot;Contoso LLC&quot;,&quot;dateCreated&quot;:&quot;2014-09-04T12:11:38.0376089Z&quot;,&quot;address&quot;:{&quot;streetAddress&quot;:&quot;1 Microsoft Way&quot;,&quot;city&quot;:&quot;Redmond&quot;,&quot;state&quot;:&quot;WA&quot;,&quot;zipCode&quot;:98053}}
+</code></pre>
+<p>As with the previous two approaches, implementing HATEOAS requires including the appropriate custom header in any links.</p>
+<h3 id="media-type-versioning">Media type versioning</h3>
+<p>When a client application sends an HTTP GET request to a web server it should stipulate the format of the content that it can handle by using an Accept header, as described earlier in this guidance. Frequently the purpose of the <em>Accept</em> header is to allow the client application to specify whether the body of the response should be XML, JSON, or some other common format that the client can parse. However, it is possible to define custom media types that include information enabling the client application to indicate which version of a resource it is expecting. The following example shows a request that specifies an <em>Accept</em> header with the value <em>application/vnd.adventure-works.v1+json</em>. The <em>vnd.adventure-works.v1</em> element indicates to the web server that it should return version 1 of the resource, while the <em>json</em> element specifies that the format of the response body should be JSON:</p>
+<pre><code class="lang-http">GET https://adventure-works.com/customers/3 HTTP/1.1
+Accept: application/vnd.adventure-works.v1+json
+</code></pre>
+<p>The code handling the request is responsible for processing the <em>Accept</em> header and honoring it as far as possible (the client application may specify multiple formats in the <em>Accept</em> header, in which case the web server can choose the most appropriate format for the response body). The web server confirms the format of the data in the response body by using the Content-Type header:</p>
+<pre><code class="lang-http">HTTP/1.1 200 OK
+Content-Type: application/vnd.adventure-works.v1+json; charset=utf-8
+
+{&quot;id&quot;:3,&quot;name&quot;:&quot;Contoso LLC&quot;,&quot;address&quot;:&quot;1 Microsoft Way Redmond WA 98053&quot;}
+</code></pre>
+<p>If the Accept header does not specify any known media types, the web server could generate an HTTP 406 (Not Acceptable) response message or return a message with a default media type.</p>
+<p>This approach is arguably the purest of the versioning mechanisms and lends itself naturally to HATEOAS, which can include the MIME type of related data in resource links.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>When you select a versioning strategy, you should also consider the implications on performance, especially caching on the web server. The URI versioning and Query String versioning schemes are cache-friendly inasmuch as the same URI/query string combination refers to the same data each time.</p>
+<p>The Header versioning and Media Type versioning mechanisms typically require additional logic to examine the values in the custom header or the Accept header. In a large-scale environment, many clients using different versions of a web API can result in a significant amount of duplicated data in a server-side cache. This issue can become acute if a client application communicates with a web server through a proxy that implements caching, and that only forwards a request to the web server if it does not currently hold a copy of the requested data in its cache.</p>
+</div>
+<h2 id="open-api-initiative">Open API Initiative</h2>
+<p>The <a href="https://www.openapis.org" data-linktype="external">Open API Initiative</a> was created by an industry consortium to standardize REST API descriptions across vendors. As part of this initiative, the Swagger 2.0 specification was renamed the OpenAPI Specification (OAS) and brought under the Open API Initiative.</p>
+<p>You may want to adopt OpenAPI for your web APIs. Some points to consider:</p>
+<ul>
+<li><p>The OpenAPI Specification comes with a set of opinionated guidelines on how a REST API should be designed. That has advantages for interoperability, but requires more care when designing your API to conform to the specification.</p>
+</li>
+<li><p>OpenAPI promotes a contract-first approach, rather than an implementation-first approach. Contract-first means you design the API contract (the interface) first and then write code that implements the contract.</p>
+</li>
+<li><p>Tools like Swagger can generate client libraries or documentation from API contracts. For example, see <a href="/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger" data-linktype="absolute-path">ASP.NET Web API help pages using Swagger</a>.</p>
+</li>
+</ul>
+<h2 id="more-information">More information</h2>
+<ul>
+<li><p><a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md" data-linktype="external">Microsoft REST API guidelines</a>. Detailed recommendations for designing public REST APIs.</p>
+</li>
+<li><p><a href="https://mathieu.fenniak.net/the-api-checklist" data-linktype="external">Web API checklist</a>. A useful list of items to consider when designing and implementing a web API.</p>
+</li>
+<li><p><a href="https://www.openapis.org" data-linktype="external">Open API Initiative</a>. Documentation and implementation details on Open API.</p>
+</li>
+</ul>
+
+						<!-- </content> -->
+
+						</main>
+
+						<!-- page rating section -->
+								<div class="is-hidden-desktop has-border-top has-margin-top-large has-padding-top-large binary-rating-holder">
+									
+	
+	
+
+	<div class="feedback-verbatim has-border-bottom has-padding-bottom-large has-margin-bottom-small" data-bi-name="rating">
+    <div class="binary-rating">
+        <div class="binary-rating-buttons">
+				<h3 class="has-text-weight-semibold has-margin-top-none has-margin-bottom-small is-size-h4 has-margin-bottom-medium">Is this page helpful?</h3>
+			<div>
+                <button class="thumb-rating like has-inner-focus" title="Yes" data-bi-name="rating-yes" aria-expanded="false" data-bi-sat="1" aria-controls="rating-container-desktop">
+                    <span aria-hidden="true" class="icon docon docon-like"></span>
+                    <span>Yes</span>
+                </button>
+                <button class="thumb-rating dislike has-inner-focus" title="No" data-bi-name="rating-no" data-bi-sat="0" aria-expanded="false" aria-controls="rating-container-desktop">
+                    <span aria-hidden="true" class="icon docon docon-dislike"></span>
+                    <span>No</span>
+                </button>
+            </div>
+        </div>
+        <form class="feedback-verbatim-form is-hidden" id="rating-container-desktop">
+            <div class="verbatim-textarea box is-relative has-box-shadow-none has-border has-margin-top-small has-padding-extra-small is-size-extra-small">
+                <label for="rating-textarea-desktop" class="visually-hidden">Any additional feedback?</label>
+                <textarea id="rating-textarea-desktop" rows="4" maxlength="999" placeholder="Any additional feedback?" required class="textarea has-border-none has-box-shadow-none has-inner-focus"></textarea>
+            </div>
+            <div class="buttons is-right has-margin-top-medium has-margin-right-extra-small">
+                <button class="skip-rating button is-transparent has-text-primary is-small has-border-none" type="button">Skip</button>
+                <button class="submit-rating button is-primary is-small" data-bi-name="rating-verbatim" disabled type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="thankyou-rating is-hidden" tabindex="-1">
+        <p>Thank you.</p>
+    </div>
+</div>									</div>
+						<!-- end page rating section -->
+
+
+						<!-- recommendations section -->
+						<!-- end recommendations section -->
+
+						<!-- feedback section -->
+<section class="feedback-section is-relative" data-bi-name="feedback-section">
+
+    <h2 id="feedback" class="title is-3 has-margin-top-large">Feedback</h2>
+
+    <div class="alert choose-feedback-type">
+        <p aria-hidden="true" id="send-feedback-about">Submit and view feedback for</p>
+
+        <div class="choose-feedback-buttons has-margin-top-medium">
+
+			<a class="button feedback-type-product has-margin-bottom-small github-link" aria-label="Send feedback about this page" data-bi-name="create-issue-on-github">
+				<span aria-hidden="true" class="docon docon-brand-github has-padding-right-extra-small"></span>
+				<span>This page</span>
+			</a>
+        </div>
+    </div>
+
+    <div class="action-container is-flex has-flex-justify-content-end has-margin-top-small has-margin-bottom-small">
+        <a class="view-on-github has-external-link-indicator" data-bi-name="view-on-github" href="https://github.com/MicrosoftDocs/architecture-center/issues">
+            <span aria-hidden="true" class="docon docon-brand-github"></span>
+            <span>View all page feedback</span>
+        </a>
+    </div>
+</section>
+						<!-- end feedback section -->
+
+						<!-- feedback report section -->
+						<!-- end feedback report section -->
+
+						<div class="footerContainer is-visible-interactive has-default-focus ">
+
+
+
+	<footer id="footer-interactive" data-bi-name="footer" class="footer-layout">
+
+    <div class="is-flex is-full-height has-padding-right-extra-large-desktop">
+			<a data-mscc-ic="false" class="locale-selector-link has-flex-shrink-none" href="#" data-bi-name="select-locale"><span class="icon docon docon-world is-size-large has-margin-right-small" aria-hidden="true"></span><span class="local-selector-link-text"></span></a>
+		<div class="has-margin-left-medium has-margin-right-medium has-flex-shrink-none">
+<div class="dropdown has-caret-up">
+	<button class="dropdown-trigger button is-transparent is-small is-icon-only-touch has-inner-focus theme-dropdown-trigger"
+		aria-controls="theme-menu-interactive" aria-expanded="false" title="Theme" data-bi-name="theme">
+		<span class="icon">
+			<span class="docon docon-sun" aria-hidden="true"></span>
+		</span>
+		<span>Theme</span>
+	</button>
+	<div class="dropdown-menu" id="theme-menu-interactive" role="menu">
+		<ul class="theme-selector has-padding-small">
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start"
+					data-theme-to="light">
+					<span class="theme-light has-margin-right-small">
+						<span
+							class="theme-selector-icon css-variable-support has-border is-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Light					</span>
+				</button>
+			</li>
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start"
+					data-theme-to="dark">
+					<span class="theme-dark has-margin-right-small">
+						<span
+							class="has-border theme-selector-icon css-variable-support is-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Dark					</span>
+				</button>
+			</li>
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start"
+					data-theme-to="high-contrast">
+					<span class="theme-high-contrast has-margin-right-small">
+						<span
+							class="has-border theme-selector-icon css-variable-support is-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+High contrast					</span>
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>		</div>
+	</div>
+    <ul class="links" data-bi-name="footerlinks">
+		<li class="manage-cookies-holder" hidden></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/previous-versions/" data-bi-name="archivelink">Previous Version Docs</a></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/teamblog" data-bi-name="bloglink">Blog</a></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/contribute" data-bi-name="contributorGuide">Contribute</a></li>
+				<li><a data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy">Privacy &amp; Cookies</a></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/legal/termsofuse" data-bi-name="termsofuse">Terms of Use</a></li>
+				<li><a data-mscc-ic="false" href="https://aka.ms/sitefeedback" data-bi-name="feedback">Site Feedback</a></li>
+			<li><a data-mscc-ic="false" href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" data-bi-name="trademarks">Trademarks</a></li>
+		<li>&copy; Microsoft 2021</li>
+    </ul>
+</footer>
+						</div>
+					</div>
+
+					<div class="is-size-small right-container column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only" data-bi-name="pageactions" role="complementary" aria-label="Page Actions">
+						<div id="affixed-right-container" class="doc-outline is-fixed is-vertically-scrollable">
+								
+	
+	
+
+	<div class="feedback-verbatim has-border-bottom has-padding-bottom-small has-margin-bottom-small" data-bi-name="rating">
+    <div class="binary-rating">
+        <div class="binary-rating-buttons">
+
+				<h3 class="has-text-weight-semibold has-margin-top-none has-margin-bottom-small">Is this page helpful?</h3>
+			<div>
+                <button class="thumb-rating like has-inner-focus" title="Yes" data-bi-name="rating-yes" aria-expanded="false" data-bi-sat="1" aria-controls="rating-container-mobile">
+                    <span aria-hidden="true" class="icon docon docon-like"></span>
+                    <span>Yes</span>
+                </button>
+                <button class="thumb-rating dislike has-inner-focus" title="No" data-bi-name="rating-no" data-bi-sat="0" aria-expanded="false" aria-controls="rating-container-mobile">
+                    <span aria-hidden="true" class="icon docon docon-dislike"></span>
+                    <span>No</span>
+                </button>
+            </div>
+        </div>
+        <form class="feedback-verbatim-form is-hidden" id="rating-container-mobile">
+            <div class="verbatim-textarea box is-relative has-box-shadow-none has-border has-margin-top-small has-padding-extra-small is-size-extra-small">
+                <label for="rating-textarea-mobile" class="visually-hidden">Any additional feedback?</label>
+                <textarea id="rating-textarea-mobile" rows="4" maxlength="999" placeholder="Any additional feedback?" required class="textarea has-border-none has-box-shadow-none has-inner-focus"></textarea>
+            </div>
+            <div class="buttons is-right has-margin-top-medium has-margin-right-extra-small">
+                <button class="skip-rating button is-transparent has-text-primary is-small has-border-none" type="button">Skip</button>
+                <button class="submit-rating button is-primary is-small" data-bi-name="rating-verbatim" disabled type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="thankyou-rating is-hidden" tabindex="-1">
+        <p>Thank you.</p>
+    </div>
+</div>							<nav id="side-doc-outline" data-bi-name="intopic toc" role="navigation" aria-label="Article Outline">
+								<h3>In this article</h3>
+							</nav>
+						</div>
+					</div>
+
+					<!--end of div.columns -->
+				</div>
+
+			<!--end of .primary-holder -->
+			</section>
+
+			<aside id="interactive-container" class="interactive-container is-visible-interactive column has-body-background-dark ">
+			</aside>
+		</div>
+
+		<!--end of .mainContainer -->
+	</div>
+
+	<div class="footerContainer has-default-focus is-hidden-interactive ">
+
+
+
+	<footer id="footer" data-bi-name="footer" class="footer-layout uhf-container has-padding" role="contentinfo">
+
+    <div class="is-flex is-full-height has-padding-right-extra-large-desktop">
+			<a data-mscc-ic="false" class="locale-selector-link has-flex-shrink-none" href="#" data-bi-name="select-locale"><span class="icon docon docon-world is-size-large has-margin-right-small" aria-hidden="true"></span><span class="local-selector-link-text"></span></a>
+		<div class="has-margin-left-medium has-margin-right-medium has-flex-shrink-none">
+<div class="dropdown has-caret-up">
+	<button class="dropdown-trigger button is-transparent is-small is-icon-only-touch has-inner-focus theme-dropdown-trigger"
+		aria-controls="theme-menu" aria-expanded="false" title="Theme" data-bi-name="theme">
+		<span class="icon">
+			<span class="docon docon-sun" aria-hidden="true"></span>
+		</span>
+		<span>Theme</span>
+	</button>
+	<div class="dropdown-menu" id="theme-menu" role="menu">
+		<ul class="theme-selector has-padding-small">
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start"
+					data-theme-to="light">
+					<span class="theme-light has-margin-right-small">
+						<span
+							class="theme-selector-icon css-variable-support has-border is-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Light					</span>
+				</button>
+			</li>
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start"
+					data-theme-to="dark">
+					<span class="theme-dark has-margin-right-small">
+						<span
+							class="has-border theme-selector-icon css-variable-support is-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Dark					</span>
+				</button>
+			</li>
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start"
+					data-theme-to="high-contrast">
+					<span class="theme-high-contrast has-margin-right-small">
+						<span
+							class="has-border theme-selector-icon css-variable-support is-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+High contrast					</span>
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>		</div>
+	</div>
+    <ul class="links" data-bi-name="footerlinks">
+		<li class="manage-cookies-holder" hidden></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/previous-versions/" data-bi-name="archivelink">Previous Version Docs</a></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/teamblog" data-bi-name="bloglink">Blog</a></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/contribute" data-bi-name="contributorGuide">Contribute</a></li>
+				<li><a data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy">Privacy &amp; Cookies</a></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/legal/termsofuse" data-bi-name="termsofuse">Terms of Use</a></li>
+				<li><a data-mscc-ic="false" href="https://aka.ms/sitefeedback" data-bi-name="feedback">Site Feedback</a></li>
+			<li><a data-mscc-ic="false" href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" data-bi-name="trademarks">Trademarks</a></li>
+		<li>&copy; Microsoft 2021</li>
+    </ul>
+</footer>
+	</div>
+
+	<div id="action-panel" role="region" aria-label="Action Panel" class="action-panel has-default-focus" tabindex="-1"></div>
+</body>
+</html>

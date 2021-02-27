@@ -1,0 +1,2607 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="hasSidebar hasPageActions hasBreadcrumb conceptual has-default-focus theme-light" lang="en-us" dir="ltr" data-css-variable-support="true" data-authenticated="false" data-auth-status-determined="false" data-target="docs" x-ms-format-detection="none">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta property="og:title" content="Make HTTP requests using IHttpClientFactory in ASP.NET Core" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-requests" />
+			<meta property="og:description" content="Learn about using the IHttpClientFactory interface to manage logical HttpClient instances in ASP.NET Core." />
+		<meta property="og:image" content="https://docs.microsoft.com/en-us/media/logos/logo-ms-social.png" />
+		<meta property="og:image:alt" content="Microsoft Logo" />
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@docsmsft" />
+
+
+	<meta name="author" content="stevejgordon" />
+<meta name="breadcrumb_path" content="/aspnet/core/breadcrumb/toc.json" />
+<meta name="depot_name" content="MSDN.aspnet-core-conceptual" />
+<meta name="description" content="Learn about using the IHttpClientFactory interface to manage logical HttpClient instances in ASP.NET Core." />
+<meta name="document_id" content="881cef77-11ef-ac11-06d0-0996a1ccfa1b" />
+<meta name="document_version_independent_id" content="3d356334-e672-7e8b-1fef-7944ebee99eb" />
+<meta name="gitcommit" content="https://github.com/dotnet/AspNetCore.Docs/blob/0ac6a03a6fa786443dee916d2198d36581a9ea89/aspnetcore/fundamentals/http-requests.md" />
+<meta name="locale" content="en-us" />
+<meta name="monikerRange" content=">= aspnetcore-2.1" />
+<meta name="monikers" content="aspnetcore-2.1" />
+<meta name="monikers" content="aspnetcore-2.2" />
+<meta name="monikers" content="aspnetcore-3.0" />
+<meta name="monikers" content="aspnetcore-3.1" />
+<meta name="monikers" content="aspnetcore-5.0" />
+<meta name="monikers" content="aspnetcore-6.0" />
+<meta name="ms.author" content="scaddie" />
+<meta name="ms.custom" content="mvc" />
+<meta name="ms.date" content="1/21/2021" />
+<meta name="ms.prod" content="aspnet-core" />
+<meta name="ms.technology" content="aspnetcore-fundamentals" />
+<meta name="ms.topic" content="conceptual" />
+<meta name="original_content_git_url" content="https://github.com/dotnet/AspNetCore.Docs/blob/live/aspnetcore/fundamentals/http-requests.md" />
+<meta name="search.ms_docsetname" content="aspnet-core-conceptual" />
+<meta name="search.ms_product" content="MSDN" />
+<meta name="search.ms_sitename" content="Docs" />
+<meta name="site_name" content="Docs" />
+<meta name="uhfHeaderId" content="MSDocsHeader-AspNet" />
+<meta name="uid" content="fundamentals/http-requests" />
+<meta name="updated_at" content="2021-01-29 01:27 AM" />
+<meta name="page_type" content="conceptual" />
+<meta name="toc_rel" content="../toc.json" />
+<meta name="pdf_url_template" content="https://docs.microsoft.com/pdfstore/en-us/MSDN.aspnet-core-conceptual/{branchName}{pdfName}" />
+<meta name="word_count" content="9641" />
+
+
+	<meta name="scope" content="ASP.NET Core" />
+<link href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-requests" rel="canonical">
+	<title>Make HTTP requests using IHttpClientFactory in ASP.NET Core | Microsoft Docs</title>
+
+		<link rel="stylesheet" href="/_themes/docs.theme/master/en-us/_themes/styles/1e67e633.site-ltr.css ">
+
+	<link rel="stylesheet" href="/_themes/docs.theme/master/en-us/_themes/styles/a96de1e1.conceptual.css ">
+
+
+	<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=p6RgI_XC8EeTxTsxHuVBs6MACIwYCplf7fy3eSYd9WKQOMMDUoM33OzEraGAXO6Npedu6VziRpNz74xWjFZ87F4qy-YIlRLYdlVrDjzcIupNw04hr9QiiE-asRLYeUPwdYKhZ-gbtEi4AMBw694gRQ" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9kb2NzLm1pY3Jvc29mdC5jb20vZW4tdXMvYXNwbmV0L2NvcmUvZnVuZGFtZW50YWxzL2h0dHAtcmVxdWVzdHM_dmlldz1hc3BuZXRjb3JlLTIuMg"/><script id="msdocs-script">
+	var msDocs = {
+		data: {
+			timeOrigin: Date.now(),
+			contentLocale: 'en-us',
+			contentDir: 'ltr',
+			userLocale: 'en-us',
+			userDir: 'ltr',
+			pageTemplate: 'Conceptual',
+			brand: '',
+			context: {
+
+			},
+			hasBinaryRating: true,
+			hasGithubIssues: true,
+			showFeedbackReport: false,
+			enableTutorialFeedback: false,
+			feedbackSystem: 'GitHub',
+			feedbackGitHubRepo: 'dotnet/AspNetCore.Docs',
+			feedbackProductUrl: 'https://github.com/dotnet/aspnetcore/blob/master/CONTRIBUTING.md',
+			contentGitUrl: 'https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/fundamentals/http-requests.md',
+			extendBreadcrumb: true,
+			isEditDisplayable: true,
+			hideViewSource: false,
+			hasPageActions: true,
+			hasBookmark: true,
+			hasShare: true,
+			hasRecommendations: false,
+			contributors: [
+						{ name: "stevejgordon", url: "https://github.com/stevejgordon" },
+						{ name: "Rick-Anderson", url: "https://github.com/Rick-Anderson" },
+						{ name: "scottaddie", url: "https://github.com/scottaddie" },
+						{ name: "guardrex", url: "https://github.com/guardrex" },
+						{ name: "serpent5", url: "https://github.com/serpent5" },
+						{ name: "pranavkm", url: "https://github.com/pranavkm" },
+						{ name: "voroninp", url: "https://github.com/voroninp" },
+						{ name: "reisenberger", url: "https://github.com/reisenberger" },
+						{ name: "rynowak", url: "https://github.com/rynowak" },
+						{ name: "tdykstra", url: "https://github.com/tdykstra" },
+						{ name: "AdrianJSClark", url: "https://github.com/AdrianJSClark" }
+],
+		},
+		functions:{}
+	};
+	</script>
+	<script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"></script>
+	<script src="https://az725175.vo.msecnd.net/scripts/jsll-4.js"></script>
+	<script>window.jsllAwa = window.awa;</script>
+	<script nomodule src="/static/third-party/bluebird/3.5.0/bluebird.min.js" integrity="sha384-aD4BDeDGeLXLpPK4yKeqtZQa9dv4a/7mQ+4L5vwshIYH1Mc2BrXvHd32iHzYCQy5" crossorigin="anonymous"></script>
+	<script nomodule src="/static/third-party/fetch/3.0.0/fetch.umd.min.js" integrity="sha384-EQIXrC5K2+7X8nGgLkB995I0/6jfAvvyG1ieZ+WYGxgJHFMD/alsG9fSDWvzb5Y1" crossorigin="anonymous"></script>
+	<script nomodule src="/static/third-party/template/1.4.0/template.min.js" integrity="sha384-1zKzI6ldTVHMU7n0W2HpE/lhHI+UG4D9IIaxbj3kT2UhCWicdTuJkTtnKuu0CQzN" crossorigin="anonymous"></script>
+	<script nomodule src="/static/third-party/url/0.5.7/url.min.js" integrity="sha384-vn7xBMtpSTfzaTRWxj0kVq0UcsbBrTOgZ/M1ISHqe1V358elYva+lfiEC+T8jLPc" crossorigin="anonymous"></script>
+	<script src="/_themes/docs.theme/master/en-us/_themes/scripts/f0a172e9.index-polyfills.js"></script>
+
+		<script src="/_themes/docs.theme/master/en-us/_themes/scripts/2833dec3.index-docs.js"></script>
+</head>
+
+<body lang="en-us" dir="ltr">
+<div class="header-holder has-default-focus">
+	<a href="#main" class="skip-to-main-link has-outline-color-text visually-hidden-until-focused is-fixed has-inner-focus focus-visible has-top-zero has-left-zero has-right-zero has-padding-medium has-text-centered has-body-background-medium" tabindex="1">Skip to main content</a>
+	<div hidden id="cookie-consent-holder"></div>
+	<!-- liquid-tag banners global -->
+	<div id="headerAreaHolder" data-bi-name="header">
+<header role="banner" itemscope="itemscope" itemtype="http://schema.org/Organization">
+	<div class="nav-bar">
+		<div class="nav-bar-brand">
+			<a itemprop="url" href="https://www.microsoft.com" aria-label="Microsoft" class="nav-bar-button">
+				<div class="nav-bar-logo has-background-image theme-display is-light" role="presentation" aria-hidden="true" itemprop="logo" itemscope="itemscope"></div>
+				<div class="nav-bar-logo has-background-image theme-display is-dark is-high-contrast" role="presentation" aria-hidden="true" itemprop="logo" itemscope="itemscope"></div>
+			</a>
+		</div>
+	</div>
+	<div class="nav-bar has-border-top is-hidden-mobile"></div>
+</header>	</div>
+
+				<div class="content-header uhf-container has-padding has-default-focus has-border-bottom-none" data-bi-name="content-header">
+				<nav class="breadcrumb-holder has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow" data-bi-name="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList" role="navigation" aria-label="Breadcrumb">
+					<ul id="page-breadcrumbs" class="breadcrumbs">
+					</ul>
+				</nav>
+			<div class="content-header-controls">
+				<button type="button" class="contents-button button" data-bi-name="contents-expand" aria-haspopup="true">
+					<span class="icon"><span class="docon docon-menu" aria-hidden="true"></span></span>
+					<span class="contents-expand-title">Contents</span>
+				</button>
+				<button type="button" class="ap-collapse-behavior ap-expanded button" data-bi-name="ap-collapse" aria-controls="action-panel">
+					<span class="icon"><span class="docon docon-exit-mode" aria-hidden="true"></span></span>
+					<span>Exit focus mode</span>
+				</button>
+			</div>
+			<div class="has-padding-none-tablet has-padding-medium is-size-small is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow page-action-holder">
+				<ul class="is-hidden-mobile action-list has-flex-justify-content-start has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+					<li>
+						<button type="button" class="bookmark button is-text has-inner-focus is-small is-icon-only-touch" data-list-type="bookmarks" data-bi-name="bookmark" title="Bookmark this page">
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-single-bookmark"></span>
+							</span>
+							<span class="bookmark-status is-visually-hidden-touch is-hidden-portrait">Bookmark</span>
+						</button>
+					</li>
+						<li id="feedback-section-link">
+							<a href="#feedback" class="button is-text has-inner-focus is-small is-icon-only-touch" data-bi-name="comments" title="Send feedback about this page">
+								<span class="icon" aria-hidden="true">
+									<span class="docon docon-comment-lines"></span>
+								</span>
+								<span class="is-visually-hidden-touch is-hidden-portrait">Feedback</span>
+							</a>
+						</li>
+							<li id="contenteditbtn">
+								<a href="https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/fundamentals/http-requests.md" class="button is-text has-inner-focus is-icon-only-touch is-small" title="Edit This Document" data-bi-name="edit" data-original_content_git_url="https://github.com/dotnet/AspNetCore.Docs/blob/live/aspnetcore/fundamentals/http-requests.md" data-original_content_git_url_template="{repo}/blob/{branch}/aspnetcore/fundamentals/http-requests.md" data-pr_repo="" data-pr_branch="">
+								<span class="icon" aria-hidden="true">
+									<span class="docon docon-edit-outline"></span>
+								</span>
+								<span class="is-visually-hidden-touch is-hidden-portrait">Edit</span>
+							</a>
+						</li>
+					<li>
+<div class="sharing dropdown has-caret">
+	<button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch" aria-controls="sharing-menu" aria-expanded="false" title="Share This Document" data-bi-name="share">
+		<span class="icon" aria-hidden="true">
+			<span class="docon docon-sharing"></span>
+		</span>
+		<span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+	</button>
+	<div class="dropdown-menu has-padding-small" id="sharing-menu">
+		<ul data-bi-name="share-links">
+			<li>
+				<a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" data-bi-name="twitter">
+					<span class="icon">
+						<span class="docon docon-brand-twitter has-text-primary" aria-hidden="true"></span>
+					</span>
+					<span>Twitter</span>
+				</a>
+			</li>
+			<li>
+				<a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" data-bi-name="linkedin">
+					<span class="icon">
+						<span class="docon docon-brand-linkedin has-text-primary" aria-hidden="true"></span>
+					</span>
+					<span>LinkedIn</span>
+				</a>
+			</li>
+			<li>
+				<a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" data-bi-name="facebook">
+					<span class="icon">
+						<span class="docon docon-brand-facebook has-text-primary" aria-hidden="true"></span>
+					</span>
+					<span>Facebook</span>
+				</a>
+			</li>
+			<li>
+				<a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" data-bi-name="email">
+					<span class="icon">
+						<span class="docon docon-mail-message-fill has-text-primary" aria-hidden="true"></span>
+					</span>
+					<span>Email</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>					</li>
+				</ul>
+				<button type="button" class="has-border contents-button button is-small is-text is-hidden-tablet has-inner-focus" aria-label="Contents" data-bi-name="contents-expand">
+					<span class="icon">
+						<span class="docon docon-editor-list-bullet" aria-hidden="true"></span>
+					</span>
+					<span class="contents-expand-title">Table of contents</span>
+				</button>
+				<div class="is-invisible"></div>
+				<div class="is-hidden-tablet level-item is-flexible level-right">
+					<button type="button" class="page-actions-button button is-small is-text is-hidden-tablet has-inner-focus has-border is-full-height  has-margin-left-small" aria-label="Page Actions" data-bi-name="pageactions">
+						<span class="icon">
+							<span class="docon docon-more-vertical" aria-hidden="true"></span>
+						</span>
+					</button>
+				</div>
+			</div>
+		</div>
+
+
+
+	<div id="disclaimer-holder" class="has-overflow-hidden has-default-focus">
+		<!-- liquid-tag banners sectional -->
+	</div>
+	</div>
+
+	<div class="mainContainer  uhf-container has-top-padding  has-default-focus" data-bi-name="body">
+
+		<div class="columns has-large-gaps is-gapless-mobile ">
+
+			<div id="left-container" class="left-container is-hidden-mobile column is-one-third-tablet is-one-quarter-desktop">
+				<nav id="affixed-left-container" class="is-fixed is-flex is-flex-column" role="navigation" aria-label="Primary"></nav>
+			</div>
+
+			<section class="primary-holder column is-two-thirds-tablet is-three-quarters-desktop">
+				<div class="columns is-gapless-mobile has-large-gaps ">
+
+
+				<div id="main-column" class="column  is-full is-four-fifths-desktop ">
+
+					<main id="main" role="main" class="content " data-bi-name="content" lang="en-us" dir="ltr">
+
+
+
+						<h1 id="make-http-requests-using-ihttpclientfactory-in-aspnet-core">Make HTTP requests using IHttpClientFactory in ASP.NET Core</h1>
+
+						<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+							<li>
+								<time class="is-invisible" data-article-date aria-label="Article review date" datetime="2021-01-21T00:00:00.000Z" data-article-date-source="ms.date">1/21/2021</time>
+							</li>
+									<li class="readingTime">48 minutes to read</li>
+								<li class="contributors-holder">
+									<ul class="facepile has-margin-left-none is-small" data-bi-name="contributors">
+														<li class="facepile-item">
+															<a href="https://github.com/stevejgordon" title="stevejgordon" aria-label="stevejgordonGithub profile" data-src="https://github.com/stevejgordon.png?size=32" data-contributor-name="stevejgordon" class="facepile-item-coin"
+															>
+																<img class="facepile-item-coin-image durable-image" aria-hidden="true" src="https://github.com/stevejgordon.png?size=32" role="presentation" onerror="this.className='facepile-item-coin-image durable-image has-error';"/>
+																<span class="facepile-item-coin-text durable-image-fallback facepile-item-teal"aria-hidden="true">s</span>
+															</a>
+														</li>
+														<li class="facepile-item">
+															<a href="https://github.com/Rick-Anderson" title="Rick-Anderson" aria-label="Rick-AndersonGithub profile" data-src="https://github.com/Rick-Anderson.png?size=32" data-contributor-name="Rick-Anderson" class="facepile-item-coin"
+															>
+																<img class="facepile-item-coin-image durable-image" aria-hidden="true" src="https://github.com/Rick-Anderson.png?size=32" role="presentation" onerror="this.className='facepile-item-coin-image durable-image has-error';"/>
+																<span class="facepile-item-coin-text durable-image-fallback facepile-item-red"aria-hidden="true">R</span>
+															</a>
+														</li>
+														<li class="facepile-item">
+															<a href="https://github.com/scottaddie" title="scottaddie" aria-label="scottaddieGithub profile" data-src="https://github.com/scottaddie.png?size=32" data-contributor-name="scottaddie" class="facepile-item-coin"
+															>
+																<img class="facepile-item-coin-image durable-image" aria-hidden="true" src="https://github.com/scottaddie.png?size=32" role="presentation" onerror="this.className='facepile-item-coin-image durable-image has-error';"/>
+																<span class="facepile-item-coin-text durable-image-fallback facepile-item-blue"aria-hidden="true">s</span>
+															</a>
+														</li>
+														<li class="facepile-item">
+															<a href="https://github.com/guardrex" title="guardrex" aria-label="guardrexGithub profile" data-src="https://github.com/guardrex.png?size=32" data-contributor-name="guardrex" class="facepile-item-coin"
+															>
+																<img class="facepile-item-coin-image durable-image" aria-hidden="true" src="https://github.com/guardrex.png?size=32" role="presentation" onerror="this.className='facepile-item-coin-image durable-image has-error';"/>
+																<span class="facepile-item-coin-text durable-image-fallback facepile-item-teal"aria-hidden="true">g</span>
+															</a>
+														</li>
+														<li class="facepile-item">
+															<a href="https://github.com/serpent5" title="serpent5" aria-label="serpent5Github profile" data-src="https://github.com/serpent5.png?size=32" data-contributor-name="serpent5" class="facepile-item-coin"
+															>
+																<img class="facepile-item-coin-image durable-image" aria-hidden="true" src="https://github.com/serpent5.png?size=32" role="presentation" onerror="this.className='facepile-item-coin-image durable-image has-error';"/>
+																<span class="facepile-item-coin-text durable-image-fallback facepile-item-red"aria-hidden="true">s</span>
+															</a>
+														</li>
+											<li class="facepile-item">
+													<button aria-label="View all contributors" class="facepile-item-more" title="View all contributors">
+														<div class="facepile-item-coin" aria-hidden="true">
+															<span class="facepile-item-coin-text" aria-hidden="true">
+																+6
+															</span>
+														</div>
+													</button>
+											</li>
+									</ul>
+								</li>
+						</ul>
+
+						<nav id="center-doc-outline" class="doc-outline is-hidden-desktop" data-bi-name="intopic toc" role="navigation" aria-label="Article Outline">
+							<h3>In this article</h3>
+						</nav>
+
+						<!-- <content> -->
+							<div data-moniker="aspnetcore-3.0 aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0">
+<p>By <a href="https://github.com/serpent5" data-linktype="external">Kirk Larkin</a>, <a href="https://github.com/stevejgordon" data-linktype="external">Steve Gordon</a>, <a href="https://github.com/glennc" data-linktype="external">Glenn Condron</a>, and <a href="https://github.com/rynowak" data-linktype="external">Ryan Nowak</a>.</p>
+<p>An <a href="/en-us/dotnet/api/system.net.http.ihttpclientfactory" data-linktype="absolute-path">IHttpClientFactory</a> can be registered and used to configure and create <a href="/en-us/dotnet/api/system.net.http.httpclient" data-linktype="absolute-path">HttpClient</a> instances in an app. <code>IHttpClientFactory</code> offers the following benefits:</p>
+<ul>
+<li>Provides a central location for naming and configuring logical <code>HttpClient</code> instances. For example, a client named  <em>github</em> could be registered and configured to access <a href="https://github.com/" data-linktype="external">GitHub</a>. A default client can be registered for general access.</li>
+<li>Codifies the concept of outgoing middleware via delegating handlers in <code>HttpClient</code>. Provides extensions for Polly-based middleware to take advantage of delegating handlers in <code>HttpClient</code>.</li>
+<li>Manages the pooling and lifetime of underlying <code>HttpClientMessageHandler</code> instances. Automatic management avoids common DNS (Domain Name System) problems that occur when manually managing <code>HttpClient</code> lifetimes.</li>
+<li>Adds a configurable logging experience (via <code>ILogger</code>) for all requests sent through clients created by the factory.</li>
+</ul>
+<p><a href="https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples" data-linktype="external">View or download sample code</a> (<a href="../introduction-to-aspnet-core?view=aspnetcore-2.2#how-to-download-a-sample" data-linktype="relative-path">how to download</a>).</p>
+<p>The sample code in this topic version uses <a href="/en-us/dotnet/api/system.text.json" data-linktype="absolute-path">System.Text.Json</a> to deserialize JSON content returned in HTTP responses. For samples that use <code>Json.NET</code> and <code>ReadAsAsync&lt;T&gt;</code>, use the version selector to select a 2.x version of this topic.</p>
+<h2 id="consumption-patterns">Consumption patterns</h2>
+<p>There are several ways <code>IHttpClientFactory</code> can be used in an app:</p>
+<ul>
+<li><a href="#basic-usage" data-linktype="self-bookmark">Basic usage</a></li>
+<li><a href="#named-clients" data-linktype="self-bookmark">Named clients</a></li>
+<li><a href="#typed-clients" data-linktype="self-bookmark">Typed clients</a></li>
+<li><a href="#generated-clients" data-linktype="self-bookmark">Generated clients</a></li>
+</ul>
+<p>The best approach depends upon the app's requirements.</p>
+<h3 id="basic-usage">Basic usage</h3>
+<p><code>IHttpClientFactory</code> can be registered by calling <code>AddHttpClient</code>:</p>
+<pre><code class="lang-csharp" highlight-lines="13">public class Startup
+{
+    public Startup(IConfiguration configuration)
+    {
+        Configuration = configuration;
+    }
+
+    public IConfiguration Configuration { get; }
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddHttpClient();
+        // Remaining code deleted for brevity.
+</code></pre>
+<p>An <code>IHttpClientFactory</code> can be requested using <a href="dependency-injection?view=aspnetcore-2.2" data-linktype="relative-path">dependency injection (DI)</a>. The following code uses <code>IHttpClientFactory</code> to create an <code>HttpClient</code> instance:</p>
+<pre><code class="lang-csharp" highlight-lines="9-12,21">public class BasicUsageModel : PageModel
+{
+    private readonly IHttpClientFactory _clientFactory;
+
+    public IEnumerable&lt;GitHubBranch&gt; Branches { get; private set; }
+
+    public bool GetBranchesError { get; private set; }
+
+    public BasicUsageModel(IHttpClientFactory clientFactory)
+    {
+        _clientFactory = clientFactory;
+    }
+
+    public async Task OnGet()
+    {
+        var request = new HttpRequestMessage(HttpMethod.Get,
+            &quot;https://api.github.com/repos/aspnet/AspNetCore.Docs/branches&quot;);
+        request.Headers.Add(&quot;Accept&quot;, &quot;application/vnd.github.v3+json&quot;);
+        request.Headers.Add(&quot;User-Agent&quot;, &quot;HttpClientFactory-Sample&quot;);
+
+        var client = _clientFactory.CreateClient();
+
+        var response = await client.SendAsync(request);
+
+        if (response.IsSuccessStatusCode)
+        {
+            using var responseStream = await response.Content.ReadAsStreamAsync();
+            Branches = await JsonSerializer.DeserializeAsync
+                &lt;IEnumerable&lt;GitHubBranch&gt;&gt;(responseStream);
+        }
+        else
+        {
+            GetBranchesError = true;
+            Branches = Array.Empty&lt;GitHubBranch&gt;();
+        }
+    }
+}
+</code></pre>
+<p>Using <code>IHttpClientFactory</code> like in the preceding example is a good way to refactor an existing app. It has no impact on how <code>HttpClient</code> is used. In places where <code>HttpClient</code> instances are created in an existing app, replace those occurrences with calls to <a href="/en-us/dotnet/api/system.net.http.ihttpclientfactory.createclient" data-linktype="absolute-path">CreateClient</a>.</p>
+<h3 id="named-clients">Named clients</h3>
+<p>Named clients are a good choice when:</p>
+<ul>
+<li>The app requires many distinct uses of <code>HttpClient</code>.</li>
+<li>Many <code>HttpClient</code>s have different configuration.</li>
+</ul>
+<p>Configuration for a named <code>HttpClient</code> can be specified during registration in <code>Startup.ConfigureServices</code>:</p>
+<pre><code class="lang-csharp">services.AddHttpClient(&quot;github&quot;, c =&gt;
+{
+    c.BaseAddress = new Uri(&quot;https://api.github.com/&quot;);
+    // Github API versioning
+    c.DefaultRequestHeaders.Add(&quot;Accept&quot;, &quot;application/vnd.github.v3+json&quot;);
+    // Github requires a user-agent
+    c.DefaultRequestHeaders.Add(&quot;User-Agent&quot;, &quot;HttpClientFactory-Sample&quot;);
+});
+</code></pre>
+<p>In the preceding code the client is configured with:</p>
+<ul>
+<li>The base address <code>https://api.github.com/</code>.</li>
+<li>Two headers required to work with the GitHub API.</li>
+</ul>
+<h4 id="createclient">CreateClient</h4>
+<p>Each time <a href="/en-us/dotnet/api/system.net.http.ihttpclientfactory.createclient" data-linktype="absolute-path">CreateClient</a> is called:</p>
+<ul>
+<li>A new instance of <code>HttpClient</code> is created.</li>
+<li>The configuration action is called.</li>
+</ul>
+<p>To create a named client, pass its name into <code>CreateClient</code>:</p>
+<pre><code class="lang-csharp" highlight-lines="21">public class NamedClientModel : PageModel
+{
+    private readonly IHttpClientFactory _clientFactory;
+
+    public IEnumerable&lt;GitHubPullRequest&gt; PullRequests { get; private set; }
+
+    public bool GetPullRequestsError { get; private set; }
+
+    public bool HasPullRequests =&gt; PullRequests.Any();
+
+    public NamedClientModel(IHttpClientFactory clientFactory)
+    {
+        _clientFactory = clientFactory;
+    }
+
+    public async Task OnGet()
+    {
+        var request = new HttpRequestMessage(HttpMethod.Get,
+            &quot;repos/aspnet/AspNetCore.Docs/pulls&quot;);
+
+        var client = _clientFactory.CreateClient(&quot;github&quot;);
+
+        var response = await client.SendAsync(request);
+
+        if (response.IsSuccessStatusCode)
+        {
+            using var responseStream = await response.Content.ReadAsStreamAsync();
+            PullRequests = await JsonSerializer.DeserializeAsync
+                    &lt;IEnumerable&lt;GitHubPullRequest&gt;&gt;(responseStream);
+        }
+        else
+        {
+            GetPullRequestsError = true;
+            PullRequests = Array.Empty&lt;GitHubPullRequest&gt;();
+        }
+    }
+}
+</code></pre>
+<p>In the preceding code, the request doesn't need to specify a hostname. The code can pass just the path, since the base address configured for the client is used.</p>
+<h3 id="typed-clients">Typed clients</h3>
+<p>Typed clients:</p>
+<ul>
+<li>Provide the same capabilities as named clients without the need to use strings as keys.</li>
+<li>Provides IntelliSense and compiler help when consuming clients.</li>
+<li>Provide a single location to configure and interact with a particular <code>HttpClient</code>. For example, a single typed client might be used:
+<ul>
+<li>For a single backend endpoint.</li>
+<li>To encapsulate all logic dealing with the endpoint.</li>
+</ul>
+</li>
+<li>Work with DI and can be injected where required in the app.</li>
+</ul>
+<p>A typed client accepts an <code>HttpClient</code> parameter in its constructor:</p>
+<pre><code class="lang-csharp" highlight-lines="5">public class GitHubService
+{
+    public HttpClient Client { get; }
+
+    public GitHubService(HttpClient client)
+    {
+        client.BaseAddress = new Uri(&quot;https://api.github.com/&quot;);
+        // GitHub API versioning
+        client.DefaultRequestHeaders.Add(&quot;Accept&quot;,
+            &quot;application/vnd.github.v3+json&quot;);
+        // GitHub requires a user-agent
+        client.DefaultRequestHeaders.Add(&quot;User-Agent&quot;,
+            &quot;HttpClientFactory-Sample&quot;);
+
+        Client = client;
+    }
+
+    public async Task&lt;IEnumerable&lt;GitHubIssue&gt;&gt; GetAspNetDocsIssues()
+    {
+        var response = await Client.GetAsync(
+            &quot;/repos/aspnet/AspNetCore.Docs/issues?state=open&amp;sort=created&amp;direction=desc&quot;);
+
+        response.EnsureSuccessStatusCode();
+
+        using var responseStream = await response.Content.ReadAsStreamAsync();
+        return await JsonSerializer.DeserializeAsync
+            &lt;IEnumerable&lt;GitHubIssue&gt;&gt;(responseStream);
+    }
+}
+</code></pre>
+<p>If you would like to see code comments translated to languages other than English, let us know in <a href="https://github.com/MicrosoftDocs/feedback/issues/2515" data-linktype="external">this GitHub discussion issue</a>.</p>
+<p>In the preceding code:</p>
+<ul>
+<li>The configuration is moved into the typed client.</li>
+<li>The <code>HttpClient</code> object is exposed as a public property.</li>
+</ul>
+<p>API-specific methods can be created that expose <code>HttpClient</code> functionality. For example, the <code>GetAspNetDocsIssues</code> method encapsulates code to retrieve open issues.</p>
+<p>The following code calls <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.httpclientfactoryservicecollectionextensions.addhttpclient" data-linktype="absolute-path">AddHttpClient</a> in <code>Startup.ConfigureServices</code> to register a typed client class:</p>
+<pre><code class="lang-csharp">services.AddHttpClient&lt;GitHubService&gt;();
+</code></pre>
+<p>The typed client is registered as transient with DI. In the preceding code, <code>AddHttpClient</code> registers <code>GitHubService</code> as a transient service. This registration uses a factory method to:</p>
+<ol>
+<li>Create an instance of <code>HttpClient</code>.</li>
+<li>Create an instance of <code>GitHubService</code>, passing in the instance of <code>HttpClient</code> to its constructor.</li>
+</ol>
+<p>The typed client can be injected and consumed directly:</p>
+<pre><code class="lang-csharp" highlight-lines="11-14,20">public class TypedClientModel : PageModel
+{
+    private readonly GitHubService _gitHubService;
+
+    public IEnumerable&lt;GitHubIssue&gt; LatestIssues { get; private set; }
+
+    public bool HasIssue =&gt; LatestIssues.Any();
+
+    public bool GetIssuesError { get; private set; }
+
+    public TypedClientModel(GitHubService gitHubService)
+    {
+        _gitHubService = gitHubService;
+    }
+
+    public async Task OnGet()
+    {
+        try
+        {
+            LatestIssues = await _gitHubService.GetAspNetDocsIssues();
+        }
+        catch(HttpRequestException)
+        {
+            GetIssuesError = true;
+            LatestIssues = Array.Empty&lt;GitHubIssue&gt;();
+        }
+    }
+}
+</code></pre>
+<p>The configuration for a typed client can be specified during registration in <code>Startup.ConfigureServices</code>, rather than in the typed client's constructor:</p>
+<pre><code class="lang-csharp">services.AddHttpClient&lt;RepoService&gt;(c =&gt;
+{
+    c.BaseAddress = new Uri(&quot;https://api.github.com/&quot;);
+    c.DefaultRequestHeaders.Add(&quot;Accept&quot;, &quot;application/vnd.github.v3+json&quot;);
+    c.DefaultRequestHeaders.Add(&quot;User-Agent&quot;, &quot;HttpClientFactory-Sample&quot;);
+});
+</code></pre>
+<p>The <code>HttpClient</code> can be encapsulated within a typed client. Rather than exposing it as a property, define a method which calls the <code>HttpClient</code> instance internally:</p>
+<pre><code class="lang-csharp" highlight-lines="4">public class RepoService
+{
+    // _httpClient isn't exposed publicly
+    private readonly HttpClient _httpClient;
+
+    public RepoService(HttpClient client)
+    {
+        _httpClient = client;
+    }
+
+    public async Task&lt;IEnumerable&lt;string&gt;&gt; GetRepos()
+    {
+        var response = await _httpClient.GetAsync(&quot;aspnet/repos&quot;);
+
+        response.EnsureSuccessStatusCode();
+
+        using var responseStream = await response.Content.ReadAsStreamAsync();
+        return await JsonSerializer.DeserializeAsync
+            &lt;IEnumerable&lt;string&gt;&gt;(responseStream);
+    }
+}
+</code></pre>
+<p>In the preceding code, the <code>HttpClient</code> is stored in a private field. Access to the <code>HttpClient</code> is by the public <code>GetRepos</code> method.</p>
+<h3 id="generated-clients">Generated clients</h3>
+<p><code>IHttpClientFactory</code> can be used in combination with third-party libraries such as <a href="https://github.com/paulcbetts/refit" data-linktype="external">Refit</a>. Refit is a REST library for .NET. It converts REST APIs into live interfaces. An implementation of the interface is generated dynamically by the <code>RestService</code>, using <code>HttpClient</code> to make the external HTTP calls.</p>
+<p>An interface and a reply are defined to represent the external API and its response:</p>
+<pre><code class="lang-csharp">public interface IHelloClient
+{
+    [Get(&quot;/helloworld&quot;)]
+    Task&lt;Reply&gt; GetMessageAsync();
+}
+
+public class Reply
+{
+    public string Message { get; set; }
+}
+</code></pre>
+<p>A typed client can be added, using Refit to generate the implementation:</p>
+<pre><code class="lang-csharp">public void ConfigureServices(IServiceCollection services)
+{
+    services.AddHttpClient(&quot;hello&quot;, c =&gt;
+    {
+        c.BaseAddress = new Uri(&quot;http://localhost:5000&quot;);
+    })
+    .AddTypedClient(c =&gt; Refit.RestService.For&lt;IHelloClient&gt;(c));
+
+    services.AddControllers();
+}
+</code></pre>
+<p>The defined interface can be consumed where necessary, with the implementation provided by DI and Refit:</p>
+<pre><code class="lang-csharp">[ApiController]
+public class ValuesController : ControllerBase
+{
+    private readonly IHelloClient _client;
+
+    public ValuesController(IHelloClient client)
+    {
+        _client = client;
+    }
+
+    [HttpGet(&quot;/&quot;)]
+    public async Task&lt;ActionResult&lt;Reply&gt;&gt; Index()
+    {
+        return await _client.GetMessageAsync();
+    }
+}
+</code></pre>
+<h2 id="make-post-put-and-delete-requests">Make POST, PUT, and DELETE requests</h2>
+<p>In the preceding examples, all HTTP requests use the GET HTTP verb. <code>HttpClient</code> also supports other HTTP verbs, including:</p>
+<ul>
+<li>POST</li>
+<li>PUT</li>
+<li>DELETE</li>
+<li>PATCH</li>
+</ul>
+<p>For a complete list of supported HTTP verbs, see <a href="/en-us/dotnet/api/system.net.http.httpmethod" data-linktype="absolute-path">HttpMethod</a>.</p>
+<p>The following example shows how to make an HTTP POST request:</p>
+<pre><code class="lang-csharp">public async Task CreateItemAsync(TodoItem todoItem)
+{
+    var todoItemJson = new StringContent(
+        JsonSerializer.Serialize(todoItem, _jsonSerializerOptions),
+        Encoding.UTF8,
+        &quot;application/json&quot;);
+
+    using var httpResponse =
+        await _httpClient.PostAsync(&quot;/api/TodoItems&quot;, todoItemJson);
+
+    httpResponse.EnsureSuccessStatusCode();
+}
+</code></pre>
+<p>In the preceding code, the <code>CreateItemAsync</code> method:</p>
+<ul>
+<li>Serializes the <code>TodoItem</code> parameter to JSON using <code>System.Text.Json</code>. This uses an instance of <a href="/en-us/dotnet/api/system.text.json.jsonserializeroptions" data-linktype="absolute-path">JsonSerializerOptions</a> to configure the serialization process.</li>
+<li>Creates an instance of <a href="/en-us/dotnet/api/system.net.http.stringcontent" data-linktype="absolute-path">StringContent</a> to package the serialized JSON for sending in the HTTP request's body.</li>
+<li>Calls <a href="/en-us/dotnet/api/system.net.http.httpclient.postasync" data-linktype="absolute-path">PostAsync</a> to send the JSON content to the specified URL. This is a relative URL that gets added to the <a href="/en-us/dotnet/api/system.net.http.httpclient.baseaddress#System_Net_Http_HttpClient_BaseAddress" data-linktype="absolute-path">HttpClient.BaseAddress</a>.</li>
+<li>Calls <a href="/en-us/dotnet/api/system.net.http.httpresponsemessage.ensuresuccessstatuscode" data-linktype="absolute-path">EnsureSuccessStatusCode</a> to throw an exception if the response status code does not indicate success.</li>
+</ul>
+<p><code>HttpClient</code> also supports other types of content. For example, <a href="/en-us/dotnet/api/system.net.http.multipartcontent" data-linktype="absolute-path">MultipartContent</a> and <a href="/en-us/dotnet/api/system.net.http.streamcontent" data-linktype="absolute-path">StreamContent</a>. For a complete list of supported content, see <a href="/en-us/dotnet/api/system.net.http.httpcontent" data-linktype="absolute-path">HttpContent</a>.</p>
+<p>The following example shows an HTTP PUT request:</p>
+<pre><code class="lang-csharp">public async Task SaveItemAsync(TodoItem todoItem)
+{
+    var todoItemJson = new StringContent(
+        JsonSerializer.Serialize(todoItem),
+        Encoding.UTF8,
+        &quot;application/json&quot;);
+
+    using var httpResponse =
+        await _httpClient.PutAsync($&quot;/api/TodoItems/{todoItem.Id}&quot;, todoItemJson);
+
+    httpResponse.EnsureSuccessStatusCode();
+}
+</code></pre>
+<p>The preceding code is very similar to the POST example. The <code>SaveItemAsync</code> method calls <a href="/en-us/dotnet/api/system.net.http.httpclient.putasync" data-linktype="absolute-path">PutAsync</a> instead of <code>PostAsync</code>.</p>
+<p>The following example shows an HTTP DELETE request:</p>
+<pre><code class="lang-csharp">public async Task DeleteItemAsync(long itemId)
+{
+    using var httpResponse =
+        await _httpClient.DeleteAsync($&quot;/api/TodoItems/{itemId}&quot;);
+
+    httpResponse.EnsureSuccessStatusCode();
+}
+</code></pre>
+<p>In the preceding code, the <code>DeleteItemAsync</code> method calls <a href="/en-us/dotnet/api/system.net.http.httpclient.deleteasync" data-linktype="absolute-path">DeleteAsync</a>. Because HTTP DELETE requests typically contain no body, the <code>DeleteAsync</code> method doesn't provide an overload that accepts an instance of <code>HttpContent</code>.</p>
+<p>To learn more about using different HTTP verbs with <code>HttpClient</code>, see <a href="/en-us/dotnet/api/system.net.http.httpclient" data-linktype="absolute-path">HttpClient</a>.</p>
+<h2 id="outgoing-request-middleware">Outgoing request middleware</h2>
+<p><code>HttpClient</code> has the concept of delegating handlers that can be linked together for outgoing HTTP requests. <code>IHttpClientFactory</code>:</p>
+<ul>
+<li><p>Simplifies defining the handlers to apply for each named client.</p>
+</li>
+<li><p>Supports registration and chaining of multiple handlers to build an outgoing request   middleware pipeline. Each of these handlers is able to perform work before and after the   outgoing request. This pattern:</p>
+<ul>
+<li>Is similar to the inbound middleware pipeline in ASP.NET Core.</li>
+<li>Provides a mechanism to manage cross-cutting concerns around HTTP requests, such as:
+<ul>
+<li>caching</li>
+<li>error handling</li>
+<li>serialization</li>
+<li>logging</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>To create a delegating handler:</p>
+<ul>
+<li>Derive from <a href="/en-us/dotnet/api/system.net.http.delegatinghandler" data-linktype="absolute-path">DelegatingHandler</a>.</li>
+<li>Override <a href="/en-us/dotnet/api/system.net.http.delegatinghandler.sendasync" data-linktype="absolute-path">SendAsync</a>. Execute code before passing the request to the next handler in the pipeline:</li>
+</ul>
+<pre><code class="lang-csharp">public class ValidateHeaderHandler : DelegatingHandler
+{
+    protected override async Task&lt;HttpResponseMessage&gt; SendAsync(
+        HttpRequestMessage request,
+        CancellationToken cancellationToken)
+    {
+        if (!request.Headers.Contains(&quot;X-API-KEY&quot;))
+        {
+            return new HttpResponseMessage(HttpStatusCode.BadRequest)
+            {
+                Content = new StringContent(
+                    &quot;You must supply an API key header called X-API-KEY&quot;)
+            };
+        }
+
+        return await base.SendAsync(request, cancellationToken);
+    }
+}
+</code></pre>
+<p>The preceding code checks if the <code>X-API-KEY</code> header is in the request. If <code>X-API-KEY</code> is missing, <a href="/en-us/dotnet/api/system.net.httpstatuscode#System_Net_HttpStatusCode_BadRequest" data-linktype="absolute-path">BadRequest</a> is returned.</p>
+<p>More than one handler can be added to the configuration for an <code>HttpClient</code> with <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.addhttpmessagehandler" data-linktype="absolute-path">Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.AddHttpMessageHandler</a>:</p>
+<pre><code class="lang-csharp">public void ConfigureServices(IServiceCollection services)
+{
+    services.AddTransient&lt;ValidateHeaderHandler&gt;();
+
+    services.AddHttpClient(&quot;externalservice&quot;, c =&gt;
+    {
+        // Assume this is an &quot;external&quot; service which requires an API KEY
+        c.BaseAddress = new Uri(&quot;https://localhost:5001/&quot;);
+    })
+    .AddHttpMessageHandler&lt;ValidateHeaderHandler&gt;();
+
+    // Remaining code deleted for brevity.
+</code></pre>
+<p>In the preceding code, the <code>ValidateHeaderHandler</code> is registered with DI. Once registered, <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.addhttpmessagehandler" data-linktype="absolute-path">AddHttpMessageHandler</a> can be called, passing in the type for the handler.</p>
+<p>Multiple handlers can be registered in the order that they should execute. Each handler wraps the next handler until the final <code>HttpClientHandler</code> executes the request:</p>
+<pre><code class="lang-csharp">services.AddTransient&lt;SecureRequestHandler&gt;();
+services.AddTransient&lt;RequestDataHandler&gt;();
+
+services.AddHttpClient(&quot;clientwithhandlers&quot;)
+    // This handler is on the outside and called first during the 
+    // request, last during the response.
+    .AddHttpMessageHandler&lt;SecureRequestHandler&gt;()
+    // This handler is on the inside, closest to the request being 
+    // sent.
+    .AddHttpMessageHandler&lt;RequestDataHandler&gt;();
+</code></pre><h3 id="use-di-in-outgoing-request-middleware">Use DI in outgoing request middleware</h3>
+<p>When <code>IHttpClientFactory</code> creates a new delegating handler, it uses DI to fulfill the handler's constructor parameters. <code>IHttpClientFactory</code> creates a <strong>separate</strong> DI scope for each handler, which can lead to surprising behavior when a handler consumes a <em>scoped</em> service.</p>
+<p>For example, consider the following interface and its implementation, which represents a task as an operation with an identifier, <code>OperationId</code>:</p>
+<pre><code class="lang-csharp">public interface IOperationScoped 
+{
+    string OperationId { get; }
+}
+
+public class OperationScoped : IOperationScoped
+{
+    public string OperationId { get; } = Guid.NewGuid().ToString()[^4..];
+}
+</code></pre>
+<p>As its name suggests, <code>IOperationScoped</code> is registered with DI using a <em>scoped</em> lifetime:</p>
+<pre><code class="lang-csharp" highlight-lines="18,26">public void ConfigureServices(IServiceCollection services)
+{
+    services.AddDbContext&lt;TodoContext&gt;(options =&gt;
+        options.UseInMemoryDatabase(&quot;TodoItems&quot;));
+
+    services.AddHttpContextAccessor();
+
+    services.AddHttpClient&lt;TodoClient&gt;((sp, httpClient) =&gt;
+    {
+        var httpRequest = sp.GetRequiredService&lt;IHttpContextAccessor&gt;().HttpContext.Request;
+
+        // For sample purposes, assume TodoClient is used in the context of an incoming request.
+        httpClient.BaseAddress = new Uri(UriHelper.BuildAbsolute(httpRequest.Scheme,
+                                         httpRequest.Host, httpRequest.PathBase));
+        httpClient.Timeout = TimeSpan.FromSeconds(5);
+    });
+
+    services.AddScoped&lt;IOperationScoped, OperationScoped&gt;();
+    
+    services.AddTransient&lt;OperationHandler&gt;();
+    services.AddTransient&lt;OperationResponseHandler&gt;();
+
+    services.AddHttpClient(&quot;Operation&quot;)
+        .AddHttpMessageHandler&lt;OperationHandler&gt;()
+        .AddHttpMessageHandler&lt;OperationResponseHandler&gt;()
+        .SetHandlerLifetime(TimeSpan.FromSeconds(5));
+
+    services.AddControllers();
+    services.AddRazorPages();
+}
+</code></pre>
+<p>The following delegating handler consumes and uses <code>IOperationScoped</code> to set the <code>X-OPERATION-ID</code> header for the outgoing request:</p>
+<pre><code class="lang-csharp" highlight-lines="13">public class OperationHandler : DelegatingHandler
+{
+    private readonly IOperationScoped _operationService;
+
+    public OperationHandler(IOperationScoped operationScoped)
+    {
+        _operationService = operationScoped;
+    }
+
+    protected async override Task&lt;HttpResponseMessage&gt; SendAsync(
+        HttpRequestMessage request, CancellationToken cancellationToken)
+    {
+        request.Headers.Add(&quot;X-OPERATION-ID&quot;, _operationService.OperationId);
+
+        return await base.SendAsync(request, cancellationToken);
+    }
+}
+</code></pre>
+<p>In the <a href="https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples/3.x/HttpRequestsSample" data-linktype="external"><code>HttpRequestsSample</code> download</a>], navigate to <code>/Operation</code> and refresh the page. The request scope value changes for each request, but the handler scope value only changes every 5 seconds.</p>
+<p>Handlers can depend upon services of any scope. Services that handlers depend upon are disposed when the handler is disposed.</p>
+<p>Use one of the following approaches to share per-request state with message handlers:</p>
+<ul>
+<li>Pass data into the handler using <a href="/en-us/dotnet/api/system.net.http.httprequestmessage.properties#System_Net_Http_HttpRequestMessage_Properties" data-linktype="absolute-path">HttpRequestMessage.Properties</a>.</li>
+<li>Use <a href="/en-us/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor" data-linktype="absolute-path">IHttpContextAccessor</a> to access the current request.</li>
+<li>Create a custom <a href="/en-us/dotnet/api/system.threading.asynclocal-1" data-linktype="absolute-path">AsyncLocal&lt;T&gt;</a> storage object to pass the data.</li>
+</ul>
+<h2 id="use-polly-based-handlers">Use Polly-based handlers</h2>
+<p><code>IHttpClientFactory</code> integrates with the third-party library <a href="https://github.com/App-vNext/Polly" data-linktype="external">Polly</a>. Polly is a comprehensive resilience and transient fault-handling library for .NET. It allows developers to express policies such as Retry, Circuit Breaker, Timeout, Bulkhead Isolation, and Fallback in a fluent and thread-safe manner.</p>
+<p>Extension methods are provided to enable the use of Polly policies with configured <code>HttpClient</code> instances. The Polly extensions support adding Polly-based handlers to clients. Polly requires the <a href="https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/" data-linktype="external">Microsoft.Extensions.Http.Polly</a> NuGet package.</p>
+<h3 id="handle-transient-faults">Handle transient faults</h3>
+<p>Faults typically occur when external HTTP calls are transient. <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.pollyhttpclientbuilderextensions.addtransienthttperrorpolicy" data-linktype="absolute-path">AddTransientHttpErrorPolicy</a> allows a policy to be defined to handle transient errors. Policies configured with <code>AddTransientHttpErrorPolicy</code> handle the following responses:</p>
+<ul>
+<li><a href="/en-us/dotnet/api/system.net.http.httprequestexception" data-linktype="absolute-path">HttpRequestException</a></li>
+<li>HTTP 5xx</li>
+<li>HTTP 408</li>
+</ul>
+<p><code>AddTransientHttpErrorPolicy</code> provides access to a <code>PolicyBuilder</code> object configured to handle errors representing a possible transient fault:</p>
+<pre><code class="lang-csharp">public void ConfigureServices(IServiceCollection services)
+{           
+    services.AddHttpClient&lt;UnreliableEndpointCallerService&gt;()
+        .AddTransientHttpErrorPolicy(p =&gt; 
+            p.WaitAndRetryAsync(3, _ =&gt; TimeSpan.FromMilliseconds(600)));
+
+    // Remaining code deleted for brevity.
+</code></pre>
+<p>In the preceding code, a <code>WaitAndRetryAsync</code> policy is defined. Failed requests are retried up to three times with a delay of 600 ms between attempts.</p>
+<h3 id="dynamically-select-policies">Dynamically select policies</h3>
+<p>Extension methods are provided to add Polly-based handlers, for example, <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.pollyhttpclientbuilderextensions.addpolicyhandler" data-linktype="absolute-path">AddPolicyHandler</a>. The following <code>AddPolicyHandler</code> overload inspects the request to decide which policy to apply:</p>
+<pre><code class="lang-csharp">var timeout = Policy.TimeoutAsync&lt;HttpResponseMessage&gt;(
+    TimeSpan.FromSeconds(10));
+var longTimeout = Policy.TimeoutAsync&lt;HttpResponseMessage&gt;(
+    TimeSpan.FromSeconds(30));
+
+services.AddHttpClient(&quot;conditionalpolicy&quot;)
+// Run some code to select a policy based on the request
+    .AddPolicyHandler(request =&gt; 
+        request.Method == HttpMethod.Get ? timeout : longTimeout);
+</code></pre>
+<p>In the preceding code, if the outgoing request is an HTTP GET, a 10-second timeout is applied. For any other HTTP method, a 30-second timeout is used.</p>
+<h3 id="add-multiple-polly-handlers">Add multiple Polly handlers</h3>
+<p>It's common to nest Polly policies:</p>
+<pre><code class="lang-csharp">services.AddHttpClient(&quot;multiplepolicies&quot;)
+    .AddTransientHttpErrorPolicy(p =&gt; p.RetryAsync(3))
+    .AddTransientHttpErrorPolicy(
+        p =&gt; p.CircuitBreakerAsync(5, TimeSpan.FromSeconds(30)));
+</code></pre>
+<p>In the preceding example:</p>
+<ul>
+<li>Two handlers are added.</li>
+<li>The first handler uses <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.pollyhttpclientbuilderextensions.addtransienthttperrorpolicy" data-linktype="absolute-path">AddTransientHttpErrorPolicy</a> to add a retry policy. Failed requests are retried up to three times.</li>
+<li>The second <code>AddTransientHttpErrorPolicy</code> call adds a circuit breaker policy. Further external requests are blocked for 30 seconds if 5 failed attempts occur sequentially. Circuit breaker policies are stateful. All calls through this client share the same circuit state.</li>
+</ul>
+<h3 id="add-policies-from-the-polly-registry">Add policies from the Polly registry</h3>
+<p>An approach to managing regularly used policies is to define them once and register them with a <code>PolicyRegistry</code>.</p>
+<p>In the following code:</p>
+<ul>
+<li>The &quot;regular&quot; and &quot;long&quot; policies are added.</li>
+<li><a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.pollyhttpclientbuilderextensions.addpolicyhandlerfromregistry" data-linktype="absolute-path">AddPolicyHandlerFromRegistry</a> adds the &quot;regular&quot; and &quot;long&quot; policies from the registry.</li>
+</ul>
+<pre><code class="lang-csharp">public void ConfigureServices(IServiceCollection services)
+{           
+    var timeout = Policy.TimeoutAsync&lt;HttpResponseMessage&gt;(
+        TimeSpan.FromSeconds(10));
+    var longTimeout = Policy.TimeoutAsync&lt;HttpResponseMessage&gt;(
+        TimeSpan.FromSeconds(30));
+    
+    var registry = services.AddPolicyRegistry();
+
+    registry.Add(&quot;regular&quot;, timeout);
+    registry.Add(&quot;long&quot;, longTimeout);
+    
+    services.AddHttpClient(&quot;regularTimeoutHandler&quot;)
+        .AddPolicyHandlerFromRegistry(&quot;regular&quot;);
+
+    services.AddHttpClient(&quot;longTimeoutHandler&quot;)
+       .AddPolicyHandlerFromRegistry(&quot;long&quot;);
+
+    // Remaining code deleted for brevity.
+</code></pre>
+<p>For more information on <code>IHttpClientFactory</code> and Polly integrations, see the <a href="https://github.com/App-vNext/Polly/wiki/Polly-and-HttpClientFactory" data-linktype="external">Polly wiki</a>.</p>
+<h2 id="httpclient-and-lifetime-management">HttpClient and lifetime management</h2>
+<p>A new <code>HttpClient</code> instance is returned each time <code>CreateClient</code> is called on the <code>IHttpClientFactory</code>. An <a href="/en-us/dotnet/api/system.net.http.httpmessagehandler" data-linktype="absolute-path">HttpMessageHandler</a> is created per named client. The factory manages the lifetimes of the <code>HttpMessageHandler</code> instances.</p>
+<p><code>IHttpClientFactory</code> pools the <code>HttpMessageHandler</code> instances created by the factory to reduce resource consumption. An <code>HttpMessageHandler</code> instance may be reused from the pool when creating a new <code>HttpClient</code> instance if its lifetime hasn't expired.</p>
+<p>Pooling of handlers is desirable as each handler typically manages its own underlying HTTP connections. Creating more handlers than necessary can result in connection delays. Some handlers also keep connections open indefinitely, which can prevent the handler from reacting to DNS (Domain Name System) changes.</p>
+<p>The default handler lifetime is two minutes. The default value can be overridden on a per named client basis:</p>
+<pre><code class="lang-csharp">public void ConfigureServices(IServiceCollection services)
+{           
+    services.AddHttpClient(&quot;extendedhandlerlifetime&quot;)
+        .SetHandlerLifetime(TimeSpan.FromMinutes(5));
+
+    // Remaining code deleted for brevity.
+</code></pre>
+<p><code>HttpClient</code> instances can generally be treated as .NET objects <strong>not</strong> requiring disposal. Disposal cancels outgoing requests and guarantees the given <code>HttpClient</code> instance can't be used after calling <a href="/en-us/dotnet/api/system.idisposable.dispose" data-linktype="absolute-path">Dispose</a>. <code>IHttpClientFactory</code> tracks and disposes resources used by <code>HttpClient</code> instances.</p>
+<p>Keeping a single <code>HttpClient</code> instance alive for a long duration is a common pattern used before the inception of <code>IHttpClientFactory</code>. This pattern becomes unnecessary after migrating to <code>IHttpClientFactory</code>.</p>
+<h3 id="alternatives-to-ihttpclientfactory">Alternatives to IHttpClientFactory</h3>
+<p>Using <code>IHttpClientFactory</code> in a DI-enabled app avoids:</p>
+<ul>
+<li>Resource exhaustion problems by pooling <code>HttpMessageHandler</code> instances.</li>
+<li>Stale DNS problems by cycling <code>HttpMessageHandler</code> instances at regular intervals.</li>
+</ul>
+<p>There are alternative ways to solve the preceding problems using a long-lived <a href="/en-us/dotnet/api/system.net.http.socketshttphandler" data-linktype="absolute-path">SocketsHttpHandler</a> instance.</p>
+<ul>
+<li>Create an instance of <code>SocketsHttpHandler</code> when the app starts and use it for the life of the app.</li>
+<li>Configure <a href="/en-us/dotnet/api/system.net.http.socketshttphandler.pooledconnectionlifetime#System_Net_Http_SocketsHttpHandler_PooledConnectionLifetime" data-linktype="absolute-path">PooledConnectionLifetime</a> to an appropriate value based on DNS refresh times.</li>
+<li>Create <code>HttpClient</code> instances using <code>new HttpClient(handler, disposeHandler: false)</code> as needed.</li>
+</ul>
+<p>The preceding approaches solve the resource management problems that <code>IHttpClientFactory</code> solves in a similar way.</p>
+<ul>
+<li>The <code>SocketsHttpHandler</code> shares connections across <code>HttpClient</code> instances. This sharing prevents socket exhaustion.</li>
+<li>The <code>SocketsHttpHandler</code> cycles connections according to <code>PooledConnectionLifetime</code> to avoid stale DNS problems.</li>
+</ul>
+<h3 id="cookies">Cookies</h3>
+<p>The pooled <code>HttpMessageHandler</code> instances results in <code>CookieContainer</code> objects being shared. Unanticipated <code>CookieContainer</code> object sharing often results in incorrect code. For apps that require cookies, consider either:</p>
+<ul>
+<li>Disabling automatic cookie handling</li>
+<li>Avoiding <code>IHttpClientFactory</code></li>
+</ul>
+<p>Call <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.configureprimaryhttpmessagehandler" data-linktype="absolute-path">ConfigurePrimaryHttpMessageHandler</a> to disable automatic cookie handling:</p>
+<pre><code class="lang-csharp">services.AddHttpClient(&quot;configured-disable-automatic-cookies&quot;)
+    .ConfigurePrimaryHttpMessageHandler(() =&gt;
+    {
+        return new HttpClientHandler()
+        {
+            UseCookies = false,
+        };
+    });
+</code></pre><h2 id="logging">Logging</h2>
+<p>Clients created via <code>IHttpClientFactory</code> record log messages for all requests. Enable the appropriate information level in the logging configuration to see the default log messages. Additional logging, such as the logging of request headers, is only included at trace level.</p>
+<p>The log category used for each client includes the name of the client. A client named <em>MyNamedClient</em>, for example, logs messages with a category of &quot;System.Net.Http.HttpClient.<strong>MyNamedClient</strong>.LogicalHandler&quot;. Messages suffixed with <em>LogicalHandler</em> occur outside the request handler pipeline. On the request, messages are logged before any other handlers in the pipeline have processed it. On the response, messages are logged after any other pipeline handlers have received the response.</p>
+<p>Logging also occurs inside the request handler pipeline. In the <em>MyNamedClient</em> example, those messages are logged with the log category &quot;System.Net.Http.HttpClient.<strong>MyNamedClient</strong>.ClientHandler&quot;. For the request, this occurs after all other handlers have run and immediately before the request is sent. On the response, this logging includes the state of the response before it passes back through the handler pipeline.</p>
+<p>Enabling logging outside and inside the pipeline enables inspection of the changes made by the other pipeline handlers. This may include changes to request headers or to the response status code.</p>
+<p>Including the name of the client in the log category enables log filtering for specific named clients.</p>
+<h2 id="configure-the-httpmessagehandler">Configure the HttpMessageHandler</h2>
+<p>It may be necessary to control the configuration of the inner <code>HttpMessageHandler</code> used by a client.</p>
+<p>An <code>IHttpClientBuilder</code> is returned when adding named or typed clients. The <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.configureprimaryhttpmessagehandler" data-linktype="absolute-path">ConfigurePrimaryHttpMessageHandler</a> extension method can be used to define a delegate. The delegate is used to create and configure the primary <code>HttpMessageHandler</code> used by that client:</p>
+<pre><code class="lang-csharp">public void ConfigureServices(IServiceCollection services)
+{            
+    services.AddHttpClient(&quot;configured-inner-handler&quot;)
+        .ConfigurePrimaryHttpMessageHandler(() =&gt;
+        {
+            return new HttpClientHandler()
+            {
+                AllowAutoRedirect = false,
+                UseDefaultCredentials = true
+            };
+        });
+
+    // Remaining code deleted for brevity.
+</code></pre><h2 id="use-ihttpclientfactory-in-a-console-app">Use IHttpClientFactory in a console app</h2>
+<p>In a console app, add the following package references to the project:</p>
+<ul>
+<li><a href="https://www.nuget.org/packages/Microsoft.Extensions.Hosting" data-linktype="external">Microsoft.Extensions.Hosting</a></li>
+<li><a href="https://www.nuget.org/packages/Microsoft.Extensions.Http" data-linktype="external">Microsoft.Extensions.Http</a></li>
+</ul>
+<p>In the following example:</p>
+<ul>
+<li><a href="/en-us/dotnet/api/system.net.http.ihttpclientfactory" data-linktype="absolute-path">IHttpClientFactory</a> is registered in the <a href="host/generic-host?view=aspnetcore-2.2" data-linktype="relative-path">Generic Host's</a> service container.</li>
+<li><code>MyService</code> creates a client factory instance from the service, which is used to create an <code>HttpClient</code>. <code>HttpClient</code> is used to retrieve a webpage.</li>
+<li><code>Main</code> creates a scope to execute the service's <code>GetPage</code> method and write the first 500 characters of the webpage content to the console.</li>
+</ul>
+<pre><code class="lang-csharp" highlight-lines="14-15,20,26-27,59-62">using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+class Program
+{
+    static async Task&lt;int&gt; Main(string[] args)
+    {
+        var builder = new HostBuilder()
+            .ConfigureServices((hostContext, services) =&gt;
+            {
+                services.AddHttpClient();
+                services.AddTransient&lt;IMyService, MyService&gt;();
+            }).UseConsoleLifetime();
+
+        var host = builder.Build();
+
+        using (var serviceScope = host.Services.CreateScope())
+        {
+            var services = serviceScope.ServiceProvider;
+
+            try
+            {
+                var myService = services.GetRequiredService&lt;IMyService&gt;();
+                var pageContent = await myService.GetPage();
+
+                Console.WriteLine(pageContent.Substring(0, 500));
+            }
+            catch (Exception ex)
+            {
+                var logger = services.GetRequiredService&lt;ILogger&lt;Program&gt;&gt;();
+
+                logger.LogError(ex, &quot;An error occurred.&quot;);
+            }
+        }
+
+        return 0;
+    }
+
+    public interface IMyService
+    {
+        Task&lt;string&gt; GetPage();
+    }
+
+    public class MyService : IMyService
+    {
+        private readonly IHttpClientFactory _clientFactory;
+
+        public MyService(IHttpClientFactory clientFactory)
+        {
+            _clientFactory = clientFactory;
+        }
+
+        public async Task&lt;string&gt; GetPage()
+        {
+            // Content from BBC One: Dr. Who website (©BBC)
+            var request = new HttpRequestMessage(HttpMethod.Get,
+                &quot;https://www.bbc.co.uk/programmes/b006q2x0&quot;);
+            var client = _clientFactory.CreateClient();
+            var response = await client.SendAsync(request);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadAsStringAsync();
+            }
+            else
+            {
+                return $&quot;StatusCode: {response.StatusCode}&quot;;
+            }
+        }
+    }
+}
+</code></pre><h2 id="header-propagation-middleware">Header propagation middleware</h2>
+<p>Header propagation is an ASP.NET Core middleware to propagate HTTP headers from the incoming request to the outgoing HTTP Client requests. To use header propagation:</p>
+<ul>
+<li><p>Reference the <a href="https://www.nuget.org/packages/Microsoft.AspNetCore.HeaderPropagation" data-linktype="external">Microsoft.AspNetCore.HeaderPropagation</a> package.</p>
+</li>
+<li><p>Configure the middleware and <code>HttpClient</code> in <code>Startup</code>:</p>
+<pre><code class="lang-csharp" highlight-lines="5-9,21">public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
+
+    services.AddHttpClient(&quot;MyForwardingClient&quot;).AddHeaderPropagation();
+    services.AddHeaderPropagation(options =&gt;
+    {
+        options.Headers.Add(&quot;X-TraceId&quot;);
+    });
+}
+
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    if (env.IsDevelopment())
+    {
+        app.UseDeveloperExceptionPage();
+    }
+
+    app.UseHttpsRedirection();
+
+    app.UseHeaderPropagation();
+
+    app.UseRouting();
+
+    app.UseAuthorization();
+
+    app.UseEndpoints(endpoints =&gt;
+    {
+        endpoints.MapControllers();
+    });
+}
+</code></pre></li>
+<li><p>The client includes the configured headers on outbound requests:</p>
+<pre><code class="lang-csharp">var client = clientFactory.CreateClient(&quot;MyForwardingClient&quot;);
+var response = client.GetAsync(...);
+</code></pre>
+</li>
+</ul>
+<h2 id="additional-resources">Additional resources</h2>
+<ul>
+<li><a href="/en-us/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests" data-linktype="absolute-path">Use HttpClientFactory to implement resilient HTTP requests</a></li>
+<li><a href="/en-us/dotnet/standard/microservices-architecture/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly" data-linktype="absolute-path">Implement HTTP call retries with exponential backoff with HttpClientFactory and Polly policies</a></li>
+<li><a href="/en-us/dotnet/standard/microservices-architecture/implement-resilient-applications/implement-circuit-breaker-pattern" data-linktype="absolute-path">Implement the Circuit Breaker pattern</a></li>
+<li><a href="/en-us/dotnet/standard/serialization/system-text-json-how-to" data-linktype="absolute-path">How to serialize and deserialize JSON in .NET</a></li>
+</ul>
+</div>
+<div data-moniker="aspnetcore-2.2">
+<p>By <a href="https://github.com/glennc" data-linktype="external">Glenn Condron</a>, <a href="https://github.com/rynowak" data-linktype="external">Ryan Nowak</a>, and <a href="https://github.com/stevejgordon" data-linktype="external">Steve Gordon</a></p>
+<p>An <a href="/en-us/dotnet/api/system.net.http.ihttpclientfactory" data-linktype="absolute-path">IHttpClientFactory</a> can be registered and used to configure and create <a href="/en-us/dotnet/api/system.net.http.httpclient" data-linktype="absolute-path">HttpClient</a> instances in an app. It offers the following benefits:</p>
+<ul>
+<li>Provides a central location for naming and configuring logical <code>HttpClient</code> instances. For example, a <em>github</em> client can be registered and configured to access <a href="https://github.com/" data-linktype="external">GitHub</a>. A default client can be registered for other purposes.</li>
+<li>Codifies the concept of outgoing middleware via delegating handlers in <code>HttpClient</code> and provides extensions for Polly-based middleware to take advantage of that.</li>
+<li>Manages the pooling and lifetime of underlying <code>HttpClientMessageHandler</code> instances to avoid common DNS problems that occur when manually managing <code>HttpClient</code> lifetimes.</li>
+<li>Adds a configurable logging experience (via <code>ILogger</code>) for all requests sent through clients created by the factory.</li>
+</ul>
+<p><a href="https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples" data-linktype="external">View or download sample code</a> (<a href="../introduction-to-aspnet-core?view=aspnetcore-2.2#how-to-download-a-sample" data-linktype="relative-path">how to download</a>)</p>
+<h2 id="consumption-patterns-1">Consumption patterns</h2>
+<p>There are several ways <code>IHttpClientFactory</code> can be used in an app:</p>
+<ul>
+<li><a href="#basic-usage" data-linktype="self-bookmark">Basic usage</a></li>
+<li><a href="#named-clients" data-linktype="self-bookmark">Named clients</a></li>
+<li><a href="#typed-clients" data-linktype="self-bookmark">Typed clients</a></li>
+<li><a href="#generated-clients" data-linktype="self-bookmark">Generated clients</a></li>
+</ul>
+<p>None of them are strictly superior to another. The best approach depends upon the app's constraints.</p>
+<h3 id="basic-usage-1">Basic usage</h3>
+<p>The <code>IHttpClientFactory</code> can be registered by calling the <code>AddHttpClient</code> extension method on the <code>IServiceCollection</code>, inside the <code>Startup.ConfigureServices</code> method.</p>
+<pre><code class="lang-csharp">services.AddHttpClient();
+</code></pre>
+<p>Once registered, code can accept an <code>IHttpClientFactory</code> anywhere services can be injected with <a href="dependency-injection?view=aspnetcore-2.2" data-linktype="relative-path">dependency injection (DI)</a>. The <code>IHttpClientFactory</code> can be used to create an <code>HttpClient</code> instance:</p>
+<pre><code class="lang-csharp" highlight-lines="9-12,21">public class BasicUsageModel : PageModel
+{
+    private readonly IHttpClientFactory _clientFactory;
+
+    public IEnumerable&lt;GitHubBranch&gt; Branches { get; private set; }
+
+    public bool GetBranchesError { get; private set; }
+
+    public BasicUsageModel(IHttpClientFactory clientFactory)
+    {
+        _clientFactory = clientFactory;
+    }
+
+    public async Task OnGet()
+    {
+        var request = new HttpRequestMessage(HttpMethod.Get, 
+            &quot;https://api.github.com/repos/aspnet/AspNetCore.Docs/branches&quot;);
+        request.Headers.Add(&quot;Accept&quot;, &quot;application/vnd.github.v3+json&quot;);
+        request.Headers.Add(&quot;User-Agent&quot;, &quot;HttpClientFactory-Sample&quot;);
+
+        var client = _clientFactory.CreateClient();
+
+        var response = await client.SendAsync(request);
+
+        if (response.IsSuccessStatusCode)
+        {
+            Branches = await response.Content
+                .ReadAsAsync&lt;IEnumerable&lt;GitHubBranch&gt;&gt;();
+        }
+        else
+        {
+            GetBranchesError = true;
+            Branches = Array.Empty&lt;GitHubBranch&gt;();
+        }                               
+    }
+}
+</code></pre>
+<p>Using <code>IHttpClientFactory</code> in this fashion is a good way to refactor an existing app. It has no impact on the way <code>HttpClient</code> is used. In places where <code>HttpClient</code> instances are currently created, replace those occurrences with a call to <a href="/en-us/dotnet/api/system.net.http.ihttpclientfactory.createclient" data-linktype="absolute-path">CreateClient</a>.</p>
+<h3 id="named-clients-1">Named clients</h3>
+<p>If an app requires many distinct uses of <code>HttpClient</code>, each with a different configuration, an option is to use <strong>named clients</strong>. Configuration for a named <code>HttpClient</code> can be specified during registration in <code>Startup.ConfigureServices</code>.</p>
+<pre><code class="lang-csharp">services.AddHttpClient(&quot;github&quot;, c =&gt;
+{
+    c.BaseAddress = new Uri(&quot;https://api.github.com/&quot;);
+    // Github API versioning
+    c.DefaultRequestHeaders.Add(&quot;Accept&quot;, &quot;application/vnd.github.v3+json&quot;);
+    // Github requires a user-agent
+    c.DefaultRequestHeaders.Add(&quot;User-Agent&quot;, &quot;HttpClientFactory-Sample&quot;);
+});
+</code></pre>
+<p>In the preceding code, <code>AddHttpClient</code> is called, providing the name <em>github</em>. This client has some default configuration applied—namely the base address and two headers required to work with the GitHub API.</p>
+<p>Each time <code>CreateClient</code> is called, a new instance of <code>HttpClient</code> is created and the configuration action is called.</p>
+<p>To consume a named client, a string parameter can be passed to <code>CreateClient</code>. Specify the name of the client to be created:</p>
+<pre><code class="lang-csharp" highlight-lines="21">public class NamedClientModel : PageModel
+{
+    private readonly IHttpClientFactory _clientFactory;
+
+    public IEnumerable&lt;GitHubPullRequest&gt; PullRequests { get; private set; }
+
+    public bool GetPullRequestsError { get; private set; }
+
+    public bool HasPullRequests =&gt; PullRequests.Any();
+
+    public NamedClientModel(IHttpClientFactory clientFactory)
+    {
+        _clientFactory = clientFactory;
+    }
+
+    public async Task OnGet()
+    {
+        var request = new HttpRequestMessage(HttpMethod.Get, 
+            &quot;repos/aspnet/AspNetCore.Docs/pulls&quot;);
+
+        var client = _clientFactory.CreateClient(&quot;github&quot;);
+
+        var response = await client.SendAsync(request);
+
+        if (response.IsSuccessStatusCode)
+        {
+            PullRequests = await response.Content
+                .ReadAsAsync&lt;IEnumerable&lt;GitHubPullRequest&gt;&gt;();
+        }
+        else
+        {
+            GetPullRequestsError = true;
+            PullRequests = Array.Empty&lt;GitHubPullRequest&gt;();
+        }
+    }
+}
+</code></pre>
+<p>In the preceding code, the request doesn't need to specify a hostname. It can pass just the path, since the base address configured for the client is used.</p>
+<h3 id="typed-clients-1">Typed clients</h3>
+<p>Typed clients:</p>
+<ul>
+<li>Provide the same capabilities as named clients without the need to use strings as keys.</li>
+<li>Provides IntelliSense and compiler help when consuming clients.</li>
+<li>Provide a single location to configure and interact with a particular <code>HttpClient</code>. For example, a single typed client might be used for a single backend endpoint and encapsulate all logic dealing with that endpoint.</li>
+<li>Work with DI and can be injected where required in your app.</li>
+</ul>
+<p>A typed client accepts an <code>HttpClient</code> parameter in its constructor:</p>
+<pre><code class="lang-csharp" highlight-lines="5">public class GitHubService
+{
+    public HttpClient Client { get; }
+
+    public GitHubService(HttpClient client)
+    {
+        client.BaseAddress = new Uri(&quot;https://api.github.com/&quot;);
+        // GitHub API versioning
+        client.DefaultRequestHeaders.Add(&quot;Accept&quot;, 
+            &quot;application/vnd.github.v3+json&quot;);
+        // GitHub requires a user-agent
+        client.DefaultRequestHeaders.Add(&quot;User-Agent&quot;, 
+            &quot;HttpClientFactory-Sample&quot;);
+
+        Client = client;
+    }
+
+    public async Task&lt;IEnumerable&lt;GitHubIssue&gt;&gt; GetAspNetDocsIssues()
+    {
+        var response = await Client.GetAsync(
+            &quot;/repos/aspnet/AspNetCore.Docs/issues?state=open&amp;sort=created&amp;direction=desc&quot;);
+
+        response.EnsureSuccessStatusCode();
+
+        var result = await response.Content
+            .ReadAsAsync&lt;IEnumerable&lt;GitHubIssue&gt;&gt;();
+
+        return result;
+    }
+}
+</code></pre>
+<p>In the preceding code, the configuration is moved into the typed client. The <code>HttpClient</code> object is exposed as a public property. It's possible to define API-specific methods that expose <code>HttpClient</code> functionality. The <code>GetAspNetDocsIssues</code> method encapsulates the code needed to query for and parse out the latest open issues from a GitHub repository.</p>
+<p>To register a typed client, the generic <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.httpclientfactoryservicecollectionextensions.addhttpclient" data-linktype="absolute-path">AddHttpClient</a> extension method can be used within <code>Startup.ConfigureServices</code>, specifying the typed client class:</p>
+<pre><code class="lang-csharp">services.AddHttpClient&lt;GitHubService&gt;();
+</code></pre>
+<p>The typed client is registered as transient with DI. The typed client can be injected and consumed directly:</p>
+<pre><code class="lang-csharp" highlight-lines="11-14,20">public class TypedClientModel : PageModel
+{
+    private readonly GitHubService _gitHubService;
+
+    public IEnumerable&lt;GitHubIssue&gt; LatestIssues { get; private set; }
+
+    public bool HasIssue =&gt; LatestIssues.Any();
+
+    public bool GetIssuesError { get; private set; }
+
+    public TypedClientModel(GitHubService gitHubService)
+    {
+        _gitHubService = gitHubService;
+    }
+
+    public async Task OnGet()
+    {
+        try
+        {
+            LatestIssues = await _gitHubService.GetAspNetDocsIssues();
+        }
+        catch(HttpRequestException)
+        {
+            GetIssuesError = true;
+            LatestIssues = Array.Empty&lt;GitHubIssue&gt;();
+        }
+    }
+}
+</code></pre>
+<p>If preferred, the configuration for a typed client can be specified during registration in <code>Startup.ConfigureServices</code>, rather than in the typed client's constructor:</p>
+<pre><code class="lang-csharp">services.AddHttpClient&lt;RepoService&gt;(c =&gt;
+{
+    c.BaseAddress = new Uri(&quot;https://api.github.com/&quot;);
+    c.DefaultRequestHeaders.Add(&quot;Accept&quot;, &quot;application/vnd.github.v3+json&quot;);
+    c.DefaultRequestHeaders.Add(&quot;User-Agent&quot;, &quot;HttpClientFactory-Sample&quot;);
+});
+</code></pre>
+<p>It's possible to entirely encapsulate the <code>HttpClient</code> within a typed client. Rather than exposing it as a property, public methods can be provided which call the <code>HttpClient</code> instance internally.</p>
+<pre><code class="lang-csharp" highlight-lines="4">public class RepoService
+{
+    // _httpClient isn't exposed publicly
+    private readonly HttpClient _httpClient;
+
+    public RepoService(HttpClient client)
+    {
+        _httpClient = client;
+    }
+
+    public async Task&lt;IEnumerable&lt;string&gt;&gt; GetRepos()
+    {
+        var response = await _httpClient.GetAsync(&quot;aspnet/repos&quot;);
+
+        response.EnsureSuccessStatusCode();
+
+        var result = await response.Content
+            .ReadAsAsync&lt;IEnumerable&lt;string&gt;&gt;();
+
+        return result;
+    }
+}
+</code></pre>
+<p>In the preceding code, the <code>HttpClient</code> is stored as a private field. All access to make external calls goes through the <code>GetRepos</code> method.</p>
+<h3 id="generated-clients-1">Generated clients</h3>
+<p><code>IHttpClientFactory</code> can be used in combination with other third-party libraries such as <a href="https://github.com/paulcbetts/refit" data-linktype="external">Refit</a>. Refit is a REST library for .NET. It converts REST APIs into live interfaces. An implementation of the interface is generated dynamically by the <code>RestService</code>, using <code>HttpClient</code> to make the external HTTP calls.</p>
+<p>An interface and a reply are defined to represent the external API and its response:</p>
+<pre><code class="lang-csharp">public interface IHelloClient
+{
+    [Get(&quot;/helloworld&quot;)]
+    Task&lt;Reply&gt; GetMessageAsync();
+}
+
+public class Reply
+{
+    public string Message { get; set; }
+}
+</code></pre>
+<p>A typed client can be added, using Refit to generate the implementation:</p>
+<pre><code class="lang-csharp">public void ConfigureServices(IServiceCollection services)
+{
+    services.AddHttpClient(&quot;hello&quot;, c =&gt;
+    {
+        c.BaseAddress = new Uri(&quot;https://localhost:5001&quot;);
+    })
+    .AddTypedClient(c =&gt; Refit.RestService.For&lt;IHelloClient&gt;(c));
+
+    services.AddMvc();
+}
+</code></pre>
+<p>The defined interface can be consumed where necessary, with the implementation provided by DI and Refit:</p>
+<pre><code class="lang-csharp">[ApiController]
+public class ValuesController : ControllerBase
+{
+    private readonly IHelloClient _client;
+
+    public ValuesController(IHelloClient client)
+    {
+        _client = client;
+    }
+
+    [HttpGet(&quot;/&quot;)]
+    public async Task&lt;ActionResult&lt;Reply&gt;&gt; Index()
+    {
+        return await _client.GetMessageAsync();
+    }
+}
+</code></pre>
+<h2 id="outgoing-request-middleware-1">Outgoing request middleware</h2>
+<p><code>HttpClient</code> already has the concept of delegating handlers that can be linked together for outgoing HTTP requests. The <code>IHttpClientFactory</code> makes it easy to define the handlers to apply for each named client. It supports registration and chaining of multiple handlers to build an outgoing request middleware pipeline. Each of these handlers is able to perform work before and after the outgoing request. This pattern is similar to the inbound middleware pipeline in ASP.NET Core. The pattern provides a mechanism to manage cross-cutting concerns around HTTP requests, including caching, error handling, serialization, and logging.</p>
+<p>To create a handler, define a class deriving from <a href="/en-us/dotnet/api/system.net.http.delegatinghandler" data-linktype="absolute-path">DelegatingHandler</a>. Override the <code>SendAsync</code> method to execute code before passing the request to the next handler in the pipeline:</p>
+<pre><code class="lang-csharp">public class ValidateHeaderHandler : DelegatingHandler
+{
+    protected override async Task&lt;HttpResponseMessage&gt; SendAsync(
+        HttpRequestMessage request,
+        CancellationToken cancellationToken)
+    {
+        if (!request.Headers.Contains(&quot;X-API-KEY&quot;))
+        {
+            return new HttpResponseMessage(HttpStatusCode.BadRequest)
+            {
+                Content = new StringContent(
+                    &quot;You must supply an API key header called X-API-KEY&quot;)
+            };
+        }
+
+        return await base.SendAsync(request, cancellationToken);
+    }
+}
+</code></pre>
+<p>The preceding code defines a basic handler. It checks to see if an <code>X-API-KEY</code> header has been included on the request. If the header is missing, it can avoid the HTTP call and return a suitable response.</p>
+<p>During registration, one or more handlers can be added to the configuration for an <code>HttpClient</code>. This task is accomplished via extension methods on the <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.ihttpclientbuilder" data-linktype="absolute-path">IHttpClientBuilder</a>.</p>
+<pre><code class="lang-csharp">services.AddTransient&lt;ValidateHeaderHandler&gt;();
+
+services.AddHttpClient(&quot;externalservice&quot;, c =&gt;
+{
+    // Assume this is an &quot;external&quot; service which requires an API KEY
+    c.BaseAddress = new Uri(&quot;https://localhost:5000/&quot;);
+})
+.AddHttpMessageHandler&lt;ValidateHeaderHandler&gt;();
+</code></pre>
+<p>In the preceding code, the <code>ValidateHeaderHandler</code> is registered with DI. The <code>IHttpClientFactory</code> creates a separate DI scope for each handler. Handlers are free to depend upon services of any scope. Services that handlers depend upon are disposed when the handler is disposed.</p>
+<p>Once registered, <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.addhttpmessagehandler" data-linktype="absolute-path">AddHttpMessageHandler</a> can be called, passing in the type for the handler.</p>
+<p>Multiple handlers can be registered in the order that they should execute. Each handler wraps the next handler until the final <code>HttpClientHandler</code> executes the request:</p>
+<pre><code class="lang-csharp">services.AddTransient&lt;SecureRequestHandler&gt;();
+services.AddTransient&lt;RequestDataHandler&gt;();
+
+services.AddHttpClient(&quot;clientwithhandlers&quot;)
+    // This handler is on the outside and called first during the 
+    // request, last during the response.
+    .AddHttpMessageHandler&lt;SecureRequestHandler&gt;()
+    // This handler is on the inside, closest to the request being 
+    // sent.
+    .AddHttpMessageHandler&lt;RequestDataHandler&gt;();
+</code></pre>
+<p>Use one of the following approaches to share per-request state with message handlers:</p>
+<ul>
+<li>Pass data into the handler using <code>HttpRequestMessage.Properties</code>.</li>
+<li>Use <code>IHttpContextAccessor</code> to access the current request.</li>
+<li>Create a custom <code>AsyncLocal</code> storage object to pass the data.</li>
+</ul>
+<h2 id="use-polly-based-handlers-1">Use Polly-based handlers</h2>
+<p><code>IHttpClientFactory</code> integrates with a popular third-party library called <a href="https://github.com/App-vNext/Polly" data-linktype="external">Polly</a>. Polly is a comprehensive resilience and transient fault-handling library for .NET. It allows developers to express policies such as Retry, Circuit Breaker, Timeout, Bulkhead Isolation, and Fallback in a fluent and thread-safe manner.</p>
+<p>Extension methods are provided to enable the use of Polly policies with configured <code>HttpClient</code> instances. The Polly extensions:</p>
+<ul>
+<li>Support adding Polly-based handlers to clients.</li>
+<li>Can be used after installing the <a href="https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/" data-linktype="external">Microsoft.Extensions.Http.Polly</a> NuGet package. The package isn't included in the ASP.NET Core shared framework.</li>
+</ul>
+<h3 id="handle-transient-faults-1">Handle transient faults</h3>
+<p>Most common faults occur when external HTTP calls are transient. A convenient extension method called <code>AddTransientHttpErrorPolicy</code> is included which allows a policy to be defined to handle transient errors. Policies configured with this extension method handle <code>HttpRequestException</code>, HTTP 5xx responses, and HTTP 408 responses.</p>
+<p>The <code>AddTransientHttpErrorPolicy</code> extension can be used within <code>Startup.ConfigureServices</code>. The extension provides access to a <code>PolicyBuilder</code> object configured to handle errors representing a possible transient fault:</p>
+<pre><code class="lang-csharp">services.AddHttpClient&lt;UnreliableEndpointCallerService&gt;()
+    .AddTransientHttpErrorPolicy(p =&gt; 
+        p.WaitAndRetryAsync(3, _ =&gt; TimeSpan.FromMilliseconds(600)));
+</code></pre>
+<p>In the preceding code, a <code>WaitAndRetryAsync</code> policy is defined. Failed requests are retried up to three times with a delay of 600 ms between attempts.</p>
+<h3 id="dynamically-select-policies-1">Dynamically select policies</h3>
+<p>Additional extension methods exist which can be used to add Polly-based handlers. One such extension is <code>AddPolicyHandler</code>, which has multiple overloads. One overload allows the request to be inspected when defining which policy to apply:</p>
+<pre><code class="lang-csharp">var timeout = Policy.TimeoutAsync&lt;HttpResponseMessage&gt;(
+    TimeSpan.FromSeconds(10));
+var longTimeout = Policy.TimeoutAsync&lt;HttpResponseMessage&gt;(
+    TimeSpan.FromSeconds(30));
+
+services.AddHttpClient(&quot;conditionalpolicy&quot;)
+// Run some code to select a policy based on the request
+    .AddPolicyHandler(request =&gt; 
+        request.Method == HttpMethod.Get ? timeout : longTimeout);
+</code></pre>
+<p>In the preceding code, if the outgoing request is an HTTP GET, a 10-second timeout is applied. For any other HTTP method, a 30-second timeout is used.</p>
+<h3 id="add-multiple-polly-handlers-1">Add multiple Polly handlers</h3>
+<p>It's common to nest Polly policies to provide enhanced functionality:</p>
+<pre><code class="lang-csharp">services.AddHttpClient(&quot;multiplepolicies&quot;)
+    .AddTransientHttpErrorPolicy(p =&gt; p.RetryAsync(3))
+    .AddTransientHttpErrorPolicy(
+        p =&gt; p.CircuitBreakerAsync(5, TimeSpan.FromSeconds(30)));
+</code></pre>
+<p>In the preceding example, two handlers are added. The first uses the <code>AddTransientHttpErrorPolicy</code> extension to add a retry policy. Failed requests are retried up to three times. The second call to <code>AddTransientHttpErrorPolicy</code> adds a circuit breaker policy. Further external requests are blocked for 30 seconds if five failed attempts occur sequentially. Circuit breaker policies are stateful. All calls through this client share the same circuit state.</p>
+<h3 id="add-policies-from-the-polly-registry-1">Add policies from the Polly registry</h3>
+<p>An approach to managing regularly used policies is to define them once and register them with a <code>PolicyRegistry</code>. An extension method is provided which allows a handler to be added using a policy from the registry:</p>
+<pre><code class="lang-csharp">var registry = services.AddPolicyRegistry();
+
+registry.Add(&quot;regular&quot;, timeout);
+registry.Add(&quot;long&quot;, longTimeout);
+
+services.AddHttpClient(&quot;regulartimeouthandler&quot;)
+    .AddPolicyHandlerFromRegistry(&quot;regular&quot;);
+</code></pre>
+<p>In the preceding code, two policies are registered when the <code>PolicyRegistry</code> is added to the <code>ServiceCollection</code>. To use a policy from the registry, the <code>AddPolicyHandlerFromRegistry</code> method is used, passing the name of the policy to apply.</p>
+<p>Further information about <code>IHttpClientFactory</code> and Polly integrations can be found on the <a href="https://github.com/App-vNext/Polly/wiki/Polly-and-HttpClientFactory" data-linktype="external">Polly wiki</a>.</p>
+<h2 id="httpclient-and-lifetime-management-1">HttpClient and lifetime management</h2>
+<p>A new <code>HttpClient</code> instance is returned each time <code>CreateClient</code> is called on the <code>IHttpClientFactory</code>. There's an <a href="/en-us/dotnet/api/system.net.http.httpmessagehandler" data-linktype="absolute-path">HttpMessageHandler</a> per named client. The factory manages the lifetimes of the <code>HttpMessageHandler</code> instances.</p>
+<p><code>IHttpClientFactory</code> pools the <code>HttpMessageHandler</code> instances created by the factory to reduce resource consumption. An <code>HttpMessageHandler</code> instance may be reused from the pool when creating a new <code>HttpClient</code> instance if its lifetime hasn't expired.</p>
+<p>Pooling of handlers is desirable as each handler typically manages its own underlying HTTP connections. Creating more handlers than necessary can result in connection delays. Some handlers also keep connections open indefinitely, which can prevent the handler from reacting to DNS changes.</p>
+<p>The default handler lifetime is two minutes. The default value can be overridden on a per named client basis. To override it, call <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.sethandlerlifetime" data-linktype="absolute-path">SetHandlerLifetime</a> on the <code>IHttpClientBuilder</code> that is returned when creating the client:</p>
+<pre><code class="lang-csharp">services.AddHttpClient(&quot;extendedhandlerlifetime&quot;)
+    .SetHandlerLifetime(TimeSpan.FromMinutes(5));
+</code></pre>
+<p>Disposal of the client isn't required. Disposal cancels outgoing requests and guarantees the given <code>HttpClient</code> instance can't be used after calling <a href="/en-us/dotnet/api/system.idisposable.dispose" data-linktype="absolute-path">Dispose</a>. <code>IHttpClientFactory</code> tracks and disposes resources used by <code>HttpClient</code> instances. The <code>HttpClient</code> instances can generally be treated as .NET objects not requiring disposal.</p>
+<p>Keeping a single <code>HttpClient</code> instance alive for a long duration is a common pattern used before the inception of <code>IHttpClientFactory</code>. This pattern becomes unnecessary after migrating to <code>IHttpClientFactory</code>.</p>
+<h3 id="alternatives-to-ihttpclientfactory-1">Alternatives to IHttpClientFactory</h3>
+<p>Using <code>IHttpClientFactory</code> in a DI-enabled app avoids:</p>
+<ul>
+<li>Resource exhaustion problems by pooling <code>HttpMessageHandler</code> instances.</li>
+<li>Stale DNS problems by cycling <code>HttpMessageHandler</code> instances at regular intervals.</li>
+</ul>
+<p>There are alternative ways to solve the preceding problems using a long-lived <a href="/en-us/dotnet/api/system.net.http.socketshttphandler" data-linktype="absolute-path">SocketsHttpHandler</a> instance.</p>
+<ul>
+<li>Create an instance of <code>SocketsHttpHandler</code> when the app starts and use it for the life of the app.</li>
+<li>Configure <a href="/en-us/dotnet/api/system.net.http.socketshttphandler.pooledconnectionlifetime#System_Net_Http_SocketsHttpHandler_PooledConnectionLifetime" data-linktype="absolute-path">PooledConnectionLifetime</a> to an appropriate value based on DNS refresh times.</li>
+<li>Create <code>HttpClient</code> instances using <code>new HttpClient(handler, disposeHandler: false)</code> as needed.</li>
+</ul>
+<p>The preceding approaches solve the resource management problems that <code>IHttpClientFactory</code> solves in a similar way.</p>
+<ul>
+<li>The <code>SocketsHttpHandler</code> shares connections across <code>HttpClient</code> instances. This sharing prevents socket exhaustion.</li>
+<li>The <code>SocketsHttpHandler</code> cycles connections according to <code>PooledConnectionLifetime</code> to avoid stale DNS problems.</li>
+</ul>
+<h3 id="cookies-1">Cookies</h3>
+<p>The pooled <code>HttpMessageHandler</code> instances results in <code>CookieContainer</code> objects being shared. Unanticipated <code>CookieContainer</code> object sharing often results in incorrect code. For apps that require cookies, consider either:</p>
+<ul>
+<li>Disabling automatic cookie handling</li>
+<li>Avoiding <code>IHttpClientFactory</code></li>
+</ul>
+<p>Call <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.configureprimaryhttpmessagehandler" data-linktype="absolute-path">ConfigurePrimaryHttpMessageHandler</a> to disable automatic cookie handling:</p>
+<pre><code class="lang-csharp">services.AddHttpClient(&quot;configured-disable-automatic-cookies&quot;)
+    .ConfigurePrimaryHttpMessageHandler(() =&gt;
+    {
+        return new HttpClientHandler()
+        {
+            UseCookies = false,
+        };
+    });
+</code></pre><h2 id="logging-1">Logging</h2>
+<p>Clients created via <code>IHttpClientFactory</code> record log messages for all requests. Enable the appropriate information level in your logging configuration to see the default log messages. Additional logging, such as the logging of request headers, is only included at trace level.</p>
+<p>The log category used for each client includes the name of the client. A client named <em>MyNamedClient</em>, for example, logs messages with a category of <code>System.Net.Http.HttpClient.MyNamedClient.LogicalHandler</code>. Messages suffixed with <em>LogicalHandler</em> occur outside the request handler pipeline. On the request, messages are logged before any other handlers in the pipeline have processed it. On the response, messages are logged after any other pipeline handlers have received the response.</p>
+<p>Logging also occurs inside the request handler pipeline. In the <em>MyNamedClient</em> example, those messages are logged against the log category <code>System.Net.Http.HttpClient.MyNamedClient.ClientHandler</code>. For the request, this occurs after all other handlers have run and immediately before the request is sent out on the network. On the response, this logging includes the state of the response before it passes back through the handler pipeline.</p>
+<p>Enabling logging outside and inside the pipeline enables inspection of the changes made by the other pipeline handlers. This may include changes to request headers, for example, or to the response status code.</p>
+<p>Including the name of the client in the log category enables log filtering for specific named clients where necessary.</p>
+<h2 id="configure-the-httpmessagehandler-1">Configure the HttpMessageHandler</h2>
+<p>It may be necessary to control the configuration of the inner <code>HttpMessageHandler</code> used by a client.</p>
+<p>An <code>IHttpClientBuilder</code> is returned when adding named or typed clients. The <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.configureprimaryhttpmessagehandler" data-linktype="absolute-path">ConfigurePrimaryHttpMessageHandler</a> extension method can be used to define a delegate. The delegate is used to create and configure the primary <code>HttpMessageHandler</code> used by that client:</p>
+<pre><code class="lang-csharp">services.AddHttpClient(&quot;configured-inner-handler&quot;)
+    .ConfigurePrimaryHttpMessageHandler(() =&gt;
+    {
+        return new HttpClientHandler()
+        {
+            AllowAutoRedirect = false,
+            UseDefaultCredentials = true
+        };
+    });
+</code></pre><h2 id="use-ihttpclientfactory-in-a-console-app-1">Use IHttpClientFactory in a console app</h2>
+<p>In a console app, add the following package references to the project:</p>
+<ul>
+<li><a href="https://www.nuget.org/packages/Microsoft.Extensions.Hosting" data-linktype="external">Microsoft.Extensions.Hosting</a></li>
+<li><a href="https://www.nuget.org/packages/Microsoft.Extensions.Http" data-linktype="external">Microsoft.Extensions.Http</a></li>
+</ul>
+<p>In the following example:</p>
+<ul>
+<li><a href="/en-us/dotnet/api/system.net.http.ihttpclientfactory" data-linktype="absolute-path">IHttpClientFactory</a> is registered in the <a href="host/generic-host?view=aspnetcore-2.2" data-linktype="relative-path">Generic Host's</a> service container.</li>
+<li><code>MyService</code> creates a client factory instance from the service, which is used to create an <code>HttpClient</code>. <code>HttpClient</code> is used to retrieve a webpage.</li>
+<li><code>Main</code> creates a scope to execute the service's <code>GetPage</code> method and write the first 500 characters of the webpage content to the console.</li>
+</ul>
+<pre><code class="lang-csharp" highlight-lines="14-15,20,26-27,59-62">using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+class Program
+{
+    static async Task&lt;int&gt; Main(string[] args)
+    {
+        var builder = new HostBuilder()
+            .ConfigureServices((hostContext, services) =&gt;
+            {
+                services.AddHttpClient();
+                services.AddTransient&lt;IMyService, MyService&gt;();
+            }).UseConsoleLifetime();
+
+        var host = builder.Build();
+
+        using (var serviceScope = host.Services.CreateScope())
+        {
+            var services = serviceScope.ServiceProvider;
+
+            try
+            {
+                var myService = services.GetRequiredService&lt;IMyService&gt;();
+                var pageContent = await myService.GetPage();
+
+                Console.WriteLine(pageContent.Substring(0, 500));
+            }
+            catch (Exception ex)
+            {
+                var logger = services.GetRequiredService&lt;ILogger&lt;Program&gt;&gt;();
+
+                logger.LogError(ex, &quot;An error occurred.&quot;);
+            }
+        }
+
+        return 0;
+    }
+
+    public interface IMyService
+    {
+        Task&lt;string&gt; GetPage();
+    }
+
+    public class MyService : IMyService
+    {
+        private readonly IHttpClientFactory _clientFactory;
+
+        public MyService(IHttpClientFactory clientFactory)
+        {
+            _clientFactory = clientFactory;
+        }
+
+        public async Task&lt;string&gt; GetPage()
+        {
+            // Content from BBC One: Dr. Who website (©BBC)
+            var request = new HttpRequestMessage(HttpMethod.Get,
+                &quot;https://www.bbc.co.uk/programmes/b006q2x0&quot;);
+            var client = _clientFactory.CreateClient();
+            var response = await client.SendAsync(request);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadAsStringAsync();
+            }
+            else
+            {
+                return $&quot;StatusCode: {response.StatusCode}&quot;;
+            }
+        }
+    }
+}
+</code></pre><h2 id="additional-resources-1">Additional resources</h2>
+<ul>
+<li><a href="/en-us/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests" data-linktype="absolute-path">Use HttpClientFactory to implement resilient HTTP requests</a></li>
+<li><a href="/en-us/dotnet/standard/microservices-architecture/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly" data-linktype="absolute-path">Implement HTTP call retries with exponential backoff with HttpClientFactory and Polly policies</a></li>
+<li><a href="/en-us/dotnet/standard/microservices-architecture/implement-resilient-applications/implement-circuit-breaker-pattern" data-linktype="absolute-path">Implement the Circuit Breaker pattern</a></li>
+</ul>
+</div>
+<div data-moniker="aspnetcore-2.1">
+<p>By <a href="https://github.com/glennc" data-linktype="external">Glenn Condron</a>, <a href="https://github.com/rynowak" data-linktype="external">Ryan Nowak</a>, and <a href="https://github.com/stevejgordon" data-linktype="external">Steve Gordon</a></p>
+<p>An <a href="/en-us/dotnet/api/system.net.http.ihttpclientfactory" data-linktype="absolute-path">IHttpClientFactory</a> can be registered and used to configure and create <a href="/en-us/dotnet/api/system.net.http.httpclient" data-linktype="absolute-path">HttpClient</a> instances in an app. It offers the following benefits:</p>
+<ul>
+<li>Provides a central location for naming and configuring logical <code>HttpClient</code> instances. For example, a <em>github</em> client can be registered and configured to access <a href="https://github.com/" data-linktype="external">GitHub</a>. A default client can be registered for other purposes.</li>
+<li>Codifies the concept of outgoing middleware via delegating handlers in <code>HttpClient</code> and provides extensions for Polly-based middleware to take advantage of that.</li>
+<li>Manages the pooling and lifetime of underlying <code>HttpClientMessageHandler</code> instances to avoid common DNS problems that occur when manually managing <code>HttpClient</code> lifetimes.</li>
+<li>Adds a configurable logging experience (via <code>ILogger</code>) for all requests sent through clients created by the factory.</li>
+</ul>
+<p><a href="https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples" data-linktype="external">View or download sample code</a> (<a href="../introduction-to-aspnet-core?view=aspnetcore-2.2#how-to-download-a-sample" data-linktype="relative-path">how to download</a>)</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Projects targeting .NET Framework require installation of the <a href="https://www.nuget.org/packages/Microsoft.Extensions.Http/" data-linktype="external">Microsoft.Extensions.Http</a> NuGet package. Projects that target .NET Core and reference the <a href="metapackage-app?view=aspnetcore-2.2" data-linktype="relative-path">Microsoft.AspNetCore.App metapackage</a> already include the <code>Microsoft.Extensions.Http</code> package.</p>
+<h2 id="consumption-patterns-2">Consumption patterns</h2>
+<p>There are several ways <code>IHttpClientFactory</code> can be used in an app:</p>
+<ul>
+<li><a href="#basic-usage" data-linktype="self-bookmark">Basic usage</a></li>
+<li><a href="#named-clients" data-linktype="self-bookmark">Named clients</a></li>
+<li><a href="#typed-clients" data-linktype="self-bookmark">Typed clients</a></li>
+<li><a href="#generated-clients" data-linktype="self-bookmark">Generated clients</a></li>
+</ul>
+<p>None of them are strictly superior to another. The best approach depends upon the app's constraints.</p>
+<h3 id="basic-usage-2">Basic usage</h3>
+<p>The <code>IHttpClientFactory</code> can be registered by calling the <code>AddHttpClient</code> extension method on the <code>IServiceCollection</code>, inside the <code>Startup.ConfigureServices</code> method.</p>
+<pre><code class="lang-csharp">services.AddHttpClient();
+</code></pre>
+<p>Once registered, code can accept an <code>IHttpClientFactory</code> anywhere services can be injected with <a href="dependency-injection?view=aspnetcore-2.2" data-linktype="relative-path">dependency injection (DI)</a>. The <code>IHttpClientFactory</code> can be used to create an <code>HttpClient</code> instance:</p>
+<pre><code class="lang-csharp" highlight-lines="9-12,21">public class BasicUsageModel : PageModel
+{
+    private readonly IHttpClientFactory _clientFactory;
+
+    public IEnumerable&lt;GitHubBranch&gt; Branches { get; private set; }
+
+    public bool GetBranchesError { get; private set; }
+
+    public BasicUsageModel(IHttpClientFactory clientFactory)
+    {
+        _clientFactory = clientFactory;
+    }
+
+    public async Task OnGet()
+    {
+        var request = new HttpRequestMessage(HttpMethod.Get, 
+            &quot;https://api.github.com/repos/aspnet/AspNetCore.Docs/branches&quot;);
+        request.Headers.Add(&quot;Accept&quot;, &quot;application/vnd.github.v3+json&quot;);
+        request.Headers.Add(&quot;User-Agent&quot;, &quot;HttpClientFactory-Sample&quot;);
+
+        var client = _clientFactory.CreateClient();
+
+        var response = await client.SendAsync(request);
+
+        if (response.IsSuccessStatusCode)
+        {
+            Branches = await response.Content
+                .ReadAsAsync&lt;IEnumerable&lt;GitHubBranch&gt;&gt;();
+        }
+        else
+        {
+            GetBranchesError = true;
+            Branches = Array.Empty&lt;GitHubBranch&gt;();
+        }                               
+    }
+}
+</code></pre>
+<p>Using <code>IHttpClientFactory</code> in this fashion is a good way to refactor an existing app. It has no impact on the way <code>HttpClient</code> is used. In places where <code>HttpClient</code> instances are currently created, replace those occurrences with a call to <a href="/en-us/dotnet/api/system.net.http.ihttpclientfactory.createclient" data-linktype="absolute-path">CreateClient</a>.</p>
+<h3 id="named-clients-2">Named clients</h3>
+<p>If an app requires many distinct uses of <code>HttpClient</code>, each with a different configuration, an option is to use <strong>named clients</strong>. Configuration for a named <code>HttpClient</code> can be specified during registration in <code>Startup.ConfigureServices</code>.</p>
+<pre><code class="lang-csharp">services.AddHttpClient(&quot;github&quot;, c =&gt;
+{
+    c.BaseAddress = new Uri(&quot;https://api.github.com/&quot;);
+    // Github API versioning
+    c.DefaultRequestHeaders.Add(&quot;Accept&quot;, &quot;application/vnd.github.v3+json&quot;);
+    // Github requires a user-agent
+    c.DefaultRequestHeaders.Add(&quot;User-Agent&quot;, &quot;HttpClientFactory-Sample&quot;);
+});
+</code></pre>
+<p>In the preceding code, <code>AddHttpClient</code> is called, providing the name <em>github</em>. This client has some default configuration applied—namely the base address and two headers required to work with the GitHub API.</p>
+<p>Each time <code>CreateClient</code> is called, a new instance of <code>HttpClient</code> is created and the configuration action is called.</p>
+<p>To consume a named client, a string parameter can be passed to <code>CreateClient</code>. Specify the name of the client to be created:</p>
+<pre><code class="lang-csharp" highlight-lines="21">public class NamedClientModel : PageModel
+{
+    private readonly IHttpClientFactory _clientFactory;
+
+    public IEnumerable&lt;GitHubPullRequest&gt; PullRequests { get; private set; }
+
+    public bool GetPullRequestsError { get; private set; }
+
+    public bool HasPullRequests =&gt; PullRequests.Any();
+
+    public NamedClientModel(IHttpClientFactory clientFactory)
+    {
+        _clientFactory = clientFactory;
+    }
+
+    public async Task OnGet()
+    {
+        var request = new HttpRequestMessage(HttpMethod.Get, 
+            &quot;repos/aspnet/AspNetCore.Docs/pulls&quot;);
+
+        var client = _clientFactory.CreateClient(&quot;github&quot;);
+
+        var response = await client.SendAsync(request);
+
+        if (response.IsSuccessStatusCode)
+        {
+            PullRequests = await response.Content
+                .ReadAsAsync&lt;IEnumerable&lt;GitHubPullRequest&gt;&gt;();
+        }
+        else
+        {
+            GetPullRequestsError = true;
+            PullRequests = Array.Empty&lt;GitHubPullRequest&gt;();
+        }
+    }
+}
+</code></pre>
+<p>In the preceding code, the request doesn't need to specify a hostname. It can pass just the path, since the base address configured for the client is used.</p>
+<h3 id="typed-clients-2">Typed clients</h3>
+<p>Typed clients:</p>
+<ul>
+<li>Provide the same capabilities as named clients without the need to use strings as keys.</li>
+<li>Provides IntelliSense and compiler help when consuming clients.</li>
+<li>Provide a single location to configure and interact with a particular <code>HttpClient</code>. For example, a single typed client might be used for a single backend endpoint and encapsulate all logic dealing with that endpoint.</li>
+<li>Work with DI and can be injected where required in your app.</li>
+</ul>
+<p>A typed client accepts an <code>HttpClient</code> parameter in its constructor:</p>
+<pre><code class="lang-csharp" highlight-lines="5">public class GitHubService
+{
+    public HttpClient Client { get; }
+
+    public GitHubService(HttpClient client)
+    {
+        client.BaseAddress = new Uri(&quot;https://api.github.com/&quot;);
+        // GitHub API versioning
+        client.DefaultRequestHeaders.Add(&quot;Accept&quot;, 
+            &quot;application/vnd.github.v3+json&quot;);
+        // GitHub requires a user-agent
+        client.DefaultRequestHeaders.Add(&quot;User-Agent&quot;, 
+            &quot;HttpClientFactory-Sample&quot;);
+
+        Client = client;
+    }
+
+    public async Task&lt;IEnumerable&lt;GitHubIssue&gt;&gt; GetAspNetDocsIssues()
+    {
+        var response = await Client.GetAsync(
+            &quot;/repos/aspnet/AspNetCore.Docs/issues?state=open&amp;sort=created&amp;direction=desc&quot;);
+
+        response.EnsureSuccessStatusCode();
+
+        var result = await response.Content
+            .ReadAsAsync&lt;IEnumerable&lt;GitHubIssue&gt;&gt;();
+
+        return result;
+    }
+}
+</code></pre>
+<p>In the preceding code, the configuration is moved into the typed client. The <code>HttpClient</code> object is exposed as a public property. It's possible to define API-specific methods that expose <code>HttpClient</code> functionality. The <code>GetAspNetDocsIssues</code> method encapsulates the code needed to query for and parse out the latest open issues from a GitHub repository.</p>
+<p>To register a typed client, the generic <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.httpclientfactoryservicecollectionextensions.addhttpclient" data-linktype="absolute-path">AddHttpClient</a> extension method can be used within <code>Startup.ConfigureServices</code>, specifying the typed client class:</p>
+<pre><code class="lang-csharp">services.AddHttpClient&lt;GitHubService&gt;();
+</code></pre>
+<p>The typed client is registered as transient with DI. The typed client can be injected and consumed directly:</p>
+<pre><code class="lang-csharp" highlight-lines="11-14,20">public class TypedClientModel : PageModel
+{
+    private readonly GitHubService _gitHubService;
+
+    public IEnumerable&lt;GitHubIssue&gt; LatestIssues { get; private set; }
+
+    public bool HasIssue =&gt; LatestIssues.Any();
+
+    public bool GetIssuesError { get; private set; }
+
+    public TypedClientModel(GitHubService gitHubService)
+    {
+        _gitHubService = gitHubService;
+    }
+
+    public async Task OnGet()
+    {
+        try
+        {
+            LatestIssues = await _gitHubService.GetAspNetDocsIssues();
+        }
+        catch(HttpRequestException)
+        {
+            GetIssuesError = true;
+            LatestIssues = Array.Empty&lt;GitHubIssue&gt;();
+        }
+    }
+}
+</code></pre>
+<p>If preferred, the configuration for a typed client can be specified during registration in <code>Startup.ConfigureServices</code>, rather than in the typed client's constructor:</p>
+<pre><code class="lang-csharp">services.AddHttpClient&lt;RepoService&gt;(c =&gt;
+{
+    c.BaseAddress = new Uri(&quot;https://api.github.com/&quot;);
+    c.DefaultRequestHeaders.Add(&quot;Accept&quot;, &quot;application/vnd.github.v3+json&quot;);
+    c.DefaultRequestHeaders.Add(&quot;User-Agent&quot;, &quot;HttpClientFactory-Sample&quot;);
+});
+</code></pre>
+<p>It's possible to entirely encapsulate the <code>HttpClient</code> within a typed client. Rather than exposing it as a property, public methods can be provided which call the <code>HttpClient</code> instance internally.</p>
+<pre><code class="lang-csharp" highlight-lines="4">public class RepoService
+{
+    // _httpClient isn't exposed publicly
+    private readonly HttpClient _httpClient;
+
+    public RepoService(HttpClient client)
+    {
+        _httpClient = client;
+    }
+
+    public async Task&lt;IEnumerable&lt;string&gt;&gt; GetRepos()
+    {
+        var response = await _httpClient.GetAsync(&quot;aspnet/repos&quot;);
+
+        response.EnsureSuccessStatusCode();
+
+        var result = await response.Content
+            .ReadAsAsync&lt;IEnumerable&lt;string&gt;&gt;();
+
+        return result;
+    }
+}
+</code></pre>
+<p>In the preceding code, the <code>HttpClient</code> is stored as a private field. All access to make external calls goes through the <code>GetRepos</code> method.</p>
+<h3 id="generated-clients-2">Generated clients</h3>
+<p><code>IHttpClientFactory</code> can be used in combination with other third-party libraries such as <a href="https://github.com/paulcbetts/refit" data-linktype="external">Refit</a>. Refit is a REST library for .NET. It converts REST APIs into live interfaces. An implementation of the interface is generated dynamically by the <code>RestService</code>, using <code>HttpClient</code> to make the external HTTP calls.</p>
+<p>An interface and a reply are defined to represent the external API and its response:</p>
+<pre><code class="lang-csharp">public interface IHelloClient
+{
+    [Get(&quot;/helloworld&quot;)]
+    Task&lt;Reply&gt; GetMessageAsync();
+}
+
+public class Reply
+{
+    public string Message { get; set; }
+}
+</code></pre>
+<p>A typed client can be added, using Refit to generate the implementation:</p>
+<pre><code class="lang-csharp">public void ConfigureServices(IServiceCollection services)
+{
+    services.AddHttpClient(&quot;hello&quot;, c =&gt;
+    {
+        c.BaseAddress = new Uri(&quot;http://localhost:5000&quot;);
+    })
+    .AddTypedClient(c =&gt; Refit.RestService.For&lt;IHelloClient&gt;(c));
+
+    services.AddMvc();
+}
+</code></pre>
+<p>The defined interface can be consumed where necessary, with the implementation provided by DI and Refit:</p>
+<pre><code class="lang-csharp">[ApiController]
+public class ValuesController : ControllerBase
+{
+    private readonly IHelloClient _client;
+
+    public ValuesController(IHelloClient client)
+    {
+        _client = client;
+    }
+
+    [HttpGet(&quot;/&quot;)]
+    public async Task&lt;ActionResult&lt;Reply&gt;&gt; Index()
+    {
+        return await _client.GetMessageAsync();
+    }
+}
+</code></pre>
+<h2 id="outgoing-request-middleware-2">Outgoing request middleware</h2>
+<p><code>HttpClient</code> already has the concept of delegating handlers that can be linked together for outgoing HTTP requests. The <code>IHttpClientFactory</code> makes it easy to define the handlers to apply for each named client. It supports registration and chaining of multiple handlers to build an outgoing request middleware pipeline. Each of these handlers is able to perform work before and after the outgoing request. This pattern is similar to the inbound middleware pipeline in ASP.NET Core. The pattern provides a mechanism to manage cross-cutting concerns around HTTP requests, including caching, error handling, serialization, and logging.</p>
+<p>To create a handler, define a class deriving from <a href="/en-us/dotnet/api/system.net.http.delegatinghandler" data-linktype="absolute-path">DelegatingHandler</a>. Override the <code>SendAsync</code> method to execute code before passing the request to the next handler in the pipeline:</p>
+<pre><code class="lang-csharp">public class ValidateHeaderHandler : DelegatingHandler
+{
+    protected override async Task&lt;HttpResponseMessage&gt; SendAsync(
+        HttpRequestMessage request,
+        CancellationToken cancellationToken)
+    {
+        if (!request.Headers.Contains(&quot;X-API-KEY&quot;))
+        {
+            return new HttpResponseMessage(HttpStatusCode.BadRequest)
+            {
+                Content = new StringContent(
+                    &quot;You must supply an API key header called X-API-KEY&quot;)
+            };
+        }
+
+        return await base.SendAsync(request, cancellationToken);
+    }
+}
+</code></pre>
+<p>The preceding code defines a basic handler. It checks to see if an <code>X-API-KEY</code> header has been included on the request. If the header is missing, it can avoid the HTTP call and return a suitable response.</p>
+<p>During registration, one or more handlers can be added to the configuration for an <code>HttpClient</code>. This task is accomplished via extension methods on the <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.ihttpclientbuilder" data-linktype="absolute-path">IHttpClientBuilder</a>.</p>
+<pre><code class="lang-csharp">services.AddTransient&lt;ValidateHeaderHandler&gt;();
+
+services.AddHttpClient(&quot;externalservice&quot;, c =&gt;
+{
+    // Assume this is an &quot;external&quot; service which requires an API KEY
+    c.BaseAddress = new Uri(&quot;https://localhost:5000/&quot;);
+})
+.AddHttpMessageHandler&lt;ValidateHeaderHandler&gt;();
+</code></pre>
+<p>In the preceding code, the <code>ValidateHeaderHandler</code> is registered with DI. The handler <strong>must</strong> be registered in DI as a transient service, never scoped. If the handler is registered as a scoped service and any services that the handler depends upon are disposable:</p>
+<ul>
+<li>The handler's services could be disposed before the handler goes out of scope.</li>
+<li>The disposed handler services causes the handler to fail.</li>
+</ul>
+<p>Once registered, <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.addhttpmessagehandler" data-linktype="absolute-path">AddHttpMessageHandler</a> can be called, passing in the handler type.</p>
+<p>Multiple handlers can be registered in the order that they should execute. Each handler wraps the next handler until the final <code>HttpClientHandler</code> executes the request:</p>
+<pre><code class="lang-csharp">services.AddTransient&lt;SecureRequestHandler&gt;();
+services.AddTransient&lt;RequestDataHandler&gt;();
+
+services.AddHttpClient(&quot;clientwithhandlers&quot;)
+    // This handler is on the outside and called first during the 
+    // request, last during the response.
+    .AddHttpMessageHandler&lt;SecureRequestHandler&gt;()
+    // This handler is on the inside, closest to the request being 
+    // sent.
+    .AddHttpMessageHandler&lt;RequestDataHandler&gt;();
+</code></pre>
+<p>Use one of the following approaches to share per-request state with message handlers:</p>
+<ul>
+<li>Pass data into the handler using <code>HttpRequestMessage.Properties</code>.</li>
+<li>Use <code>IHttpContextAccessor</code> to access the current request.</li>
+<li>Create a custom <code>AsyncLocal</code> storage object to pass the data.</li>
+</ul>
+<h2 id="use-polly-based-handlers-2">Use Polly-based handlers</h2>
+<p><code>IHttpClientFactory</code> integrates with a popular third-party library called <a href="https://github.com/App-vNext/Polly" data-linktype="external">Polly</a>. Polly is a comprehensive resilience and transient fault-handling library for .NET. It allows developers to express policies such as Retry, Circuit Breaker, Timeout, Bulkhead Isolation, and Fallback in a fluent and thread-safe manner.</p>
+<p>Extension methods are provided to enable the use of Polly policies with configured <code>HttpClient</code> instances. The Polly extensions:</p>
+<ul>
+<li>Support adding Polly-based handlers to clients.</li>
+<li>Can be used after installing the <a href="https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/" data-linktype="external">Microsoft.Extensions.Http.Polly</a> NuGet package. The package isn't included in the ASP.NET Core shared framework.</li>
+</ul>
+<h3 id="handle-transient-faults-2">Handle transient faults</h3>
+<p>Most common faults occur when external HTTP calls are transient. A convenient extension method called <code>AddTransientHttpErrorPolicy</code> is included which allows a policy to be defined to handle transient errors. Policies configured with this extension method handle <code>HttpRequestException</code>, HTTP 5xx responses, and HTTP 408 responses.</p>
+<p>The <code>AddTransientHttpErrorPolicy</code> extension can be used within <code>Startup.ConfigureServices</code>. The extension provides access to a <code>PolicyBuilder</code> object configured to handle errors representing a possible transient fault:</p>
+<pre><code class="lang-csharp">services.AddHttpClient&lt;UnreliableEndpointCallerService&gt;()
+    .AddTransientHttpErrorPolicy(p =&gt; 
+        p.WaitAndRetryAsync(3, _ =&gt; TimeSpan.FromMilliseconds(600)));
+</code></pre>
+<p>In the preceding code, a <code>WaitAndRetryAsync</code> policy is defined. Failed requests are retried up to three times with a delay of 600 ms between attempts.</p>
+<h3 id="dynamically-select-policies-2">Dynamically select policies</h3>
+<p>Additional extension methods exist which can be used to add Polly-based handlers. One such extension is <code>AddPolicyHandler</code>, which has multiple overloads. One overload allows the request to be inspected when defining which policy to apply:</p>
+<pre><code class="lang-csharp">var timeout = Policy.TimeoutAsync&lt;HttpResponseMessage&gt;(
+    TimeSpan.FromSeconds(10));
+var longTimeout = Policy.TimeoutAsync&lt;HttpResponseMessage&gt;(
+    TimeSpan.FromSeconds(30));
+
+services.AddHttpClient(&quot;conditionalpolicy&quot;)
+// Run some code to select a policy based on the request
+    .AddPolicyHandler(request =&gt; 
+        request.Method == HttpMethod.Get ? timeout : longTimeout);
+</code></pre>
+<p>In the preceding code, if the outgoing request is an HTTP GET, a 10-second timeout is applied. For any other HTTP method, a 30-second timeout is used.</p>
+<h3 id="add-multiple-polly-handlers-2">Add multiple Polly handlers</h3>
+<p>It's common to nest Polly policies to provide enhanced functionality:</p>
+<pre><code class="lang-csharp">services.AddHttpClient(&quot;multiplepolicies&quot;)
+    .AddTransientHttpErrorPolicy(p =&gt; p.RetryAsync(3))
+    .AddTransientHttpErrorPolicy(
+        p =&gt; p.CircuitBreakerAsync(5, TimeSpan.FromSeconds(30)));
+</code></pre>
+<p>In the preceding example, two handlers are added. The first uses the <code>AddTransientHttpErrorPolicy</code> extension to add a retry policy. Failed requests are retried up to three times. The second call to <code>AddTransientHttpErrorPolicy</code> adds a circuit breaker policy. Further external requests are blocked for 30 seconds if five failed attempts occur sequentially. Circuit breaker policies are stateful. All calls through this client share the same circuit state.</p>
+<h3 id="add-policies-from-the-polly-registry-2">Add policies from the Polly registry</h3>
+<p>An approach to managing regularly used policies is to define them once and register them with a <code>PolicyRegistry</code>. An extension method is provided which allows a handler to be added using a policy from the registry:</p>
+<pre><code class="lang-csharp">var registry = services.AddPolicyRegistry();
+
+registry.Add(&quot;regular&quot;, timeout);
+registry.Add(&quot;long&quot;, longTimeout);
+
+services.AddHttpClient(&quot;regulartimeouthandler&quot;)
+    .AddPolicyHandlerFromRegistry(&quot;regular&quot;);
+</code></pre>
+<p>In the preceding code, two policies are registered when the <code>PolicyRegistry</code> is added to the <code>ServiceCollection</code>. To use a policy from the registry, the <code>AddPolicyHandlerFromRegistry</code> method is used, passing the name of the policy to apply.</p>
+<p>Further information about <code>IHttpClientFactory</code> and Polly integrations can be found on the <a href="https://github.com/App-vNext/Polly/wiki/Polly-and-HttpClientFactory" data-linktype="external">Polly wiki</a>.</p>
+<h2 id="httpclient-and-lifetime-management-2">HttpClient and lifetime management</h2>
+<p>A new <code>HttpClient</code> instance is returned each time <code>CreateClient</code> is called on the <code>IHttpClientFactory</code>. There's an <a href="/en-us/dotnet/api/system.net.http.httpmessagehandler" data-linktype="absolute-path">HttpMessageHandler</a> per named client. The factory manages the lifetimes of the <code>HttpMessageHandler</code> instances.</p>
+<p><code>IHttpClientFactory</code> pools the <code>HttpMessageHandler</code> instances created by the factory to reduce resource consumption. An <code>HttpMessageHandler</code> instance may be reused from the pool when creating a new <code>HttpClient</code> instance if its lifetime hasn't expired.</p>
+<p>Pooling of handlers is desirable as each handler typically manages its own underlying HTTP connections. Creating more handlers than necessary can result in connection delays. Some handlers also keep connections open indefinitely, which can prevent the handler from reacting to DNS changes.</p>
+<p>The default handler lifetime is two minutes. The default value can be overridden on a per named client basis. To override it, call <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.sethandlerlifetime" data-linktype="absolute-path">SetHandlerLifetime</a> on the <code>IHttpClientBuilder</code> that is returned when creating the client:</p>
+<pre><code class="lang-csharp">services.AddHttpClient(&quot;extendedhandlerlifetime&quot;)
+    .SetHandlerLifetime(TimeSpan.FromMinutes(5));
+</code></pre>
+<p>Disposal of the client isn't required. Disposal cancels outgoing requests and guarantees the given <code>HttpClient</code> instance can't be used after calling <a href="/en-us/dotnet/api/system.idisposable.dispose" data-linktype="absolute-path">Dispose</a>. <code>IHttpClientFactory</code> tracks and disposes resources used by <code>HttpClient</code> instances. The <code>HttpClient</code> instances can generally be treated as .NET objects not requiring disposal.</p>
+<p>Keeping a single <code>HttpClient</code> instance alive for a long duration is a common pattern used before the inception of <code>IHttpClientFactory</code>. This pattern becomes unnecessary after migrating to <code>IHttpClientFactory</code>.</p>
+<h3 id="alternatives-to-ihttpclientfactory-2">Alternatives to IHttpClientFactory</h3>
+<p>Using <code>IHttpClientFactory</code> in a DI-enabled app avoids:</p>
+<ul>
+<li>Resource exhaustion problems by pooling <code>HttpMessageHandler</code> instances.</li>
+<li>Stale DNS problems by cycling <code>HttpMessageHandler</code> instances at regular intervals.</li>
+</ul>
+<p>There are alternative ways to solve the preceding problems using a long-lived <a href="/en-us/dotnet/api/system.net.http.socketshttphandler" data-linktype="absolute-path">SocketsHttpHandler</a> instance.</p>
+<ul>
+<li>Create an instance of <code>SocketsHttpHandler</code> when the app starts and use it for the life of the app.</li>
+<li>Configure <a href="/en-us/dotnet/api/system.net.http.socketshttphandler.pooledconnectionlifetime#System_Net_Http_SocketsHttpHandler_PooledConnectionLifetime" data-linktype="absolute-path">PooledConnectionLifetime</a> to an appropriate value based on DNS refresh times.</li>
+<li>Create <code>HttpClient</code> instances using <code>new HttpClient(handler, disposeHandler: false)</code> as needed.</li>
+</ul>
+<p>The preceding approaches solve the resource management problems that <code>IHttpClientFactory</code> solves in a similar way.</p>
+<ul>
+<li>The <code>SocketsHttpHandler</code> shares connections across <code>HttpClient</code> instances. This sharing prevents socket exhaustion.</li>
+<li>The <code>SocketsHttpHandler</code> cycles connections according to <code>PooledConnectionLifetime</code> to avoid stale DNS problems.</li>
+</ul>
+<h3 id="cookies-2">Cookies</h3>
+<p>The pooled <code>HttpMessageHandler</code> instances results in <code>CookieContainer</code> objects being shared. Unanticipated <code>CookieContainer</code> object sharing often results in incorrect code. For apps that require cookies, consider either:</p>
+<ul>
+<li>Disabling automatic cookie handling</li>
+<li>Avoiding <code>IHttpClientFactory</code></li>
+</ul>
+<p>Call <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.configureprimaryhttpmessagehandler" data-linktype="absolute-path">ConfigurePrimaryHttpMessageHandler</a> to disable automatic cookie handling:</p>
+<pre><code class="lang-csharp">services.AddHttpClient(&quot;configured-disable-automatic-cookies&quot;)
+    .ConfigurePrimaryHttpMessageHandler(() =&gt;
+    {
+        return new HttpClientHandler()
+        {
+            UseCookies = false,
+        };
+    });
+</code></pre><h2 id="logging-2">Logging</h2>
+<p>Clients created via <code>IHttpClientFactory</code> record log messages for all requests. Enable the appropriate information level in your logging configuration to see the default log messages. Additional logging, such as the logging of request headers, is only included at trace level.</p>
+<p>The log category used for each client includes the name of the client. A client named <em>MyNamedClient</em>, for example, logs messages with a category of <code>System.Net.Http.HttpClient.MyNamedClient.LogicalHandler</code>. Messages suffixed with <em>LogicalHandler</em> occur outside the request handler pipeline. On the request, messages are logged before any other handlers in the pipeline have processed it. On the response, messages are logged after any other pipeline handlers have received the response.</p>
+<p>Logging also occurs inside the request handler pipeline. In the <em>MyNamedClient</em> example, those messages are logged against the log category <code>System.Net.Http.HttpClient.MyNamedClient.ClientHandler</code>. For the request, this occurs after all other handlers have run and immediately before the request is sent out on the network. On the response, this logging includes the state of the response before it passes back through the handler pipeline.</p>
+<p>Enabling logging outside and inside the pipeline enables inspection of the changes made by the other pipeline handlers. This may include changes to request headers, for example, or to the response status code.</p>
+<p>Including the name of the client in the log category enables log filtering for specific named clients where necessary.</p>
+<h2 id="configure-the-httpmessagehandler-2">Configure the HttpMessageHandler</h2>
+<p>It may be necessary to control the configuration of the inner <code>HttpMessageHandler</code> used by a client.</p>
+<p>An <code>IHttpClientBuilder</code> is returned when adding named or typed clients. The <a href="/en-us/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.configureprimaryhttpmessagehandler" data-linktype="absolute-path">ConfigurePrimaryHttpMessageHandler</a> extension method can be used to define a delegate. The delegate is used to create and configure the primary <code>HttpMessageHandler</code> used by that client:</p>
+<pre><code class="lang-csharp">services.AddHttpClient(&quot;configured-inner-handler&quot;)
+    .ConfigurePrimaryHttpMessageHandler(() =&gt;
+    {
+        return new HttpClientHandler()
+        {
+            AllowAutoRedirect = false,
+            UseDefaultCredentials = true
+        };
+    });
+</code></pre><h2 id="use-ihttpclientfactory-in-a-console-app-2">Use IHttpClientFactory in a console app</h2>
+<p>In a console app, add the following package references to the project:</p>
+<ul>
+<li><a href="https://www.nuget.org/packages/Microsoft.Extensions.Hosting" data-linktype="external">Microsoft.Extensions.Hosting</a></li>
+<li><a href="https://www.nuget.org/packages/Microsoft.Extensions.Http" data-linktype="external">Microsoft.Extensions.Http</a></li>
+</ul>
+<p>In the following example:</p>
+<ul>
+<li><a href="/en-us/dotnet/api/system.net.http.ihttpclientfactory" data-linktype="absolute-path">IHttpClientFactory</a> is registered in the <a href="host/generic-host?view=aspnetcore-2.2" data-linktype="relative-path">Generic Host's</a> service container.</li>
+<li><code>MyService</code> creates a client factory instance from the service, which is used to create an <code>HttpClient</code>. <code>HttpClient</code> is used to retrieve a webpage.</li>
+<li><code>Main</code> creates a scope to execute the service's <code>GetPage</code> method and write the first 500 characters of the webpage content to the console.</li>
+</ul>
+<pre><code class="lang-csharp" highlight-lines="14-15,20,26-27,59-62">using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+class Program
+{
+    static async Task&lt;int&gt; Main(string[] args)
+    {
+        var builder = new HostBuilder()
+            .ConfigureServices((hostContext, services) =&gt;
+            {
+                services.AddHttpClient();
+                services.AddTransient&lt;IMyService, MyService&gt;();
+            }).UseConsoleLifetime();
+
+        var host = builder.Build();
+
+        using (var serviceScope = host.Services.CreateScope())
+        {
+            var services = serviceScope.ServiceProvider;
+
+            try
+            {
+                var myService = services.GetRequiredService&lt;IMyService&gt;();
+                var pageContent = await myService.GetPage();
+
+                Console.WriteLine(pageContent.Substring(0, 500));
+            }
+            catch (Exception ex)
+            {
+                var logger = services.GetRequiredService&lt;ILogger&lt;Program&gt;&gt;();
+
+                logger.LogError(ex, &quot;An error occurred.&quot;);
+            }
+        }
+
+        return 0;
+    }
+
+    public interface IMyService
+    {
+        Task&lt;string&gt; GetPage();
+    }
+
+    public class MyService : IMyService
+    {
+        private readonly IHttpClientFactory _clientFactory;
+
+        public MyService(IHttpClientFactory clientFactory)
+        {
+            _clientFactory = clientFactory;
+        }
+
+        public async Task&lt;string&gt; GetPage()
+        {
+            // Content from BBC One: Dr. Who website (©BBC)
+            var request = new HttpRequestMessage(HttpMethod.Get,
+                &quot;https://www.bbc.co.uk/programmes/b006q2x0&quot;);
+            var client = _clientFactory.CreateClient();
+            var response = await client.SendAsync(request);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadAsStringAsync();
+            }
+            else
+            {
+                return $&quot;StatusCode: {response.StatusCode}&quot;;
+            }
+        }
+    }
+}
+</code></pre><h2 id="header-propagation-middleware-1">Header propagation middleware</h2>
+<p>Header propagation is a community supported middleware to propagate HTTP headers from the incoming request to the outgoing HTTP Client requests. To use header propagation:</p>
+<ul>
+<li><p>Reference the community supported port of the package <a href="https://www.nuget.org/packages/HeaderPropagation" data-linktype="external">HeaderPropagation</a>. ASP.NET Core 3.1 and later supports <a href="https://www.nuget.org/packages/Microsoft.AspNetCore.HeaderPropagation" data-linktype="external">Microsoft.AspNetCore.HeaderPropagation</a>.</p>
+</li>
+<li><p>Configure the middleware and <code>HttpClient</code> in <code>Startup</code>:</p>
+<pre><code class="lang-csharp" highlight-lines="5-9,25">public void ConfigureServices(IServiceCollection services)
+{
+    services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+    services.AddHttpClient(&quot;MyForwardingClient&quot;).AddHeaderPropagation();
+    services.AddHeaderPropagation(options =&gt;
+    {
+        options.Headers.Add(&quot;X-TraceId&quot;);
+    });
+}
+
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    if (env.IsDevelopment())
+    {
+        app.UseDeveloperExceptionPage();
+    }
+    else
+    {
+        app.UseHsts();
+    }
+
+    app.UseHttpsRedirection();
+
+    app.UseHeaderPropagation();
+
+    app.UseMvc();
+}
+</code></pre></li>
+<li><p>The client includes the configured headers on outbound requests:</p>
+<pre><code class="lang-csharp">var client = clientFactory.CreateClient(&quot;MyForwardingClient&quot;);
+var response = client.GetAsync(...);
+</code></pre>
+</li>
+</ul>
+<h2 id="additional-resources-2">Additional resources</h2>
+<ul>
+<li><a href="/en-us/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests" data-linktype="absolute-path">Use HttpClientFactory to implement resilient HTTP requests</a></li>
+<li><a href="/en-us/dotnet/standard/microservices-architecture/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly" data-linktype="absolute-path">Implement HTTP call retries with exponential backoff with HttpClientFactory and Polly policies</a></li>
+<li><a href="/en-us/dotnet/standard/microservices-architecture/implement-resilient-applications/implement-circuit-breaker-pattern" data-linktype="absolute-path">Implement the Circuit Breaker pattern</a></li>
+</ul>
+</div>
+
+						<!-- </content> -->
+
+						</main>
+
+						<!-- page rating section -->
+								<div class="is-hidden-desktop has-border-top has-margin-top-large has-padding-top-large binary-rating-holder">
+									
+	
+	
+
+	<div class="feedback-verbatim has-border-bottom has-padding-bottom-large has-margin-bottom-small" data-bi-name="rating">
+    <div class="binary-rating">
+        <div class="binary-rating-buttons">
+				<h3 class="has-text-weight-semibold has-margin-top-none has-margin-bottom-small is-size-h4 has-margin-bottom-medium">Is this page helpful?</h3>
+			<div>
+                <button class="thumb-rating like has-inner-focus" title="Yes" data-bi-name="rating-yes" aria-expanded="false" data-bi-sat="1" aria-controls="rating-container-desktop">
+                    <span aria-hidden="true" class="icon docon docon-like"></span>
+                    <span>Yes</span>
+                </button>
+                <button class="thumb-rating dislike has-inner-focus" title="No" data-bi-name="rating-no" data-bi-sat="0" aria-expanded="false" aria-controls="rating-container-desktop">
+                    <span aria-hidden="true" class="icon docon docon-dislike"></span>
+                    <span>No</span>
+                </button>
+            </div>
+        </div>
+        <form class="feedback-verbatim-form is-hidden" id="rating-container-desktop">
+            <div class="verbatim-textarea box is-relative has-box-shadow-none has-border has-margin-top-small has-padding-extra-small is-size-extra-small">
+                <label for="rating-textarea-desktop" class="visually-hidden">Any additional feedback?</label>
+                <textarea id="rating-textarea-desktop" rows="4" maxlength="999" placeholder="Any additional feedback?" required class="textarea has-border-none has-box-shadow-none has-inner-focus"></textarea>
+            </div>
+            <div class="buttons is-right has-margin-top-medium has-margin-right-extra-small">
+                <button class="skip-rating button is-transparent has-text-primary is-small has-border-none" type="button">Skip</button>
+                <button class="submit-rating button is-primary is-small" data-bi-name="rating-verbatim" disabled type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="thankyou-rating is-hidden" tabindex="-1">
+        <p>Thank you.</p>
+    </div>
+</div>									</div>
+						<!-- end page rating section -->
+
+
+						<!-- recommendations section -->
+						<!-- end recommendations section -->
+
+						<!-- feedback section -->
+<section class="feedback-section is-relative" data-bi-name="feedback-section">
+
+    <h2 id="feedback" class="title is-3 has-margin-top-large">Feedback</h2>
+
+    <div class="alert choose-feedback-type">
+        <p aria-hidden="true" id="send-feedback-about">Submit and view feedback for</p>
+
+        <div class="choose-feedback-buttons has-margin-top-medium">
+                <a class="button has-external-link-indicator feedback-type-product has-margin-bottom-small" aria-label="Send feedback about this product" href="https://github.com/dotnet/aspnetcore/blob/master/CONTRIBUTING.md" data-bi-name="product-feedback">
+                    <span>This product</span>
+                </a>
+
+			<a class="button feedback-type-product has-margin-bottom-small github-link" aria-label="Send feedback about this page" data-bi-name="create-issue-on-github">
+				<span aria-hidden="true" class="docon docon-brand-github has-padding-right-extra-small"></span>
+				<span>This page</span>
+			</a>
+        </div>
+    </div>
+
+    <div class="action-container is-flex has-flex-justify-content-end has-margin-top-small has-margin-bottom-small">
+        <a class="view-on-github has-external-link-indicator" data-bi-name="view-on-github" href="https://github.com/dotnet/AspNetCore.Docs/issues">
+            <span aria-hidden="true" class="docon docon-brand-github"></span>
+            <span>View all page feedback</span>
+        </a>
+    </div>
+</section>
+						<!-- end feedback section -->
+
+						<!-- feedback report section -->
+						<!-- end feedback report section -->
+
+						<div class="footerContainer is-visible-interactive has-default-focus ">
+
+
+
+	<footer id="footer-interactive" data-bi-name="footer" class="footer-layout">
+
+    <div class="is-flex is-full-height has-padding-right-extra-large-desktop">
+			<a data-mscc-ic="false" class="locale-selector-link has-flex-shrink-none" href="#" data-bi-name="select-locale"><span class="icon docon docon-world is-size-large has-margin-right-small" aria-hidden="true"></span><span class="local-selector-link-text"></span></a>
+		<div class="has-margin-left-medium has-margin-right-medium has-flex-shrink-none">
+<div class="dropdown has-caret-up">
+	<button class="dropdown-trigger button is-transparent is-small is-icon-only-touch has-inner-focus theme-dropdown-trigger"
+		aria-controls="theme-menu-interactive" aria-expanded="false" title="Theme" data-bi-name="theme">
+		<span class="icon">
+			<span class="docon docon-sun" aria-hidden="true"></span>
+		</span>
+		<span>Theme</span>
+	</button>
+	<div class="dropdown-menu" id="theme-menu-interactive" role="menu">
+		<ul class="theme-selector has-padding-small">
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start"
+					data-theme-to="light">
+					<span class="theme-light has-margin-right-small">
+						<span
+							class="theme-selector-icon css-variable-support has-border is-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Light					</span>
+				</button>
+			</li>
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start"
+					data-theme-to="dark">
+					<span class="theme-dark has-margin-right-small">
+						<span
+							class="has-border theme-selector-icon css-variable-support is-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Dark					</span>
+				</button>
+			</li>
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start"
+					data-theme-to="high-contrast">
+					<span class="theme-high-contrast has-margin-right-small">
+						<span
+							class="has-border theme-selector-icon css-variable-support is-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+High contrast					</span>
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>		</div>
+	</div>
+    <ul class="links" data-bi-name="footerlinks">
+		<li class="manage-cookies-holder" hidden></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/previous-versions/" data-bi-name="archivelink">Previous Version Docs</a></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/teamblog" data-bi-name="bloglink">Blog</a></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/contribute" data-bi-name="contributorGuide">Contribute</a></li>
+				<li><a data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy">Privacy &amp; Cookies</a></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/legal/termsofuse" data-bi-name="termsofuse">Terms of Use</a></li>
+				<li><a data-mscc-ic="false" href="https://aka.ms/sitefeedback" data-bi-name="feedback">Site Feedback</a></li>
+			<li><a data-mscc-ic="false" href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" data-bi-name="trademarks">Trademarks</a></li>
+		<li>&copy; Microsoft 2021</li>
+    </ul>
+</footer>
+						</div>
+					</div>
+
+					<div class="is-size-small right-container column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only" data-bi-name="pageactions" role="complementary" aria-label="Page Actions">
+						<div id="affixed-right-container" class="doc-outline is-fixed is-vertically-scrollable">
+								
+	
+	
+
+	<div class="feedback-verbatim has-border-bottom has-padding-bottom-small has-margin-bottom-small" data-bi-name="rating">
+    <div class="binary-rating">
+        <div class="binary-rating-buttons">
+
+				<h3 class="has-text-weight-semibold has-margin-top-none has-margin-bottom-small">Is this page helpful?</h3>
+			<div>
+                <button class="thumb-rating like has-inner-focus" title="Yes" data-bi-name="rating-yes" aria-expanded="false" data-bi-sat="1" aria-controls="rating-container-mobile">
+                    <span aria-hidden="true" class="icon docon docon-like"></span>
+                    <span>Yes</span>
+                </button>
+                <button class="thumb-rating dislike has-inner-focus" title="No" data-bi-name="rating-no" data-bi-sat="0" aria-expanded="false" aria-controls="rating-container-mobile">
+                    <span aria-hidden="true" class="icon docon docon-dislike"></span>
+                    <span>No</span>
+                </button>
+            </div>
+        </div>
+        <form class="feedback-verbatim-form is-hidden" id="rating-container-mobile">
+            <div class="verbatim-textarea box is-relative has-box-shadow-none has-border has-margin-top-small has-padding-extra-small is-size-extra-small">
+                <label for="rating-textarea-mobile" class="visually-hidden">Any additional feedback?</label>
+                <textarea id="rating-textarea-mobile" rows="4" maxlength="999" placeholder="Any additional feedback?" required class="textarea has-border-none has-box-shadow-none has-inner-focus"></textarea>
+            </div>
+            <div class="buttons is-right has-margin-top-medium has-margin-right-extra-small">
+                <button class="skip-rating button is-transparent has-text-primary is-small has-border-none" type="button">Skip</button>
+                <button class="submit-rating button is-primary is-small" data-bi-name="rating-verbatim" disabled type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="thankyou-rating is-hidden" tabindex="-1">
+        <p>Thank you.</p>
+    </div>
+</div>							<nav id="side-doc-outline" data-bi-name="intopic toc" role="navigation" aria-label="Article Outline">
+								<h3>In this article</h3>
+							</nav>
+						</div>
+					</div>
+
+					<!--end of div.columns -->
+				</div>
+
+			<!--end of .primary-holder -->
+			</section>
+
+			<aside id="interactive-container" class="interactive-container is-visible-interactive column has-body-background-dark ">
+			</aside>
+		</div>
+
+		<!--end of .mainContainer -->
+	</div>
+
+	<div class="footerContainer has-default-focus is-hidden-interactive ">
+
+
+
+	<footer id="footer" data-bi-name="footer" class="footer-layout uhf-container has-padding" role="contentinfo">
+
+    <div class="is-flex is-full-height has-padding-right-extra-large-desktop">
+			<a data-mscc-ic="false" class="locale-selector-link has-flex-shrink-none" href="#" data-bi-name="select-locale"><span class="icon docon docon-world is-size-large has-margin-right-small" aria-hidden="true"></span><span class="local-selector-link-text"></span></a>
+		<div class="has-margin-left-medium has-margin-right-medium has-flex-shrink-none">
+<div class="dropdown has-caret-up">
+	<button class="dropdown-trigger button is-transparent is-small is-icon-only-touch has-inner-focus theme-dropdown-trigger"
+		aria-controls="theme-menu" aria-expanded="false" title="Theme" data-bi-name="theme">
+		<span class="icon">
+			<span class="docon docon-sun" aria-hidden="true"></span>
+		</span>
+		<span>Theme</span>
+	</button>
+	<div class="dropdown-menu" id="theme-menu" role="menu">
+		<ul class="theme-selector has-padding-small">
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start"
+					data-theme-to="light">
+					<span class="theme-light has-margin-right-small">
+						<span
+							class="theme-selector-icon css-variable-support has-border is-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Light					</span>
+				</button>
+			</li>
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start"
+					data-theme-to="dark">
+					<span class="theme-dark has-margin-right-small">
+						<span
+							class="has-border theme-selector-icon css-variable-support is-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Dark					</span>
+				</button>
+			</li>
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start"
+					data-theme-to="high-contrast">
+					<span class="theme-high-contrast has-margin-right-small">
+						<span
+							class="has-border theme-selector-icon css-variable-support is-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+High contrast					</span>
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>		</div>
+	</div>
+    <ul class="links" data-bi-name="footerlinks">
+		<li class="manage-cookies-holder" hidden></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/previous-versions/" data-bi-name="archivelink">Previous Version Docs</a></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/teamblog" data-bi-name="bloglink">Blog</a></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/contribute" data-bi-name="contributorGuide">Contribute</a></li>
+				<li><a data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy">Privacy &amp; Cookies</a></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/legal/termsofuse" data-bi-name="termsofuse">Terms of Use</a></li>
+				<li><a data-mscc-ic="false" href="https://aka.ms/sitefeedback" data-bi-name="feedback">Site Feedback</a></li>
+			<li><a data-mscc-ic="false" href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" data-bi-name="trademarks">Trademarks</a></li>
+		<li>&copy; Microsoft 2021</li>
+    </ul>
+</footer>
+	</div>
+
+	<div id="action-panel" role="region" aria-label="Action Panel" class="action-panel has-default-focus" tabindex="-1"></div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Log-In</title>
+        
+        
+        
+
+        <!-- inject:css -->
+        <link rel="stylesheet" href="styles/app.min.css">
+        <!-- endinject -->
+    </head>
+
+    <body>
+        <h1>Student login</h1>
+        <form>
+
+            <div class="form-entry">
+                First Name: <input id='first-name' type="text" name="firstName"/>
+                <span id='first-name-error' class='error-msg' style='visibility:hidden'>Please enter first name.</span>
+            </div>
+
+            <div class="form-entry">
+                Last Name: <input id='last-name' type="text" name="lastName"/>
+                <span id='last-name-error' class='error-msg' style='visibility:hidden'>Please enter last name.</span>
+            </div>
+
+            <div class="form-entry">
+                <input type="button" value="Log In" onclick="validate()"/>
+            </div>
+
+        </form>
+
+        <div class="links">
+            <span>
+                
+            </span>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta name="keywords" content="asp.net core, core, core tutorials, .net core, dotnet core, asp.net core tutorials, asp.net core tutorial, learn .net core, asp.net core, free asp.net core tutorials, online asp.net core tutorials, Free asp.net core Tutorials for beginners, learn asp.net core, learn, asp.net core for beginners, asp.net core tutorial, asp.net core Basics, learn asp.net core, asp.net core step by step, learn asp.net core from scratch " />
+    <meta name="description" content="Learn ASP.NET Core step-by-step. Understand the basics of ASP.NET Core web framework with practical and easy to understand examples." />
+
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>ASP.NET Core Tutorial</title>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=PRJES_hs6_ZXUmr3lE0F8Q2ezq2RuVmkpcKKjtc-IOke7RVAfALTbAmuY44ZTsCYgJZD6Fre6Y2tt6MqZWDoQQ" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly93d3cudHV0b3JpYWxzdGVhY2hlci5jb20vY29yZQ"/><script src="/cdn-cgi/apps/head/pPXHlLb1CGI6YEB-9-_z05e8AO8.js"></script><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://www.facebook.com" crossorigin>
+
+<!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/Content/css/ttstyle.min.css?v=3.8" rel="stylesheet" type="text/css" />
+<meta property="og:url" content="https://www.tutorialsteacher.com/core" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="ASP.NET Core Tutorial" />
+<meta property="og:image" content="https://www.tutorialsteacher.com/assets/images/fbshare.jpg" />
+
+
+<script src="https://m2d.m2.ai/pghb.tutorialsteacher.com.js" type="text/javascript" async> </script>
+<script>
+        window.pg = window.pg || []; pg.acq = pg.acq || []; // build consent queue
+        pg.acq.push(function () {
+
+            // Global site tag (gtag.js)
+            pg.loadJS("https://www.googletagmanager.com/gtag/js?id=UA-33844821-5");
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'UA-33844821-5');
+        });
+    </script>
+</head>
+<body>
+    <!-- wrapper -->
+    <div class="phWrapper">
+        <header class="phHeader">
+    <nav class="navbar navbar-expand logo-link">
+        <a class="navbar-brand text-uppercase" href="https://www.tutorialsteacher.com">
+            <img src="/Content/images/tt-logo2.png" alt="LOGO" />
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-flex-icons ml-auto">
+                <li class="followus">Follow Us</li>
+                <li class="nav-item">
+                    <a class="nav-link fb-icon" href="https://www.facebook.com/tutorialsteacher" title="Facebook" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link tw-icon" href="https://twitter.com/tutorialstchr" title="Twitter" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+</header>
+        <nav class="navbar navbar-expand navbar-dark special-color-dark topMenuHorizontal sticky-top">
+
+    <!-- Navbar brand -->
+    <!-- Collapse button -->
+    <button class="navbar-toggler d-block d-md-none" type="button" data-toggle="collapse" data-target="#navbarLeft" aria-controls="#navbarLeft"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="topMenu">
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto left">
+            <li class="nav-item">
+                <a href="/" class="nav-link home-icon">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="/python">Python</a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="/core">ASP.NET Core</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="/mvc/asp.net-mvc-tutorials"> MVC</a></li>
+            <li class="nav-item"><a class="nav-link" href="/ioc">IoC  </a></li>
+            <li class="nav-item"><a class="nav-link" href="/webapi/web-api-tutorials">Web API</a></li>
+            <li class="nav-item"><a class="nav-link" href="/csharp/csharp-tutorials">C#</a></li>
+            <li class="nav-item"><a class="nav-link" href="/typescript">TypeScript</a></li>
+            <li class="nav-item"><a class="nav-link" href="/angular">Angular</a></li>
+            <li class="nav-item dropdown mega-dropdown">
+                <a class="nav-link dropdown-toggle no-caret" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More</a>
+                <div class="dropdown-menu mega-menu v-2 row z-depth-1 special-color" aria-labelledby="navbarDropdownMenuLink1">
+                    <a class="close text-white">&#10005; </a>
+                    <div class="row mx-md-4 mx-1">
+                        <div class="col-md-3 col-sm-6 col-xl-3 sub-menu my-xl-4 mt-4 mb-4">
+                            <h6 class="sub-title text-white">.NET Tutorials</h6>
+                            <ul class="caret-style pl-0">
+                                <li class=""><a class="menu-item" href="/core">ASP.NET Core</a></li>
+                                <li class=""><a class="menu-item" href="/mvc/asp.net-mvc-tutorials">ASP.NET MVC</a></li>
+                                <li class=""><a class="menu-item" href="/ioc">IoC  </a></li>
+                                <li class=""><a class="menu-item" href="/webapi/web-api-tutorials">web api</a></li>
+                                <li class=""><a class="menu-item" href="/csharp/csharp-tutorials">C#</a></li>
+                                <li class=""><a class="menu-item" href="/linq/linq-tutorials">LINQ</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xl-3 sub-menu my-xl-4  mt-4 mb-4">
+                            <h6 class="sub-title text-white">Script Tutorials</h6>
+                            <!--Featured image-->
+                            <ul class="caret-style pl-0">
+                                <li class=""><a class="menu-item" href="/typescript">TypeScript</a></li>
+                                <li class=""><a class="menu-item" href="/angular">Angular 11</a></li>
+                                <li class=""><a class="menu-item" href="/angularjs/angularjs-tutorials">AngularJS 1</a></li>
+                                <li class=""><a class="menu-item" href="/nodejs/nodejs-tutorials">Node.js</a></li>
+                                <li class=""><a class="menu-item" href="/d3js">D3.js</a></li>
+                                <li class=""><a class="menu-item" href="/jquery/jquery-tutorials">jQuery</a></li>
+                                <li class=""><a class="menu-item" href="/javascript/javascript-tutorials">JavaScript </a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xl-3 sub-menu my-xl-4 mt-4 mb-4">
+                            <h6 class="sub-title text-white">Other Tutorials</h6>
+                            <!--Featured image-->
+                            <ul class="caret-style pl-0">
+                                <li class=""><a class="menu-item" href="/python">Python</a></li>
+                                <li class=""><a class="menu-item" href="/sass">Sass</a></li>
+                                <li class=""><a class="menu-item" href="/https">Https</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xl-3 sub-menu my-xl-4 mt-4 mb-4">
+                            <h6 class="sub-title  text-white">Skill Tests</h6>
+                            <ul class="caret-style pl-0">
+                                <li class=""><a class="menu-item" href="/online-test/aspnetcore-test">ASP.NET Core</a></li>
+                                <li class=""><a class="menu-item" href="/online-test/mvc-test">ASP.NET MVC</a></li>
+                                <li class=""><a class="menu-item" href="/online-test/linq-test">LINQ</a></li>
+                                <li class=""><a class="menu-item" href="/online-test/csharp-test">C#</a></li>
+                                <li class=""><a class="menu-item" href="/online-test/webapi-test">web api</a></li>
+                                <li class=""><a class="menu-item" href="/online-test/ioc-test">IoC  </a></li>
+                                <li class=""><a class="menu-item" href="/online-test/typescript-test">TypeScript</a></li>
+                                <li class=""><a class="menu-item" href="/online-test/angularjs-test">AngularJS</a></li>
+                                <li class=""><a class="menu-item" href="/online-test/nodejs-test">Node.js</a></li>
+                                <li class=""><a class="menu-item" href="/online-test/jquery-test"> jQuery </a></li>
+                                <li class=""><a class="menu-item" href="/online-test/javascript-test"> JavaScript</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+
+        <!-- Links -->
+        <ul class="navbar-nav nav-flex right ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/articles">Articles</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/online-test">Tests</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/aboutus/write-for-us">Write For Us</a>
+            </li>
+        </ul>
+        <!-- Search form -->
+        <div id="wrap">
+            <form class="navbar-form" action="https://www.google.com/search" id="cse-search-box" role="search" target="_blank">
+                <div>
+                    <input type="hidden" name="cx" value="partner-pub-7448309248176309:9010588392" />
+                    <input type="hidden" name="ie" value="UTF-8" />
+                    <input type="text" name="q" id="q" placeholder="Search" class="form-control" >
+                    <span class="input-group-btn">
+                        <button type="submit" id="search_submit" class="button-search border-0 bg-transparent text-white">
+                            <i class="fa fa-search">
+                            </i>
+                        </button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Collapsible content -->
+</nav>
+
+
+        <nav class="navbar menuLeft p-0 navbar-expand-md">
+            <div class="collapse navbar-collapse" id="navbarLeft">
+                <div class="menuVerticalParent">
+                    <ul class="menuVertical" id="leftmenu">
+                        <li class="menu-title">
+                            ASP.NET Core Tutorials
+                        </li>
+                        <li>
+                            <a href="/core">ASP.NET Core - Get Started</a>
+                        </li>
+                        <li>
+                            <a href="/core/dotnet-core">.NET Core</a>
+                        </li>
+                        <li>
+                            <a href="/core/aspnet-core-introduction">ASP.NET Core</a>
+                        </li>
+                        <li>
+                            <a href="/core/aspnet-core-environment-setup">Install .NET Core</a>
+                        </li>
+                        <li>
+                            <a href="/core/first-aspnet-core-application">Create ASP.NET Core App</a>
+                        </li>
+                        <li>
+                            <a href="/core/aspnet-core-application-project-structure">Project Structure</a>
+                            <ul>
+                                <li>
+                                    <a href="/core/aspnet-core-wwwroot">wwwroot</a>
+                                </li>
+                                <li>
+                                    <a href="/core/aspnet-core-program">Program.cs</a>
+                                </li>
+                                <li>
+                                    <a href="/core/aspnet-core-startup">Startup.cs</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/core/net-core-command-line-interface">Command-line Interface</a>
+                        </li>
+                        <li>
+                            <a href="/core/dependency-injection-in-aspnet-core">Dependency Injection</a>
+                            <ul>
+                                <li>
+                                    <a href="/core/internals-of-builtin-ioc-container-in-aspnet-core">Built-in IoC Container</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/core/aspnet-core-middleware">Middleware</a>
+                            <ul>
+                                <li>
+                                    <a href="/core/how-to-add-custom-middleware-aspnet-core">Add Custom Middleware</a>
+                                </li>
+                                <li>
+                                    <a href="/core/how-to-change-the-name-of-the-default-file-to-be-served-on-root-request">Configure Default File</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/core/aspnet-core-environment-variable">Environment Variable</a>
+                        </li>
+                        <li>
+                            <a href="/core/aspnet-core-exception-handling">Exception Handling</a>
+                        </li>
+                        <li>
+                            <a href="/core/aspnet-core-static-file">Serving Static Files</a>
+                            <ul>
+                                <li>
+                                    <a href="/core/how-to-serve-static-files-from-another-folder-other-than-wwwroot">Serving Static Files From Other Folder</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/core/fundamentals-of-logging-in-dotnet-core">Logging in .NET Core</a>
+                        </li>
+                        <li>
+                            <a href="/core/aspnet-core-logging">Logging in ASP.NET Core</a>
+                        </li>
+                        <li>
+                            <a href="/core/dotnet-core-application-types">.NET Core Application Types</a>
+                        </li>
+                        <li>
+                            <a href="/core/code-sharing-between-dotnet-frameworks">Code Sharing</a>
+                        </li>
+                        <li>
+                            <a href="/core/target-multiple-frameworks-in-aspnet-core2">Target Multiple Frameworks</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!--Navbar-->
+        <!--/.Navbar-->
+        <section class="middleContent" id="middleContent">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 pr-md-0 col-lg-12 col-xl-8">
+                        <div class="lb-ad mb-2 mt-3">
+                            
+
+<div id='tt_leaderboard_atf_desk'></div>
+
+                        </div>
+                        <div class="navigation mt-3"> 
+    <div class="row">
+
+            <div class="col-6  text-left"><a id="btnPrev" class="btn  rounded-0" href="/">Home</a></div>
+
+            <div class="col-6 text-right float-right"><a id="btnNext"class="btn rounded-0" href='/core/dotnet-core'>Next <i class="fa fa-angle-right ml-1"></i></a></div>
+    </div>
+</div>
+
+                        
+
+
+    <article class="article">
+        <h1>ASP.NET Core Tutorials</h1>
+
+        <p>
+            ASP.NET Core is a new version of ASP.NET by Microsoft. It is an open-source web framework which can be run on Windows, Mac, or Linux.
+
+        </p>
+        <p>These tutorials will help you understand ASP.NET Core web application step by step. Tutorials are broken down into chapters, where each chapter contains a number of related topics that are packed with easy to understand explanations and real-world examples.</p>
+
+        <p>These tutorials are designed for beginners and professionals who want learn how to build ASP.NET Core web applications step by step.</p>
+
+        <h3>Prerequisites</h3>
+        <p>Basic knowledge of C#, HTML, Visual Studio, and Object Oriented Programming is required.</p>
+
+        <p>So let's get started by clicking Next.</p>
+
+        <div class="info">
+            <h3>ASP.NET Core Test</h3>
+            <p>
+                Test your ASP.NET Core 2.0 knowledge with a quick test. It includes 20 questions and each question includes 4 options. Select an appropriate answer out of 4 options.  There is no time limit for this test.
+            </p>
+            <a class="btn start-learning text-white" href="/online-test/aspnetcore-test">Start ASP.NET Core Test</a>
+        </div>
+    </article>
+                        
+<div id="social-platforms" class="mt-4 mb-4">
+    <ul class="row align-items-center">
+        <li class="col-md-3  col-sm-6 pl-lg-0">
+            <a class="btn btn-icon btn-facebook" id="fbshare"><i class="fa fa-facebook"></i><span>Share</span></a>
+        </li>
+        <li class="col-md-3 col-sm-6 pl-sm-0"> <a class="btn btn-icon btn-twitter " onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" href="https://twitter.com/share?url=https://www.tutorialsteacher.com/core&text=ASP.NET Core Tutorial" target="_blank"><i class="fa fa-twitter"></i><span> Tweet</span></a></li>
+        <li class="col-md-3 col-sm-6 pl-sm-0"> <a class="btn btn-icon btn-linkedin " href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.tutorialsteacher.com/core&title=ASP.NET Core Tutorial&summary=&source=" target="_blank"><i class="fa fa-linkedin"></i><span>Share</span></a></li>
+        <li class="col-md-3 col-sm-6 pl-md-0"> <a class="btn btn-icon btn-whatsapp" href="https://wa.me/?text=https%3a%2f%2fwww.tutorialsteacher.com%2fcore" target="_blank"><i class="fa fa-whatsapp"></i><span>Whatsapp</span></a></li>
+    </ul>
+</div>
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=1993456930718907&autoLogAppEvents=1';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<script>
+document.getElementById('fbshare').onclick = function () {
+    FB.ui({
+        method: 'share',
+        href: 'https://www.tutorialsteacher.com/core'
+    }, function (response) { });
+}
+</script>
+
+
+                        
+<hr />
+<center class="mt-4 mb-4">
+    
+    
+    <div class="pg-lazy" data-gpt-parent="tt_leaderboard_btf_desk"></div>
+
+    
+    <div class="pg-lazy" data-gpt-parent="tt_rectangle_btf_mobile"></div>
+
+</center>
+                        <div class="navigation mt-3"> 
+    <div class="row">
+
+            <div class="col-6  text-left"><a id="btnPrev" class="btn  rounded-0" href="/">Home</a></div>
+
+            <div class="col-6 text-right float-right"><a id="btnNext"class="btn rounded-0" href='/core/dotnet-core'>Next <i class="fa fa-angle-right ml-1"></i></a></div>
+    </div>
+</div>
+
+                    </div>
+                    
+<div class="d-none d-xl-block col-xl-4 rightSidebar">
+    <div class="row">
+        <div class="col-12">
+            <div class="rect-ad mt-3 ml-2">
+                
+                <div id='tt_sidebar_rectangle_desk'></div>
+            </div>
+            <div class="rect-ad mt-3 ml-2"  id="stickyAdDiv">
+                
+                <div id='tt_right_sidebar_sticky_desk'></div>
+            </div>
+
+        </div>
+        
+
+        
+
+        
+    </div>
+</div>
+
+
+                </div>
+            </div>
+            <footer class="section footer pt-5">
+    <div class="footer-main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="row">
+                        <div class="col-md-5 ">
+                            <div class="edugate-widget widget">
+                                <div class="title-widget">TutorialsTeacher.com</div>
+                                <div class="content-widget">
+                                    <p>
+                                        TutorialsTeacher.com is optimized for learning web technologies step by step.
+                                        Examples might be simplified to improve reading and basic understanding.
+                                        While using this site, you agree to have read and accepted our terms
+                                        of use and <a href="/aboutus/privacy-policy">privacy policy</a>.
+                                    </p>
+                                    <div class="info-list">
+                                        <ul class="list-unstyled">
+                                            <li><i class="fa fa-envelope-o"></i><a href="/cdn-cgi/l/email-protection#9cfaf9f9f8fefdfff7dce8e9e8f3eef5fdf0efe8f9fdfff4f9eeb2fff3f1"> <span class="__cf_email__" data-cfemail="b1d7d4d4d5d3d0d2daf1c5c4c5dec3d8d0ddc2c5d4d0d2d9d4c39fd2dedc">[email&#160;protected]</span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="useful-link-widget widget">
+                                <div class="title-widget">Tutorials</div>
+                                <div class="content-widget">
+                                    <div class="useful-link-list">
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6">
+                                                <ul class="list-unstyled">
+                                                    <li><i class="fa fa-angle-right"></i><a href="/core">ASP.NET Core</a></li>
+                                                    <li><i class="fa fa-angle-right"></i><a href="/mvc/asp.net-mvc-tutorials">ASP.NET MVC</a></li>
+                                                    <li><i class="fa fa-angle-right"></i><a href="/ioc">IoC</a></li>
+                                                    <li><i class="fa fa-angle-right"></i><a href="/webapi/web-api-tutorials">Web API</a></li>
+                                                    <li><i class="fa fa-angle-right"></i><a href="/csharp/csharp-tutorials">C#</a></li>
+                                                    <li><i class="fa fa-angle-right"></i><a href="/linq/linq-tutorials">LINQ</a></li>
+                                                    <li>
+                                                        <i class="fa fa-angle-right"></i><a href="https://www.entityframeworktutorial.net"
+                                                                                            target="_blank" rel="nofollow">Entity Framework</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 ">
+                                                <ul class="list-unstyled">
+                                                    <li><i class="fa fa-angle-right"></i><a href="/angularjs/angularjs-tutorials">AngularJS 1</a></li>
+                                                    <li><i class="fa fa-angle-right"></i><a href="/nodejs/nodejs-tutorials">Node.js</a></li>
+                                                    <li><i class="fa fa-angle-right"></i><a href="/d3js">D3.js</a></li>
+                                                    <li><i class="fa fa-angle-right"></i><a href="/javascript/javascript-tutorials">JavaScript</a></li>
+                                                    <li><i class="fa fa-angle-right"></i><a href="/jquery/jquery-tutorials">jQuery</a></li>
+                                                    <li><i class="fa fa-angle-right"></i><a href="/sass">Sass</a></li>
+                                                    <li><i class="fa fa-angle-right"></i><a href="/https">Https</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="mailing-widget widget">
+                                <div class="title-widget">E-mail list</div>
+                                <div class="content-wiget">
+                                    <p>
+                                        Subscribe to TutorialsTeacher email list and get latest updates, tips &amp;
+                                        tricks on C#, .Net, JavaScript, jQuery, AngularJS, Node.js to your inbox.
+                                    </p>
+                                    <form action="https://tutorialsteacher.us13.list-manage.com/subscribe/post-json?u=78cbe5cadd7cc1475359445ad&id=d119ae6be2" method="post" id="subscribe-form" name="subscribe-form" class="validate" novalidate>
+                                        <div class="input-group">
+                                            <input type="text" placeholder="Email address" class="form-control form-email-widget" name="MERGE0" id="MERGE0" size="25" /><span class="input-group-btn"><input type="submit" value="Go" name="subscribe" id="mc-embedded-subscribe" class="btn btn-email" /></span>
+                                        </div>
+
+                                        <div id="mce-responses" class="clear">
+                                            <div class="response" id="mce-error-response" style="display: none"></div>
+                                            <div class="response" id="mce-success-response" style="display: none"></div>
+                                        </div>
+                                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                                            <input type="text" name="b_659e2cbd2829799e7dc94ae35_93dae2ea03" tabindex="-1" value="" />
+                                        </div>
+                                        <div class="alert-success" id="successMsg"></div>
+                                        <div class="alert-danger" id="failMsg"></div>
+
+                                    </form>
+                                    <p>We respect your privacy.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row hyperlink text-center text-md-left">
+                <div class="col-md-6 hyper-left">
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="/">HOME</a></li>
+                        <li class="list-inline-item"><a href="/aboutus/privacy-policy">PRIVACY POLICY</a></li>
+                        <li class="list-inline-item"><a href="/aboutus/terms-of-use">TERMS OF USE</a></li>
+                        <li class="list-inline-item"><a href="/aboutus/advertise">ADVERTISE WITH US</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 hyper-right text-center text-md-right">
+                    <i class="fa fa-copyright" aria-hidden="true"></i> 2020 TutorialsTeacher.com. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</footer>
+
+        </section>
+    </div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/Content/scripts/ttGeneralScript.min.js?v=2.4"></script>
+<script>window.jQuery||LoadScriptAtEnd("/Content/scripts/jquery-3.3.1.min.js");</script>
+<script type="text/javascript">
+screen.width>556&&$(".copy-btn").length>0&&LoadAndRegisterClipboard(),$(".lazyload").length>0&&LoadScriptAtEnd("/Content/scripts/lazysizes.min.js");
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script>window.Popper||LoadScriptAtEnd("/Content/scripts/popper.min.js");</script>
+<script src="/Content/scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>$.fn.modal||LoadScriptAtEnd("/Content/scripts/bootstrap.min.js");</script>
+<script>
+function setActiveLeftMenu(){var e='Index'.replace(/_/g,"-");e=e.replace("asp-net","asp.net");var t='core'.replace(/_/g,"-");0==$('#leftmenu li a[href="/'+t+"/"+e+'"]').length?$('#leftmenu li a[href="/'+t+'"]').addClass("active"):$('#leftmenu li a[href="/'+t+"/"+e+'"]').addClass("active"),$('#topMenu > ul li a[href *="/'+t.toLowerCase()+'"]').addClass("active")}$(document).ready(function(){stickTLMenus(),screen.width<=767?$(window).scroll(function(){stickTLMenus(),stickyAd()}):screen.width>767&&screen.width<=1199?($(window).scroll(function(){stickTLMenus()}),setActiveLeftMenu(),maintainLeftMenuPos()):(stickyAd(),$(window).scroll(function(){stickTLMenus(),stickyAd()}),setActiveLeftMenu(),maintainLeftMenuPos()),registerSubscribeButton()});
+</script>
+<script type="text/javascript" src="//cdn.pubguru.com/fb.js"></script>
+</body>
+</html>

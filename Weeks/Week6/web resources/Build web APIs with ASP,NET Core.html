@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="hasSidebar hasPageActions hasBreadcrumb conceptual has-default-focus theme-light" lang="en-us" dir="ltr" data-css-variable-support="true" data-authenticated="false" data-auth-status-determined="false" data-target="docs" x-ms-format-detection="none">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta property="og:title" content="Create web APIs with ASP.NET Core" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.microsoft.com/en-us/aspnet/core/web-api/" />
+			<meta property="og:description" content="Learn the basics of creating a web API in ASP.NET Core." />
+		<meta property="og:image" content="https://docs.microsoft.com/en-us/media/logos/logo-ms-social.png" />
+		<meta property="og:image:alt" content="Microsoft Logo" />
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@docsmsft" />
+
+
+	<meta name="author" content="scottaddie" />
+<meta name="breadcrumb_path" content="/aspnet/core/breadcrumb/toc.json" />
+<meta name="depot_name" content="MSDN.aspnet-core-conceptual" />
+<meta name="description" content="Learn the basics of creating a web API in ASP.NET Core." />
+<meta name="document_id" content="b391017f-25e1-d5e1-c4f7-020408ade7b5" />
+<meta name="document_version_independent_id" content="263a7b64-2e42-bbfc-c1d3-61680438e1e4" />
+<meta name="gitcommit" content="https://github.com/dotnet/AspNetCore.Docs/blob/6d103e410eaeb08b1fbc01ab168557ed375df229/aspnetcore/web-api/index.md" />
+<meta name="locale" content="en-us" />
+<meta name="monikerRange" content=">= aspnetcore-2.1" />
+<meta name="monikers" content="aspnetcore-2.1" />
+<meta name="monikers" content="aspnetcore-2.2" />
+<meta name="monikers" content="aspnetcore-3.0" />
+<meta name="monikers" content="aspnetcore-3.1" />
+<meta name="monikers" content="aspnetcore-5.0" />
+<meta name="monikers" content="aspnetcore-6.0" />
+<meta name="ms.author" content="scaddie" />
+<meta name="ms.custom" content="mvc" />
+<meta name="ms.date" content="07/20/2020" />
+<meta name="ms.prod" content="aspnet-core" />
+<meta name="ms.technology" content="aspnetcore-webapi" />
+<meta name="ms.topic" content="conceptual" />
+<meta name="original_content_git_url" content="https://github.com/dotnet/AspNetCore.Docs/blob/live/aspnetcore/web-api/index.md" />
+<meta name="search.ms_docsetname" content="aspnet-core-conceptual" />
+<meta name="search.ms_product" content="MSDN" />
+<meta name="search.ms_sitename" content="Docs" />
+<meta name="site_name" content="Docs" />
+<meta name="uhfHeaderId" content="MSDocsHeader-AspNet" />
+<meta name="uid" content="web-api/index" />
+<meta name="updated_at" content="2021-02-04 03:29 PM" />
+<meta name="page_type" content="conceptual" />
+<meta name="toc_rel" content="../toc.json" />
+<meta name="pdf_url_template" content="https://docs.microsoft.com/pdfstore/en-us/MSDN.aspnet-core-conceptual/{branchName}{pdfName}" />
+<meta name="word_count" content="2102" />
+
+
+	<meta name="scope" content="ASP.NET Core" />
+<link href="https://docs.microsoft.com/en-us/aspnet/core/web-api/" rel="canonical">
+	<title>Create web APIs with ASP.NET Core | Microsoft Docs</title>
+
+		<link rel="stylesheet" href="/_themes/docs.theme/master/en-us/_themes/styles/1e67e633.site-ltr.css ">
+
+	<link rel="stylesheet" href="/_themes/docs.theme/master/en-us/_themes/styles/a96de1e1.conceptual.css ">
+
+
+	<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=44iuEV5YRyCOafqWl95tGdNvcVguOly4matp-XHy2QTGDbmJU6cGFRK6Z1Ctb4ktY7WRmBeHkVcbsrE86G9iIYso2T8i5wXHIowkrS4Sc5yNVAX2cuOlkGeRJaKgHmlb" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9kb2NzLm1pY3Jvc29mdC5jb20vZW4tdXMvYXNwbmV0L2NvcmUvd2ViLWFwaS8_dmlldz1hc3BuZXRjb3JlLTIuMg"/><script id="msdocs-script">
+	var msDocs = {
+		data: {
+			timeOrigin: Date.now(),
+			contentLocale: 'en-us',
+			contentDir: 'ltr',
+			userLocale: 'en-us',
+			userDir: 'ltr',
+			pageTemplate: 'Conceptual',
+			brand: '',
+			context: {
+
+			},
+			hasBinaryRating: true,
+			hasGithubIssues: true,
+			showFeedbackReport: false,
+			enableTutorialFeedback: false,
+			feedbackSystem: 'GitHub',
+			feedbackGitHubRepo: 'dotnet/AspNetCore.Docs',
+			feedbackProductUrl: 'https://github.com/dotnet/aspnetcore/blob/master/CONTRIBUTING.md',
+			contentGitUrl: 'https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/web-api/index.md',
+			extendBreadcrumb: true,
+			isEditDisplayable: true,
+			hideViewSource: false,
+			hasPageActions: true,
+			hasBookmark: true,
+			hasShare: true,
+			hasRecommendations: false,
+			contributors: [
+						{ name: "scottaddie", url: "https://github.com/scottaddie" },
+						{ name: "jamesmontemagno", url: "https://github.com/jamesmontemagno" },
+						{ name: "Rick-Anderson", url: "https://github.com/Rick-Anderson" },
+						{ name: "sguryev", url: "https://github.com/sguryev" },
+						{ name: "guardrex", url: "https://github.com/guardrex" },
+						{ name: "pranavkm", url: "https://github.com/pranavkm" },
+						{ name: "tdykstra", url: "https://github.com/tdykstra" },
+						{ name: "alfredmyers", url: "https://github.com/alfredmyers" },
+						{ name: "alexdresko", url: "https://github.com/alexdresko" }
+],
+		},
+		functions:{}
+	};
+	</script>
+	<script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"></script>
+	<script src="https://az725175.vo.msecnd.net/scripts/jsll-4.js"></script>
+	<script>window.jsllAwa = window.awa;</script>
+	<script nomodule src="/static/third-party/bluebird/3.5.0/bluebird.min.js" integrity="sha384-aD4BDeDGeLXLpPK4yKeqtZQa9dv4a/7mQ+4L5vwshIYH1Mc2BrXvHd32iHzYCQy5" crossorigin="anonymous"></script>
+	<script nomodule src="/static/third-party/fetch/3.0.0/fetch.umd.min.js" integrity="sha384-EQIXrC5K2+7X8nGgLkB995I0/6jfAvvyG1ieZ+WYGxgJHFMD/alsG9fSDWvzb5Y1" crossorigin="anonymous"></script>
+	<script nomodule src="/static/third-party/template/1.4.0/template.min.js" integrity="sha384-1zKzI6ldTVHMU7n0W2HpE/lhHI+UG4D9IIaxbj3kT2UhCWicdTuJkTtnKuu0CQzN" crossorigin="anonymous"></script>
+	<script nomodule src="/static/third-party/url/0.5.7/url.min.js" integrity="sha384-vn7xBMtpSTfzaTRWxj0kVq0UcsbBrTOgZ/M1ISHqe1V358elYva+lfiEC+T8jLPc" crossorigin="anonymous"></script>
+	<script src="/_themes/docs.theme/master/en-us/_themes/scripts/f0a172e9.index-polyfills.js"></script>
+
+		<script src="/_themes/docs.theme/master/en-us/_themes/scripts/2833dec3.index-docs.js"></script>
+</head>
+
+<body lang="en-us" dir="ltr">
+<div class="header-holder has-default-focus">
+	<a href="#main" class="skip-to-main-link has-outline-color-text visually-hidden-until-focused is-fixed has-inner-focus focus-visible has-top-zero has-left-zero has-right-zero has-padding-medium has-text-centered has-body-background-medium" tabindex="1">Skip to main content</a>
+	<div hidden id="cookie-consent-holder"></div>
+	<!-- liquid-tag banners global -->
+	<div id="headerAreaHolder" data-bi-name="header">
+<header role="banner" itemscope="itemscope" itemtype="http://schema.org/Organization">
+	<div class="nav-bar">
+		<div class="nav-bar-brand">
+			<a itemprop="url" href="https://www.microsoft.com" aria-label="Microsoft" class="nav-bar-button">
+				<div class="nav-bar-logo has-background-image theme-display is-light" role="presentation" aria-hidden="true" itemprop="logo" itemscope="itemscope"></div>
+				<div class="nav-bar-logo has-background-image theme-display is-dark is-high-contrast" role="presentation" aria-hidden="true" itemprop="logo" itemscope="itemscope"></div>
+			</a>
+		</div>
+	</div>
+	<div class="nav-bar has-border-top is-hidden-mobile"></div>
+</header>	</div>
+
+				<div class="content-header uhf-container has-padding has-default-focus has-border-bottom-none" data-bi-name="content-header">
+				<nav class="breadcrumb-holder has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow" data-bi-name="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList" role="navigation" aria-label="Breadcrumb">
+					<ul id="page-breadcrumbs" class="breadcrumbs">
+					</ul>
+				</nav>
+			<div class="content-header-controls">
+				<button type="button" class="contents-button button" data-bi-name="contents-expand" aria-haspopup="true">
+					<span class="icon"><span class="docon docon-menu" aria-hidden="true"></span></span>
+					<span class="contents-expand-title">Contents</span>
+				</button>
+				<button type="button" class="ap-collapse-behavior ap-expanded button" data-bi-name="ap-collapse" aria-controls="action-panel">
+					<span class="icon"><span class="docon docon-exit-mode" aria-hidden="true"></span></span>
+					<span>Exit focus mode</span>
+				</button>
+			</div>
+			<div class="has-padding-none-tablet has-padding-medium is-size-small is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow page-action-holder">
+				<ul class="is-hidden-mobile action-list has-flex-justify-content-start has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+					<li>
+						<button type="button" class="bookmark button is-text has-inner-focus is-small is-icon-only-touch" data-list-type="bookmarks" data-bi-name="bookmark" title="Bookmark this page">
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-single-bookmark"></span>
+							</span>
+							<span class="bookmark-status is-visually-hidden-touch is-hidden-portrait">Bookmark</span>
+						</button>
+					</li>
+						<li id="feedback-section-link">
+							<a href="#feedback" class="button is-text has-inner-focus is-small is-icon-only-touch" data-bi-name="comments" title="Send feedback about this page">
+								<span class="icon" aria-hidden="true">
+									<span class="docon docon-comment-lines"></span>
+								</span>
+								<span class="is-visually-hidden-touch is-hidden-portrait">Feedback</span>
+							</a>
+						</li>
+							<li id="contenteditbtn">
+								<a href="https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/web-api/index.md" class="button is-text has-inner-focus is-icon-only-touch is-small" title="Edit This Document" data-bi-name="edit" data-original_content_git_url="https://github.com/dotnet/AspNetCore.Docs/blob/live/aspnetcore/web-api/index.md" data-original_content_git_url_template="{repo}/blob/{branch}/aspnetcore/web-api/index.md" data-pr_repo="" data-pr_branch="">
+								<span class="icon" aria-hidden="true">
+									<span class="docon docon-edit-outline"></span>
+								</span>
+								<span class="is-visually-hidden-touch is-hidden-portrait">Edit</span>
+							</a>
+						</li>
+					<li>
+<div class="sharing dropdown has-caret">
+	<button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch" aria-controls="sharing-menu" aria-expanded="false" title="Share This Document" data-bi-name="share">
+		<span class="icon" aria-hidden="true">
+			<span class="docon docon-sharing"></span>
+		</span>
+		<span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+	</button>
+	<div class="dropdown-menu has-padding-small" id="sharing-menu">
+		<ul data-bi-name="share-links">
+			<li>
+				<a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" data-bi-name="twitter">
+					<span class="icon">
+						<span class="docon docon-brand-twitter has-text-primary" aria-hidden="true"></span>
+					</span>
+					<span>Twitter</span>
+				</a>
+			</li>
+			<li>
+				<a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" data-bi-name="linkedin">
+					<span class="icon">
+						<span class="docon docon-brand-linkedin has-text-primary" aria-hidden="true"></span>
+					</span>
+					<span>LinkedIn</span>
+				</a>
+			</li>
+			<li>
+				<a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" data-bi-name="facebook">
+					<span class="icon">
+						<span class="docon docon-brand-facebook has-text-primary" aria-hidden="true"></span>
+					</span>
+					<span>Facebook</span>
+				</a>
+			</li>
+			<li>
+				<a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" data-bi-name="email">
+					<span class="icon">
+						<span class="docon docon-mail-message-fill has-text-primary" aria-hidden="true"></span>
+					</span>
+					<span>Email</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>					</li>
+				</ul>
+				<button type="button" class="has-border contents-button button is-small is-text is-hidden-tablet has-inner-focus" aria-label="Contents" data-bi-name="contents-expand">
+					<span class="icon">
+						<span class="docon docon-editor-list-bullet" aria-hidden="true"></span>
+					</span>
+					<span class="contents-expand-title">Table of contents</span>
+				</button>
+				<div class="is-invisible"></div>
+				<div class="is-hidden-tablet level-item is-flexible level-right">
+					<button type="button" class="page-actions-button button is-small is-text is-hidden-tablet has-inner-focus has-border is-full-height  has-margin-left-small" aria-label="Page Actions" data-bi-name="pageactions">
+						<span class="icon">
+							<span class="docon docon-more-vertical" aria-hidden="true"></span>
+						</span>
+					</button>
+				</div>
+			</div>
+		</div>
+
+
+
+	<div id="disclaimer-holder" class="has-overflow-hidden has-default-focus">
+		<!-- liquid-tag banners sectional -->
+	</div>
+	</div>
+
+	<div class="mainContainer  uhf-container has-top-padding  has-default-focus" data-bi-name="body">
+
+		<div class="columns has-large-gaps is-gapless-mobile ">
+
+			<div id="left-container" class="left-container is-hidden-mobile column is-one-third-tablet is-one-quarter-desktop">
+				<nav id="affixed-left-container" class="is-fixed is-flex is-flex-column" role="navigation" aria-label="Primary"></nav>
+			</div>
+
+			<section class="primary-holder column is-two-thirds-tablet is-three-quarters-desktop">
+				<div class="columns is-gapless-mobile has-large-gaps ">
+
+
+				<div id="main-column" class="column  is-full is-four-fifths-desktop ">
+
+					<main id="main" role="main" class="content " data-bi-name="content" lang="en-us" dir="ltr">
+
+
+
+						<h1 id="create-web-apis-with-aspnet-core">Create web APIs with ASP.NET Core</h1>
+
+						<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+							<li>
+								<time class="is-invisible" data-article-date aria-label="Article review date" datetime="2020-07-20T00:00:00.000Z" data-article-date-source="ms.date">07/20/2020</time>
+							</li>
+									<li class="readingTime">10 minutes to read</li>
+								<li class="contributors-holder">
+									<ul class="facepile has-margin-left-none is-small" data-bi-name="contributors">
+														<li class="facepile-item">
+															<a href="https://github.com/scottaddie" title="scottaddie" aria-label="scottaddieGithub profile" data-src="https://github.com/scottaddie.png?size=32" data-contributor-name="scottaddie" class="facepile-item-coin"
+															>
+																<img class="facepile-item-coin-image durable-image" aria-hidden="true" src="https://github.com/scottaddie.png?size=32" role="presentation" onerror="this.className='facepile-item-coin-image durable-image has-error';"/>
+																<span class="facepile-item-coin-text durable-image-fallback facepile-item-teal"aria-hidden="true">s</span>
+															</a>
+														</li>
+														<li class="facepile-item">
+															<a href="https://github.com/jamesmontemagno" title="jamesmontemagno" aria-label="jamesmontemagnoGithub profile" data-src="https://github.com/jamesmontemagno.png?size=32" data-contributor-name="jamesmontemagno" class="facepile-item-coin"
+															>
+																<img class="facepile-item-coin-image durable-image" aria-hidden="true" src="https://github.com/jamesmontemagno.png?size=32" role="presentation" onerror="this.className='facepile-item-coin-image durable-image has-error';"/>
+																<span class="facepile-item-coin-text durable-image-fallback facepile-item-red"aria-hidden="true">j</span>
+															</a>
+														</li>
+														<li class="facepile-item">
+															<a href="https://github.com/Rick-Anderson" title="Rick-Anderson" aria-label="Rick-AndersonGithub profile" data-src="https://github.com/Rick-Anderson.png?size=32" data-contributor-name="Rick-Anderson" class="facepile-item-coin"
+															>
+																<img class="facepile-item-coin-image durable-image" aria-hidden="true" src="https://github.com/Rick-Anderson.png?size=32" role="presentation" onerror="this.className='facepile-item-coin-image durable-image has-error';"/>
+																<span class="facepile-item-coin-text durable-image-fallback facepile-item-blue"aria-hidden="true">R</span>
+															</a>
+														</li>
+														<li class="facepile-item">
+															<a href="https://github.com/sguryev" title="sguryev" aria-label="sguryevGithub profile" data-src="https://github.com/sguryev.png?size=32" data-contributor-name="sguryev" class="facepile-item-coin"
+															>
+																<img class="facepile-item-coin-image durable-image" aria-hidden="true" src="https://github.com/sguryev.png?size=32" role="presentation" onerror="this.className='facepile-item-coin-image durable-image has-error';"/>
+																<span class="facepile-item-coin-text durable-image-fallback facepile-item-teal"aria-hidden="true">s</span>
+															</a>
+														</li>
+														<li class="facepile-item">
+															<a href="https://github.com/guardrex" title="guardrex" aria-label="guardrexGithub profile" data-src="https://github.com/guardrex.png?size=32" data-contributor-name="guardrex" class="facepile-item-coin"
+															>
+																<img class="facepile-item-coin-image durable-image" aria-hidden="true" src="https://github.com/guardrex.png?size=32" role="presentation" onerror="this.className='facepile-item-coin-image durable-image has-error';"/>
+																<span class="facepile-item-coin-text durable-image-fallback facepile-item-red"aria-hidden="true">g</span>
+															</a>
+														</li>
+											<li class="facepile-item">
+													<button aria-label="View all contributors" class="facepile-item-more" title="View all contributors">
+														<div class="facepile-item-coin" aria-hidden="true">
+															<span class="facepile-item-coin-text" aria-hidden="true">
+																+4
+															</span>
+														</div>
+													</button>
+											</li>
+									</ul>
+								</li>
+						</ul>
+
+						<nav id="center-doc-outline" class="doc-outline is-hidden-desktop" data-bi-name="intopic toc" role="navigation" aria-label="Article Outline">
+							<h3>In this article</h3>
+						</nav>
+
+						<!-- <content> -->
+							<p>By <a href="https://github.com/scottaddie" data-linktype="external">Scott Addie</a> and <a href="https://github.com/tdykstra" data-linktype="external">Tom Dykstra</a></p>
+<p>ASP.NET Core supports creating RESTful services, also known as web APIs, using C#. To handle requests, a web API uses controllers. <em>Controllers</em> in a web API are classes that derive from <code>ControllerBase</code>. This article shows how to use controllers for handling web API requests.</p>
+<p><a href="https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/index/samples" data-linktype="external">View or download sample code</a>. (<a href="../introduction-to-aspnet-core?view=aspnetcore-2.2#how-to-download-a-sample" data-linktype="relative-path">How to download</a>).</p>
+<h2 id="controllerbase-class">ControllerBase class</h2>
+<p>A web API consists of one or more controller classes that derive from <a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.controllerbase" data-linktype="absolute-path">ControllerBase</a>. The web API project template provides a starter controller:</p>
+<div data-moniker="aspnetcore-3.0 aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0">
+<pre><code class="lang-csharp" highlight-lines="3">[ApiController]
+[Route(&quot;[controller]&quot;)]
+public class WeatherForecastController : ControllerBase
+</code></pre></div>
+<div data-moniker="aspnetcore-2.1 aspnetcore-2.2">
+<pre><code class="lang-csharp" highlight-lines="3">[Route(&quot;api/[controller]&quot;)]
+[ApiController]
+public class ValuesController : ControllerBase
+</code></pre></div>
+<p>Don't create a web API controller by deriving from the <a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.controller" data-linktype="absolute-path">Controller</a> class. <code>Controller</code> derives from <code>ControllerBase</code> and adds support for views, so it's for handling web pages, not web API requests. There's an exception to this rule: if you plan to use the same controller for both views and web APIs, derive it from <code>Controller</code>.</p>
+<p>The <code>ControllerBase</code> class provides many properties and methods that are useful for handling HTTP requests. For example, <code>ControllerBase.CreatedAtAction</code> returns a 201 status code:</p>
+<pre><code class="lang-csharp" highlight-lines="10">[HttpPost]
+[ProducesResponseType(StatusCodes.Status201Created)]
+[ProducesResponseType(StatusCodes.Status400BadRequest)]
+public ActionResult&lt;Pet&gt; Create(Pet pet)
+{
+    pet.Id = _petsInMemoryStore.Any() ? 
+             _petsInMemoryStore.Max(p =&gt; p.Id) + 1 : 1;
+    _petsInMemoryStore.Add(pet);
+
+    return CreatedAtAction(nameof(GetById), new { id = pet.Id }, pet);
+}
+</code></pre>
+<p>Here are some more examples of methods that <code>ControllerBase</code> provides.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.badrequest" data-linktype="absolute-path">BadRequest</a></td>
+<td>Returns 400 status code.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound" data-linktype="absolute-path">NotFound</a></td>
+<td>Returns 404 status code.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.physicalfile" data-linktype="absolute-path">PhysicalFile</a></td>
+<td>Returns a file.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.tryupdatemodelasync" data-linktype="absolute-path">TryUpdateModelAsync</a></td>
+<td>Invokes <a href="../mvc/models/model-binding?view=aspnetcore-2.2" data-linktype="relative-path">model binding</a>.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.tryvalidatemodel" data-linktype="absolute-path">TryValidateModel</a></td>
+<td>Invokes <a href="../mvc/models/validation?view=aspnetcore-2.2" data-linktype="relative-path">model validation</a>.</td>
+</tr>
+</tbody>
+</table>
+<p>For a list of all available methods and properties, see <a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.controllerbase" data-linktype="absolute-path">ControllerBase</a>.</p>
+<h2 id="attributes">Attributes</h2>
+<p>The <a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc" data-linktype="absolute-path">Microsoft.AspNetCore.Mvc</a> namespace provides attributes that can be used to configure the behavior of web API controllers and action methods. The following example uses attributes to specify the supported HTTP action verb and any known HTTP status codes that could be returned:</p>
+<pre><code class="lang-csharp" highlight-lines="1-3">[HttpPost]
+[ProducesResponseType(StatusCodes.Status201Created)]
+[ProducesResponseType(StatusCodes.Status400BadRequest)]
+public ActionResult&lt;Pet&gt; Create(Pet pet)
+{
+    pet.Id = _petsInMemoryStore.Any() ? 
+             _petsInMemoryStore.Max(p =&gt; p.Id) + 1 : 1;
+    _petsInMemoryStore.Add(pet);
+
+    return CreatedAtAction(nameof(GetById), new { id = pet.Id }, pet);
+}
+</code></pre>
+<p>Here are some more examples of attributes that are available.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.routeattribute" data-linktype="absolute-path"><code>[Route]</code></a></td>
+<td>Specifies URL pattern for a controller or action.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.bindattribute" data-linktype="absolute-path"><code>[Bind]</code></a></td>
+<td>Specifies prefix and properties to include for model binding.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.httpgetattribute" data-linktype="absolute-path"><code>[HttpGet]</code></a></td>
+<td>Identifies an action that supports the HTTP GET action verb.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.consumesattribute" data-linktype="absolute-path"><code>[Consumes]</code></a></td>
+<td>Specifies data types that an action accepts.</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.producesattribute" data-linktype="absolute-path"><code>[Produces]</code></a></td>
+<td>Specifies data types that an action returns.</td>
+</tr>
+</tbody>
+</table>
+<p>For a list that includes the available attributes, see the <a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc" data-linktype="absolute-path">Microsoft.AspNetCore.Mvc</a> namespace.</p>
+<h2 id="apicontroller-attribute">ApiController attribute</h2>
+<p>The <a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute" data-linktype="absolute-path"><code>[ApiController]</code></a> attribute can be applied to a controller class to enable the following opinionated, API-specific behaviors:</p>
+<div data-moniker="aspnetcore-2.2 aspnetcore-3.0 aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0">
+<ul>
+<li><a href="#attribute-routing-requirement" data-linktype="self-bookmark">Attribute routing requirement</a></li>
+<li><a href="#automatic-http-400-responses" data-linktype="self-bookmark">Automatic HTTP 400 responses</a></li>
+<li><a href="#binding-source-parameter-inference" data-linktype="self-bookmark">Binding source parameter inference</a></li>
+<li><a href="#multipartform-data-request-inference" data-linktype="self-bookmark">Multipart/form-data request inference</a></li>
+<li><a href="#problem-details-for-error-status-codes" data-linktype="self-bookmark">Problem details for error status codes</a></li>
+</ul>
+<p>The <em>Problem details for error status codes</em> feature requires a <a href="../mvc/compatibility-version?view=aspnetcore-2.2" data-linktype="relative-path">compatibility version</a> of 2.2 or later. The other features require a compatibility version of 2.1 or later.</p>
+</div>
+<ul>
+<li><a href="#attribute-routing-requirement" data-linktype="self-bookmark">Attribute routing requirement</a></li>
+<li><a href="#automatic-http-400-responses" data-linktype="self-bookmark">Automatic HTTP 400 responses</a></li>
+<li><a href="#binding-source-parameter-inference" data-linktype="self-bookmark">Binding source parameter inference</a></li>
+<li><a href="#multipartform-data-request-inference" data-linktype="self-bookmark">Multipart/form-data request inference</a></li>
+</ul>
+<p>These features require a <a href="../mvc/compatibility-version?view=aspnetcore-2.2" data-linktype="relative-path">compatibility version</a> of 2.1 or later.</p>
+<h3 id="attribute-on-specific-controllers">Attribute on specific controllers</h3>
+<p>The <code>[ApiController]</code> attribute can be applied to specific controllers, as in the following example from the project template:</p>
+<div data-moniker="aspnetcore-3.0 aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0">
+<pre><code class="lang-csharp">[ApiController]
+[Route(&quot;[controller]&quot;)]
+public class WeatherForecastController : ControllerBase
+</code></pre></div>
+<div data-moniker="aspnetcore-2.1 aspnetcore-2.2">
+<pre><code class="lang-csharp" highlight-lines="2">[Route(&quot;api/[controller]&quot;)]
+[ApiController]
+public class ValuesController : ControllerBase
+</code></pre></div>
+<h3 id="attribute-on-multiple-controllers">Attribute on multiple controllers</h3>
+<p>One approach to using the attribute on more than one controller is to create a custom base controller class annotated with the <code>[ApiController]</code> attribute. The following example shows a custom base class and a controller that derives from it:</p>
+<pre><code class="lang-csharp">[ApiController]
+public class MyControllerBase : ControllerBase
+{
+}
+</code></pre><div data-moniker="aspnetcore-3.0 aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0">
+<pre><code class="lang-csharp">[Produces(MediaTypeNames.Application.Json)]
+[Route(&quot;[controller]&quot;)]
+public class PetsController : MyControllerBase
+</code></pre></div>
+<div data-moniker="aspnetcore-2.1 aspnetcore-2.2">
+<pre><code class="lang-csharp">[Produces(MediaTypeNames.Application.Json)]
+[Route(&quot;api/[controller]&quot;)]
+public class PetsController : MyControllerBase
+</code></pre></div>
+<div data-moniker="aspnetcore-2.2 aspnetcore-3.0 aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0">
+<h3 id="attribute-on-an-assembly">Attribute on an assembly</h3>
+<p>If <a href="../mvc/compatibility-version?view=aspnetcore-2.2" data-linktype="relative-path">compatibility version</a> is set to 2.2 or later, the <code>[ApiController]</code> attribute can be applied to an assembly. Annotation in this manner applies web API behavior to all controllers in the assembly. There's no way to opt out for individual controllers. Apply the assembly-level attribute to the namespace declaration surrounding the <code>Startup</code> class:</p>
+<pre><code class="lang-csharp">[assembly: ApiController]
+namespace WebApiSample
+{
+    public class Startup
+    {
+        ...
+    }
+}
+</code></pre>
+</div>
+<h2 id="attribute-routing-requirement">Attribute routing requirement</h2>
+<p>The <code>[ApiController]</code> attribute makes attribute routing a requirement. For example:</p>
+<div data-moniker="aspnetcore-3.0 aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0">
+<pre><code class="lang-csharp" highlight-lines="2">[ApiController]
+[Route(&quot;[controller]&quot;)]
+public class WeatherForecastController : ControllerBase
+</code></pre>
+<p>Actions are inaccessible via <a href="../mvc/controllers/routing?view=aspnetcore-2.2#conventional-routing" data-linktype="relative-path">conventional routes</a> defined by <code>UseEndpoints</code>, <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.mvcapplicationbuilderextensions.usemvc" data-linktype="absolute-path">UseMvc</a>, or <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.mvcapplicationbuilderextensions.usemvcwithdefaultroute" data-linktype="absolute-path">UseMvcWithDefaultRoute</a> in <code>Startup.Configure</code>.</p>
+</div>
+<div data-moniker="aspnetcore-2.1 aspnetcore-2.2">
+<pre><code class="lang-csharp" highlight-lines="1">[Route(&quot;api/[controller]&quot;)]
+[ApiController]
+public class ValuesController : ControllerBase
+</code></pre>
+<p>Actions are inaccessible via <a href="../mvc/controllers/routing?view=aspnetcore-2.2#conventional-routing" data-linktype="relative-path">conventional routes</a> defined by <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.mvcapplicationbuilderextensions.usemvc" data-linktype="absolute-path">UseMvc</a> or <a href="/en-us/dotnet/api/microsoft.aspnetcore.builder.mvcapplicationbuilderextensions.usemvcwithdefaultroute" data-linktype="absolute-path">UseMvcWithDefaultRoute</a> in <code>Startup.Configure</code>.</p>
+</div>
+<h2 id="automatic-http-400-responses">Automatic HTTP 400 responses</h2>
+<p>The <code>[ApiController]</code> attribute makes model validation errors automatically trigger an HTTP 400 response. Consequently, the following code is unnecessary in an action method:</p>
+<pre><code class="lang-csharp">if (!ModelState.IsValid)
+{
+    return BadRequest(ModelState);
+}
+</code></pre>
+<p>ASP.NET Core MVC uses the <a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.infrastructure.modelstateinvalidfilter" data-linktype="absolute-path">ModelStateInvalidFilter</a> action filter to do the preceding check.</p>
+<h3 id="default-badrequest-response">Default BadRequest response</h3>
+<p>With a compatibility version of 2.1, the default response type for an HTTP 400 response is <a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.serializableerror" data-linktype="absolute-path">SerializableError</a>. The following request body is an example of the serialized type:</p>
+<pre><code class="lang-json">{
+  &quot;&quot;: [
+    &quot;A non-empty request body is required.&quot;
+  ]
+}
+</code></pre>
+<div data-moniker="aspnetcore-2.2 aspnetcore-3.0 aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0">
+<p>With a compatibility version of 2.2 or later, the default response type for an HTTP 400 response is <a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.validationproblemdetails" data-linktype="absolute-path">ValidationProblemDetails</a>. The following request body is an example of the serialized type:</p>
+<pre><code class="lang-json">{
+  &quot;type&quot;: &quot;https://tools.ietf.org/html/rfc7231#section-6.5.1&quot;,
+  &quot;title&quot;: &quot;One or more validation errors occurred.&quot;,
+  &quot;status&quot;: 400,
+  &quot;traceId&quot;: &quot;|7fb5e16a-4c8f23bbfc974667.&quot;,
+  &quot;errors&quot;: {
+    &quot;&quot;: [
+      &quot;A non-empty request body is required.&quot;
+    ]
+  }
+}
+</code></pre>
+<p>The <code>ValidationProblemDetails</code> type:</p>
+<ul>
+<li>Provides a machine-readable format for specifying errors in web API responses.</li>
+<li>Complies with the <a href="https://tools.ietf.org/html/rfc7807" data-linktype="external">RFC 7807 specification</a>.</li>
+</ul>
+</div>
+<p>To make automatic and custom responses consistent, call the <a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.validationproblem" data-linktype="absolute-path">ValidationProblem</a> method instead of <a href="/en-us/dotnet/api/system.web.http.apicontroller.badrequest" data-linktype="absolute-path">BadRequest</a>. <code>ValidationProblem</code> returns a <a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.validationproblemdetails" data-linktype="absolute-path">ValidationProblemDetails</a> object as well as the automatic response.</p>
+<h3 id="log-automatic-400-responses">Log automatic 400 responses</h3>
+<p>See <a href="https://github.com/dotnet/AspNetCore.Docs/issues/12157" data-linktype="external">How to log automatic 400 responses on model validation errors (dotnet/AspNetCore.Docs#12157)</a>.</p>
+<h3 id="disable-automatic-400-response">Disable automatic 400 response</h3>
+<p>To disable the automatic 400 behavior, set the <a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.apibehavioroptions.suppressmodelstateinvalidfilter#Microsoft_AspNetCore_Mvc_ApiBehaviorOptions_SuppressModelStateInvalidFilter" data-linktype="absolute-path">SuppressModelStateInvalidFilter</a> property to <code>true</code>. Add the following highlighted code in <code>Startup.ConfigureServices</code>:</p>
+<div data-moniker="aspnetcore-3.0 aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0">
+<pre><code class="lang-csharp" highlight-lines="2,6">services.AddControllers()
+    .ConfigureApiBehaviorOptions(options =&gt;
+    {
+        options.SuppressConsumesConstraintForFormFileParameters = true;
+        options.SuppressInferBindingSourcesForParameters = true;
+        options.SuppressModelStateInvalidFilter = true;
+        options.SuppressMapClientErrors = true;
+        options.ClientErrorMapping[StatusCodes.Status404NotFound].Link =
+            &quot;https://httpstatuses.com/404&quot;;
+    });
+</code></pre></div>
+<div data-moniker="aspnetcore-2.2">
+<pre><code class="lang-csharp" highlight-lines="3,7">services.AddMvc()
+    .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+    .ConfigureApiBehaviorOptions(options =&gt;
+    {
+        options.SuppressConsumesConstraintForFormFileParameters = true;
+        options.SuppressInferBindingSourcesForParameters = true;
+        options.SuppressModelStateInvalidFilter = true;
+        options.SuppressMapClientErrors = true;
+        options.ClientErrorMapping[404].Link =
+            &quot;https://httpstatuses.com/404&quot;;
+    });
+</code></pre></div>
+<div data-moniker="aspnetcore-2.1">
+<pre><code class="lang-csharp" highlight-lines="1,5">services.Configure&lt;ApiBehaviorOptions&gt;(options =&gt;
+{
+    options.SuppressConsumesConstraintForFormFileParameters = true;
+    options.SuppressInferBindingSourcesForParameters = true;
+    options.SuppressModelStateInvalidFilter = true;
+});
+</code></pre></div>
+<h2 id="binding-source-parameter-inference">Binding source parameter inference</h2>
+<p>A binding source attribute defines the location at which an action parameter's value is found. The following binding source attributes exist:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Binding source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.frombodyattribute" data-linktype="absolute-path"><code>[FromBody]</code></a></td>
+<td>Request body</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.fromformattribute" data-linktype="absolute-path"><code>[FromForm]</code></a></td>
+<td>Form data in the request body</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.fromheaderattribute" data-linktype="absolute-path"><code>[FromHeader]</code></a></td>
+<td>Request header</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.fromqueryattribute" data-linktype="absolute-path"><code>[FromQuery]</code></a></td>
+<td>Request query string parameter</td>
+</tr>
+<tr>
+<td><a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.fromrouteattribute" data-linktype="absolute-path"><code>[FromRoute]</code></a></td>
+<td>Route data from the current request</td>
+</tr>
+<tr>
+<td><a href="../mvc/controllers/dependency-injection?view=aspnetcore-2.2#action-injection-with-fromservices" data-linktype="relative-path"><code>[FromServices]</code></a></td>
+<td>The request service injected as an action parameter</td>
+</tr>
+</tbody>
+</table>
+<div class="WARNING">
+<p>Warning</p>
+<p>Don't use <code>[FromRoute]</code> when values might contain <code>%2f</code> (that is <code>/</code>). <code>%2f</code> won't be unescaped to <code>/</code>. Use <code>[FromQuery]</code> if the value might contain <code>%2f</code>.</p>
+</div>
+<p>Without the <code>[ApiController]</code> attribute or binding source attributes like <code>[FromQuery]</code>, the ASP.NET Core runtime attempts to use the complex object model binder. The complex object model binder pulls data from value providers in a defined order.</p>
+<p>In the following example, the <code>[FromQuery]</code> attribute indicates that the <code>discontinuedOnly</code> parameter value is provided in the request URL's query string:</p>
+<pre><code class="lang-csharp" highlight-lines="3">[HttpGet]
+public ActionResult&lt;List&lt;Product&gt;&gt; Get(
+    [FromQuery] bool discontinuedOnly = false)
+{
+    List&lt;Product&gt; products = null;
+
+    if (discontinuedOnly)
+    {
+        products = _productsInMemoryStore.Where(p =&gt; p.IsDiscontinued).ToList();
+    }
+    else
+    {
+        products = _productsInMemoryStore;
+    }
+
+    return products;
+}
+</code></pre>
+<p>The <code>[ApiController]</code> attribute applies inference rules for the default data sources of action parameters. These rules save you from having to identify binding sources manually by applying attributes to the action parameters. The binding source inference rules behave as follows:</p>
+<ul>
+<li><code>[FromBody]</code> is inferred for complex type parameters. An exception to the <code>[FromBody]</code> inference rule is any complex, built-in type with a special meaning, such as <a href="/en-us/dotnet/api/microsoft.aspnetcore.http.iformcollection" data-linktype="absolute-path">IFormCollection</a> and <a href="/en-us/dotnet/api/system.threading.cancellationtoken" data-linktype="absolute-path">CancellationToken</a>. The binding source inference code ignores those special types.</li>
+<li><code>[FromForm]</code> is inferred for action parameters of type <a href="/en-us/dotnet/api/microsoft.aspnetcore.http.iformfile" data-linktype="absolute-path">IFormFile</a> and <a href="/en-us/dotnet/api/microsoft.aspnetcore.http.iformfilecollection" data-linktype="absolute-path">IFormFileCollection</a>. It's not inferred for any simple or user-defined types.</li>
+<li><code>[FromRoute]</code> is inferred for any action parameter name matching a parameter in the route template. When more than one route matches an action parameter, any route value is considered <code>[FromRoute]</code>.</li>
+<li><code>[FromQuery]</code> is inferred for any other action parameters.</li>
+</ul>
+<h3 id="frombody-inference-notes">FromBody inference notes</h3>
+<p><code>[FromBody]</code> isn't inferred for simple types such as <code>string</code> or <code>int</code>. Therefore, the <code>[FromBody]</code> attribute should be used for simple types when that functionality is needed.</p>
+<p>When an action has more than one parameter bound from the request body, an exception is thrown. For example, all of the following action method signatures cause an exception:</p>
+<ul>
+<li><p><code>[FromBody]</code> inferred on both because they're complex types.</p>
+<pre><code class="lang-csharp">[HttpPost]
+public IActionResult Action1(Product product, Order order)
+</code></pre>
+</li>
+<li><p><code>[FromBody]</code> attribute on one, inferred on the other because it's a complex type.</p>
+<pre><code class="lang-csharp">[HttpPost]
+public IActionResult Action2(Product product, [FromBody] Order order)
+</code></pre>
+</li>
+<li><p><code>[FromBody]</code> attribute on both.</p>
+<pre><code class="lang-csharp">[HttpPost]
+public IActionResult Action3([FromBody] Product product, [FromBody] Order order)
+</code></pre>
+</li>
+</ul>
+<div data-moniker="aspnetcore-2.1">
+<div class="NOTE">
+<p>Note</p>
+<p>In ASP.NET Core 2.1, collection type parameters such as lists and arrays are incorrectly inferred as <code>[FromQuery]</code>. The <code>[FromBody]</code> attribute should be used for these parameters if they are to be bound from the request body. This behavior is corrected in ASP.NET Core 2.2 or later, where collection type parameters are inferred to be bound from the body by default.</p>
+</div>
+</div>
+<h3 id="disable-inference-rules">Disable inference rules</h3>
+<p>To disable binding source inference, set <a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.apibehavioroptions.suppressinferbindingsourcesforparameters#Microsoft_AspNetCore_Mvc_ApiBehaviorOptions_SuppressInferBindingSourcesForParameters" data-linktype="absolute-path">SuppressInferBindingSourcesForParameters</a> to <code>true</code>. Add the following code in <code>Startup.ConfigureServices</code>:</p>
+<div data-moniker="aspnetcore-3.0 aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0">
+<pre><code class="lang-csharp" highlight-lines="2,5">services.AddControllers()
+    .ConfigureApiBehaviorOptions(options =&gt;
+    {
+        options.SuppressConsumesConstraintForFormFileParameters = true;
+        options.SuppressInferBindingSourcesForParameters = true;
+        options.SuppressModelStateInvalidFilter = true;
+        options.SuppressMapClientErrors = true;
+        options.ClientErrorMapping[StatusCodes.Status404NotFound].Link =
+            &quot;https://httpstatuses.com/404&quot;;
+    });
+</code></pre></div>
+<div data-moniker="aspnetcore-2.2">
+<pre><code class="lang-csharp" highlight-lines="3,6">services.AddMvc()
+    .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+    .ConfigureApiBehaviorOptions(options =&gt;
+    {
+        options.SuppressConsumesConstraintForFormFileParameters = true;
+        options.SuppressInferBindingSourcesForParameters = true;
+        options.SuppressModelStateInvalidFilter = true;
+        options.SuppressMapClientErrors = true;
+        options.ClientErrorMapping[404].Link =
+            &quot;https://httpstatuses.com/404&quot;;
+    });
+</code></pre></div>
+<div data-moniker="aspnetcore-2.1">
+<pre><code class="lang-csharp" highlight-lines="1,4">services.Configure&lt;ApiBehaviorOptions&gt;(options =&gt;
+{
+    options.SuppressConsumesConstraintForFormFileParameters = true;
+    options.SuppressInferBindingSourcesForParameters = true;
+    options.SuppressModelStateInvalidFilter = true;
+});
+</code></pre></div>
+<h2 id="multipartform-data-request-inference">Multipart/form-data request inference</h2>
+<p>The <code>[ApiController]</code> attribute applies an inference rule when an action parameter is annotated with the <a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.fromformattribute" data-linktype="absolute-path"><code>[FromForm]</code></a> attribute. The <code>multipart/form-data</code> request content type is inferred.</p>
+<p>To disable the default behavior, set the <a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.apibehavioroptions.suppressconsumesconstraintforformfileparameters#Microsoft_AspNetCore_Mvc_ApiBehaviorOptions_SuppressConsumesConstraintForFormFileParameters" data-linktype="absolute-path">SuppressConsumesConstraintForFormFileParameters</a> property to <code>true</code> in <code>Startup.ConfigureServices</code>:</p>
+<div data-moniker="aspnetcore-3.0 aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0">
+<pre><code class="lang-csharp" highlight-lines="2,4">services.AddControllers()
+    .ConfigureApiBehaviorOptions(options =&gt;
+    {
+        options.SuppressConsumesConstraintForFormFileParameters = true;
+        options.SuppressInferBindingSourcesForParameters = true;
+        options.SuppressModelStateInvalidFilter = true;
+        options.SuppressMapClientErrors = true;
+        options.ClientErrorMapping[StatusCodes.Status404NotFound].Link =
+            &quot;https://httpstatuses.com/404&quot;;
+    });
+</code></pre></div>
+<div data-moniker="aspnetcore-2.2">
+<pre><code class="lang-csharp" highlight-lines="3,5">services.AddMvc()
+    .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+    .ConfigureApiBehaviorOptions(options =&gt;
+    {
+        options.SuppressConsumesConstraintForFormFileParameters = true;
+        options.SuppressInferBindingSourcesForParameters = true;
+        options.SuppressModelStateInvalidFilter = true;
+        options.SuppressMapClientErrors = true;
+        options.ClientErrorMapping[404].Link =
+            &quot;https://httpstatuses.com/404&quot;;
+    });
+</code></pre></div>
+<div data-moniker="aspnetcore-2.1">
+<pre><code class="lang-csharp" highlight-lines="1,3">services.Configure&lt;ApiBehaviorOptions&gt;(options =&gt;
+{
+    options.SuppressConsumesConstraintForFormFileParameters = true;
+    options.SuppressInferBindingSourcesForParameters = true;
+    options.SuppressModelStateInvalidFilter = true;
+});
+</code></pre></div>
+<div data-moniker="aspnetcore-2.2 aspnetcore-3.0 aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0">
+<h2 id="problem-details-for-error-status-codes">Problem details for error status codes</h2>
+<p>When the compatibility version is 2.2 or later, MVC transforms an error result (a result with status code 400 or higher) to a result with <a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.problemdetails" data-linktype="absolute-path">ProblemDetails</a>. The <code>ProblemDetails</code> type is based on the <a href="https://tools.ietf.org/html/rfc7807" data-linktype="external">RFC 7807 specification</a> for providing machine-readable error details in an HTTP response.</p>
+<p>Consider the following code in a controller action:</p>
+<pre><code class="lang-csharp">if (pet == null)
+{
+    return NotFound();
+}
+</code></pre>
+<p>The <code>NotFound</code> method produces an HTTP 404 status code with a <code>ProblemDetails</code> body. For example:</p>
+<pre><code class="lang-json">{
+  type: &quot;https://tools.ietf.org/html/rfc7231#section-6.5.4&quot;,
+  title: &quot;Not Found&quot;,
+  status: 404,
+  traceId: &quot;0HLHLV31KRN83:00000001&quot;
+}
+</code></pre>
+<h3 id="disable-problemdetails-response">Disable ProblemDetails response</h3>
+<p>The automatic creation of a <code>ProblemDetails</code> for error status codes is disabled when the <a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.apibehavioroptions.suppressmapclienterrors" data-linktype="absolute-path">SuppressMapClientErrors</a> property is set to <code>true</code>. Add the following code in <code>Startup.ConfigureServices</code>:</p>
+</div>
+<div data-moniker="aspnetcore-3.0 aspnetcore-3.1 aspnetcore-5.0 aspnetcore-6.0">
+<pre><code class="lang-csharp" highlight-lines="2,7">services.AddControllers()
+    .ConfigureApiBehaviorOptions(options =&gt;
+    {
+        options.SuppressConsumesConstraintForFormFileParameters = true;
+        options.SuppressInferBindingSourcesForParameters = true;
+        options.SuppressModelStateInvalidFilter = true;
+        options.SuppressMapClientErrors = true;
+        options.ClientErrorMapping[StatusCodes.Status404NotFound].Link =
+            &quot;https://httpstatuses.com/404&quot;;
+    });
+</code></pre></div>
+<div data-moniker="aspnetcore-2.2">
+<pre><code class="lang-csharp" highlight-lines="3,8">services.AddMvc()
+    .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+    .ConfigureApiBehaviorOptions(options =&gt;
+    {
+        options.SuppressConsumesConstraintForFormFileParameters = true;
+        options.SuppressInferBindingSourcesForParameters = true;
+        options.SuppressModelStateInvalidFilter = true;
+        options.SuppressMapClientErrors = true;
+        options.ClientErrorMapping[404].Link =
+            &quot;https://httpstatuses.com/404&quot;;
+    });
+</code></pre></div>
+<p><a name="consumes"></a></p>
+<h2 id="define-supported-request-content-types-with-the-consumes-attribute">Define supported request content types with the [Consumes] attribute</h2>
+<p>By default, an action supports all available request content types. For example, if an app is configured to support both JSON and XML <a href="../mvc/models/model-binding?view=aspnetcore-2.2#input-formatters" data-linktype="relative-path">input formatters</a>, an action supports multiple content types, including <code>application/json</code> and <code>application/xml</code>.</p>
+<p>The <a href="/en-us/dotnet/api/microsoft.aspnetcore.mvc.consumesattribute" data-linktype="absolute-path">[Consumes]</a> attribute allows an action to limit the supported request content types. Apply the <code>[Consumes]</code> attribute to an action or controller, specifying one or more content types:</p>
+<pre><code class="lang-csharp">[HttpPost]
+[Consumes(&quot;application/xml&quot;)]
+public IActionResult CreateProduct(Product product)
+</code></pre>
+<p>In the preceding code, the <code>CreateProduct</code> action specifies the content type <code>application/xml</code>. Requests routed to this action must specify a <code>Content-Type</code> header of <code>application/xml</code>. Requests that don't specify a <code>Content-Type</code> header of <code>application/xml</code> result in a <a href="https://developer.mozilla.org/docs/Web/HTTP/Status/415" data-linktype="external">415 Unsupported Media Type</a> response.</p>
+<p>The <code>[Consumes]</code> attribute also allows an action to influence its selection based on an incoming request's content type by applying a type constraint. Consider the following example:</p>
+<pre><code class="lang-csharp">[ApiController]
+[Route(&quot;api/[controller]&quot;)]
+public class ConsumesController : ControllerBase
+{
+    [HttpPost]
+    [Consumes(&quot;application/json&quot;)]
+    public IActionResult PostJson(IEnumerable&lt;int&gt; values) =&gt;
+        Ok(new { Consumes = &quot;application/json&quot;, Values = values });
+
+    [HttpPost]
+    [Consumes(&quot;application/x-www-form-urlencoded&quot;)]
+    public IActionResult PostForm([FromForm] IEnumerable&lt;int&gt; values) =&gt;
+        Ok(new { Consumes = &quot;application/x-www-form-urlencoded&quot;, Values = values });
+}
+</code></pre>
+<p>In the preceding code, <code>ConsumesController</code> is configured to handle requests sent to the <code>https://localhost:5001/api/Consumes</code> URL. Both of the controller's actions, <code>PostJson</code> and <code>PostForm</code>, handle POST requests with the same URL. Without the <code>[Consumes]</code> attribute applying a type constraint, an ambiguous match exception is thrown.</p>
+<p>The <code>[Consumes]</code> attribute is applied to both actions. The <code>PostJson</code> action handles requests sent with a <code>Content-Type</code> header of <code>application/json</code>. The <code>PostForm</code> action handles requests sent with a <code>Content-Type</code> header of <code>application/x-www-form-urlencoded</code>.</p>
+<h2 id="additional-resources">Additional resources</h2>
+<ul>
+<li><a href="action-return-types?view=aspnetcore-2.2" data-linktype="relative-path">Controller action return types in ASP.NET Core web API</a></li>
+<li><a href="handle-errors?view=aspnetcore-2.2" data-linktype="relative-path">Handle errors in ASP.NET Core web APIs</a></li>
+<li><a href="advanced/custom-formatters?view=aspnetcore-2.2" data-linktype="relative-path">Custom formatters in ASP.NET Core Web API</a></li>
+<li><a href="advanced/formatting?view=aspnetcore-2.2" data-linktype="relative-path">Format response data in ASP.NET Core Web API</a></li>
+<li><a href="../tutorials/web-api-help-pages-using-swagger?view=aspnetcore-2.2" data-linktype="relative-path">ASP.NET Core web API documentation with Swagger / OpenAPI</a></li>
+<li><a href="../mvc/controllers/routing?view=aspnetcore-2.2" data-linktype="relative-path">Routing to controller actions in ASP.NET Core</a></li>
+<li><a href="/en-us/learn/modules/build-web-api-aspnet-core/" data-linktype="absolute-path">Microsoft Learn: Create a web API with ASP.NET Core</a></li>
+</ul>
+
+						<!-- </content> -->
+
+						</main>
+
+						<!-- page rating section -->
+								<div class="is-hidden-desktop has-border-top has-margin-top-large has-padding-top-large binary-rating-holder">
+									
+	
+	
+
+	<div class="feedback-verbatim has-border-bottom has-padding-bottom-large has-margin-bottom-small" data-bi-name="rating">
+    <div class="binary-rating">
+        <div class="binary-rating-buttons">
+				<h3 class="has-text-weight-semibold has-margin-top-none has-margin-bottom-small is-size-h4 has-margin-bottom-medium">Is this page helpful?</h3>
+			<div>
+                <button class="thumb-rating like has-inner-focus" title="Yes" data-bi-name="rating-yes" aria-expanded="false" data-bi-sat="1" aria-controls="rating-container-desktop">
+                    <span aria-hidden="true" class="icon docon docon-like"></span>
+                    <span>Yes</span>
+                </button>
+                <button class="thumb-rating dislike has-inner-focus" title="No" data-bi-name="rating-no" data-bi-sat="0" aria-expanded="false" aria-controls="rating-container-desktop">
+                    <span aria-hidden="true" class="icon docon docon-dislike"></span>
+                    <span>No</span>
+                </button>
+            </div>
+        </div>
+        <form class="feedback-verbatim-form is-hidden" id="rating-container-desktop">
+            <div class="verbatim-textarea box is-relative has-box-shadow-none has-border has-margin-top-small has-padding-extra-small is-size-extra-small">
+                <label for="rating-textarea-desktop" class="visually-hidden">Any additional feedback?</label>
+                <textarea id="rating-textarea-desktop" rows="4" maxlength="999" placeholder="Any additional feedback?" required class="textarea has-border-none has-box-shadow-none has-inner-focus"></textarea>
+            </div>
+            <div class="buttons is-right has-margin-top-medium has-margin-right-extra-small">
+                <button class="skip-rating button is-transparent has-text-primary is-small has-border-none" type="button">Skip</button>
+                <button class="submit-rating button is-primary is-small" data-bi-name="rating-verbatim" disabled type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="thankyou-rating is-hidden" tabindex="-1">
+        <p>Thank you.</p>
+    </div>
+</div>									</div>
+						<!-- end page rating section -->
+
+
+						<!-- recommendations section -->
+						<!-- end recommendations section -->
+
+						<!-- feedback section -->
+<section class="feedback-section is-relative" data-bi-name="feedback-section">
+
+    <h2 id="feedback" class="title is-3 has-margin-top-large">Feedback</h2>
+
+    <div class="alert choose-feedback-type">
+        <p aria-hidden="true" id="send-feedback-about">Submit and view feedback for</p>
+
+        <div class="choose-feedback-buttons has-margin-top-medium">
+                <a class="button has-external-link-indicator feedback-type-product has-margin-bottom-small" aria-label="Send feedback about this product" href="https://github.com/dotnet/aspnetcore/blob/master/CONTRIBUTING.md" data-bi-name="product-feedback">
+                    <span>This product</span>
+                </a>
+
+			<a class="button feedback-type-product has-margin-bottom-small github-link" aria-label="Send feedback about this page" data-bi-name="create-issue-on-github">
+				<span aria-hidden="true" class="docon docon-brand-github has-padding-right-extra-small"></span>
+				<span>This page</span>
+			</a>
+        </div>
+    </div>
+
+    <div class="action-container is-flex has-flex-justify-content-end has-margin-top-small has-margin-bottom-small">
+        <a class="view-on-github has-external-link-indicator" data-bi-name="view-on-github" href="https://github.com/dotnet/AspNetCore.Docs/issues">
+            <span aria-hidden="true" class="docon docon-brand-github"></span>
+            <span>View all page feedback</span>
+        </a>
+    </div>
+</section>
+						<!-- end feedback section -->
+
+						<!-- feedback report section -->
+						<!-- end feedback report section -->
+
+						<div class="footerContainer is-visible-interactive has-default-focus ">
+
+
+
+	<footer id="footer-interactive" data-bi-name="footer" class="footer-layout">
+
+    <div class="is-flex is-full-height has-padding-right-extra-large-desktop">
+			<a data-mscc-ic="false" class="locale-selector-link has-flex-shrink-none" href="#" data-bi-name="select-locale"><span class="icon docon docon-world is-size-large has-margin-right-small" aria-hidden="true"></span><span class="local-selector-link-text"></span></a>
+		<div class="has-margin-left-medium has-margin-right-medium has-flex-shrink-none">
+<div class="dropdown has-caret-up">
+	<button class="dropdown-trigger button is-transparent is-small is-icon-only-touch has-inner-focus theme-dropdown-trigger"
+		aria-controls="theme-menu-interactive" aria-expanded="false" title="Theme" data-bi-name="theme">
+		<span class="icon">
+			<span class="docon docon-sun" aria-hidden="true"></span>
+		</span>
+		<span>Theme</span>
+	</button>
+	<div class="dropdown-menu" id="theme-menu-interactive" role="menu">
+		<ul class="theme-selector has-padding-small">
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start"
+					data-theme-to="light">
+					<span class="theme-light has-margin-right-small">
+						<span
+							class="theme-selector-icon css-variable-support has-border is-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Light					</span>
+				</button>
+			</li>
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start"
+					data-theme-to="dark">
+					<span class="theme-dark has-margin-right-small">
+						<span
+							class="has-border theme-selector-icon css-variable-support is-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Dark					</span>
+				</button>
+			</li>
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start"
+					data-theme-to="high-contrast">
+					<span class="theme-high-contrast has-margin-right-small">
+						<span
+							class="has-border theme-selector-icon css-variable-support is-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+High contrast					</span>
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>		</div>
+	</div>
+    <ul class="links" data-bi-name="footerlinks">
+		<li class="manage-cookies-holder" hidden></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/previous-versions/" data-bi-name="archivelink">Previous Version Docs</a></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/teamblog" data-bi-name="bloglink">Blog</a></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/contribute" data-bi-name="contributorGuide">Contribute</a></li>
+				<li><a data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy">Privacy &amp; Cookies</a></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/legal/termsofuse" data-bi-name="termsofuse">Terms of Use</a></li>
+				<li><a data-mscc-ic="false" href="https://aka.ms/sitefeedback" data-bi-name="feedback">Site Feedback</a></li>
+			<li><a data-mscc-ic="false" href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" data-bi-name="trademarks">Trademarks</a></li>
+		<li>&copy; Microsoft 2021</li>
+    </ul>
+</footer>
+						</div>
+					</div>
+
+					<div class="is-size-small right-container column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only" data-bi-name="pageactions" role="complementary" aria-label="Page Actions">
+						<div id="affixed-right-container" class="doc-outline is-fixed is-vertically-scrollable">
+								
+	
+	
+
+	<div class="feedback-verbatim has-border-bottom has-padding-bottom-small has-margin-bottom-small" data-bi-name="rating">
+    <div class="binary-rating">
+        <div class="binary-rating-buttons">
+
+				<h3 class="has-text-weight-semibold has-margin-top-none has-margin-bottom-small">Is this page helpful?</h3>
+			<div>
+                <button class="thumb-rating like has-inner-focus" title="Yes" data-bi-name="rating-yes" aria-expanded="false" data-bi-sat="1" aria-controls="rating-container-mobile">
+                    <span aria-hidden="true" class="icon docon docon-like"></span>
+                    <span>Yes</span>
+                </button>
+                <button class="thumb-rating dislike has-inner-focus" title="No" data-bi-name="rating-no" data-bi-sat="0" aria-expanded="false" aria-controls="rating-container-mobile">
+                    <span aria-hidden="true" class="icon docon docon-dislike"></span>
+                    <span>No</span>
+                </button>
+            </div>
+        </div>
+        <form class="feedback-verbatim-form is-hidden" id="rating-container-mobile">
+            <div class="verbatim-textarea box is-relative has-box-shadow-none has-border has-margin-top-small has-padding-extra-small is-size-extra-small">
+                <label for="rating-textarea-mobile" class="visually-hidden">Any additional feedback?</label>
+                <textarea id="rating-textarea-mobile" rows="4" maxlength="999" placeholder="Any additional feedback?" required class="textarea has-border-none has-box-shadow-none has-inner-focus"></textarea>
+            </div>
+            <div class="buttons is-right has-margin-top-medium has-margin-right-extra-small">
+                <button class="skip-rating button is-transparent has-text-primary is-small has-border-none" type="button">Skip</button>
+                <button class="submit-rating button is-primary is-small" data-bi-name="rating-verbatim" disabled type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="thankyou-rating is-hidden" tabindex="-1">
+        <p>Thank you.</p>
+    </div>
+</div>							<nav id="side-doc-outline" data-bi-name="intopic toc" role="navigation" aria-label="Article Outline">
+								<h3>In this article</h3>
+							</nav>
+						</div>
+					</div>
+
+					<!--end of div.columns -->
+				</div>
+
+			<!--end of .primary-holder -->
+			</section>
+
+			<aside id="interactive-container" class="interactive-container is-visible-interactive column has-body-background-dark ">
+			</aside>
+		</div>
+
+		<!--end of .mainContainer -->
+	</div>
+
+	<div class="footerContainer has-default-focus is-hidden-interactive ">
+
+
+
+	<footer id="footer" data-bi-name="footer" class="footer-layout uhf-container has-padding" role="contentinfo">
+
+    <div class="is-flex is-full-height has-padding-right-extra-large-desktop">
+			<a data-mscc-ic="false" class="locale-selector-link has-flex-shrink-none" href="#" data-bi-name="select-locale"><span class="icon docon docon-world is-size-large has-margin-right-small" aria-hidden="true"></span><span class="local-selector-link-text"></span></a>
+		<div class="has-margin-left-medium has-margin-right-medium has-flex-shrink-none">
+<div class="dropdown has-caret-up">
+	<button class="dropdown-trigger button is-transparent is-small is-icon-only-touch has-inner-focus theme-dropdown-trigger"
+		aria-controls="theme-menu" aria-expanded="false" title="Theme" data-bi-name="theme">
+		<span class="icon">
+			<span class="docon docon-sun" aria-hidden="true"></span>
+		</span>
+		<span>Theme</span>
+	</button>
+	<div class="dropdown-menu" id="theme-menu" role="menu">
+		<ul class="theme-selector has-padding-small">
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start"
+					data-theme-to="light">
+					<span class="theme-light has-margin-right-small">
+						<span
+							class="theme-selector-icon css-variable-support has-border is-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Light					</span>
+				</button>
+			</li>
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start"
+					data-theme-to="dark">
+					<span class="theme-dark has-margin-right-small">
+						<span
+							class="has-border theme-selector-icon css-variable-support is-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Dark					</span>
+				</button>
+			</li>
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start"
+					data-theme-to="high-contrast">
+					<span class="theme-high-contrast has-margin-right-small">
+						<span
+							class="has-border theme-selector-icon css-variable-support is-inline-block has-body-background"
+							aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background" />
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+High contrast					</span>
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>		</div>
+	</div>
+    <ul class="links" data-bi-name="footerlinks">
+		<li class="manage-cookies-holder" hidden></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/previous-versions/" data-bi-name="archivelink">Previous Version Docs</a></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/teamblog" data-bi-name="bloglink">Blog</a></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/contribute" data-bi-name="contributorGuide">Contribute</a></li>
+				<li><a data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy">Privacy &amp; Cookies</a></li>
+			<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/legal/termsofuse" data-bi-name="termsofuse">Terms of Use</a></li>
+				<li><a data-mscc-ic="false" href="https://aka.ms/sitefeedback" data-bi-name="feedback">Site Feedback</a></li>
+			<li><a data-mscc-ic="false" href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" data-bi-name="trademarks">Trademarks</a></li>
+		<li>&copy; Microsoft 2021</li>
+    </ul>
+</footer>
+	</div>
+
+	<div id="action-panel" role="region" aria-label="Action Panel" class="action-panel has-default-focus" tabindex="-1"></div>
+</body>
+</html>

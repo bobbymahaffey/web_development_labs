@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Students</title>
+        <ul>
+            <li><a href="index.html">Home</a> </li>
+            <li><a href="login.html">Log-In</a> </li>
+            <li><a href="instructor.html">Instructors</a> </li>
+            <link rel="stylesheet" type="text/css" href="styles/tables.css">
+            <script src="scripts/students.js"></script>
+        </ul>
+        
+    </head>
+    <h1>Students</h1>
+    
+
+        <table id="student-list">
+            <tbody> 
+                <script>initializeStudents() </script>
+
+                <div class="form-entry">
+                    First Name: <input id='first-name' type="text" name="firstName"/>
+                    <span id='first-name-error' class='error-msg' style='visibility:hidden'>Please enter first name.</span>
+                </div>
+    
+                <div class="form-entry">
+                    Last Name: <input id='last-name' type="text" name="lastName"/>
+                    <span id='last-name-error' class='error-msg' style='visibility:hidden'>Please enter last name.</span>
+                </div>
+    
+                <div class="form-entry">
+                    <input type="button" value="Register" onclick="validate()"/>
+                </div>
+    
+            </tbody>
+        </table>
+        
+
+</html>
