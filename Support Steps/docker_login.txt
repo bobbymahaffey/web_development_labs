@@ -1,0 +1,19 @@
+docker login
+
+docker build -t fusionsplicer/lab4 .  //dont forget the dotdocker
+
+docker images  // to view images
+
+docker run -p 8080:80 --name myfirstapp YOUR_USERNAME/myfirstapp
+
+docker push fusionsplicer/lab4
+
+docker push Dockerfile
+
+docker push lab4
+
+
+
+
+$ docker stop myfirstapp
+$ docker rm myfirstapp
