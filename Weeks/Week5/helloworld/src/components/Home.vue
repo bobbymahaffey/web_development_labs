@@ -45,9 +45,6 @@
 
             </span>
         </div>
-        <!--removeIf(production)-->
-        <script src='scripts/index.js'></script>
-        <!--endRemoveIf(production)-->
   </div>
 </template>
 
