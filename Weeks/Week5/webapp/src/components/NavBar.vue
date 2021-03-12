@@ -1,5 +1,5 @@
 <template>
-    <div class="links" v-if="loggedIn">
+    <div class="links">
         <span v-on:click='goToHome'>Home</span>
         <span v-on:click='goToInstructors'>Instructors Example</span>
         <span v-on:click='goToStudents'>Students Example</span>
@@ -9,18 +9,15 @@
 <script>
   export default {
     name: 'NavBar',
-    props: {
-      loggedIn: Boolean
-    },
     methods: {
       goToHome: function() {
         this.$router.push({ path: 'home' })
       },
-      goToInstructorss: function() {
-        this.$router.push({ path: 'Instructors' })
+      goToInstructors: function() {
+        this.$router.push({ path: 'instructors' })
       },
-      goToStudentss: function() {
-        this.$router.push({ path: 'Students' })
+      goToStudents: function() {
+        this.$router.push({ path: 'students' })
       }
     }
   }

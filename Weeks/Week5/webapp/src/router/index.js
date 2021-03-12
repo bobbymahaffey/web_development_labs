@@ -10,18 +10,18 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: Students
-    },
-    {
-      path: '/home',
       component: Home
     },
     {
-      path: '/forms',
+      path: '/Home',
+      component: Home
+    },
+    {
+      path: '/Students',
       component: Students
     },
     {
-      path: '/tables',
+      path: '/Instructors',
       component: Instructors
     }
   ]
