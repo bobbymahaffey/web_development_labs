@@ -1,28 +1,45 @@
 <template>
-  <div>
-      <div class="form-entry">
-                    First Name: <input id='first-name' type="text" name="firstName"/>
-                    <span id='first-name-error' class='error-msg' style='visibility:hidden'>Please enter first name.</span>
-                </div>
-    
-                <div class="form-entry">
-                    Last Name: <input id='last-name' type="text" name="lastName"/>
-                    <span id='last-name-error' class='error-msg' style='visibility:hidden'>Please enter last name.</span>
-                </div>
-    
-                <div class="form-entry">
-                    <input type="button" value="Register" onclick="validate()"/>
-                </div>
-  </div>
+    <div>
+        <h2 class='section-heading'>Students</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="student in students" v-bind:key="student.lastName">
+                    <td>{{ student.lastName }}</td>
+                    <td>{{ student.firstName }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </template>
 
 <script>
-export default {
-  name: 'Students',
-}
+    export default {
+        name: 'Tables',
+        mounted() {
+            this.students = getStudents();
+        },
+        data () {
+            return {
+                students: []
+            }
+        }
+    }
+    function getStudents() {
+        return JSON.parse(students);
+    }
+    var students = '[{"firstName": "Bobby", "lastName": "Mahaffey"}, {"firstName": "Kristina", "lastName": "Mahaffey"}]';
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
-
+<style scoped>
+    table, th, td {
+        padding: 10px;
+        border: 5px solid black; 
+        border-collapse: collapse;
+    }
 </style>
