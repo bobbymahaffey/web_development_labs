@@ -30,8 +30,8 @@ namespace webapi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "webapi", Version = "v1" });
             });
             
-            services.AddDbContext<SchoolContext>(options =>
-                options.UseNpgsql(Configuration.GetConnectionString("SchoolDatabase")));
+            services.AddDbContext<ECommerceContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("ECommerceDatabase")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
